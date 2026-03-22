@@ -1,0 +1,138 @@
+export type TransactionType = "sale" | "capital_raise";
+export type Vertical = "re" | "hos" | "ag" | "ind" | "hc";
+
+export interface BlindProfile {
+  id: string;
+  transactionType: TransactionType;
+  vertical: Vertical;
+  titleEs: string;
+  titleEn: string;
+  sizeEs: string;
+  sizeEn: string;
+  priceRange: string;
+  highlightEs: string;
+  highlightEn: string;
+}
+
+export const listings: BlindProfile[] = [
+  {
+    id: "1",
+    transactionType: "sale",
+    vertical: "hos",
+    titleEs: "Hotel en Isla de Margarita",
+    titleEn: "Hotel in Margarita Island",
+    sizeEs: "96 apartamentos vacacionales",
+    sizeEn: "96 vacation apartments",
+    priceRange: "USD $20M – $30M",
+    highlightEs: "Apart-hotel 4 estrellas en zona turística consolidada, operativo con ocupación activa.",
+    highlightEn: "4-star apart-hotel in established tourist zone, operational with active occupancy.",
+  },
+  {
+    id: "2",
+    transactionType: "sale",
+    vertical: "re",
+    titleEs: "Torre de oficinas en Caracas",
+    titleEn: "Office tower in Caracas",
+    sizeEs: "12.000 m² de área útil",
+    sizeEn: "12,000 m² usable area",
+    priceRange: "USD $5M – $8M",
+    highlightEs: "Edificio corporativo en zona premium con estacionamiento propio y acceso a metro.",
+    highlightEn: "Corporate building in premium zone with own parking and metro access.",
+  },
+  {
+    id: "3",
+    transactionType: "capital_raise",
+    vertical: "ag",
+    titleEs: "Finca productiva en los Andes",
+    titleEn: "Productive farm in the Andes",
+    sizeEs: "500 hectáreas",
+    sizeEn: "500 hectares",
+    priceRange: "USD $2M – $4M",
+    highlightEs: "Finca cafetalera y cacaotera con infraestructura de procesamiento. Busca socio para expansión.",
+    highlightEn: "Coffee and cacao farm with processing infrastructure. Seeking partner for expansion.",
+  },
+  {
+    id: "4",
+    transactionType: "sale",
+    vertical: "ind",
+    titleEs: "Planta manufacturera en Valencia",
+    titleEn: "Manufacturing plant in Valencia",
+    sizeEs: "8.000 m² de galpón industrial",
+    sizeEn: "8,000 m² industrial warehouse",
+    priceRange: "USD $1.5M – $3M",
+    highlightEs: "Planta con maquinaria instalada en el corredor industrial Valencia-Maracay. Operativa al 40% de capacidad.",
+    highlightEn: "Plant with installed machinery in the Valencia-Maracay industrial corridor. Operating at 40% capacity.",
+  },
+  {
+    id: "5",
+    transactionType: "sale",
+    vertical: "hc",
+    titleEs: "Clínica privada en Maracaibo",
+    titleEn: "Private clinic in Maracaibo",
+    sizeEs: "60 camas, 4 quirófanos",
+    sizeEn: "60 beds, 4 operating rooms",
+    priceRange: "USD $3M – $5M",
+    highlightEs: "Centro de salud con equipamiento médico actualizado y cartera de pacientes activa.",
+    highlightEn: "Healthcare center with updated medical equipment and active patient base.",
+  },
+  {
+    id: "6",
+    transactionType: "capital_raise",
+    vertical: "hos",
+    titleEs: "Proyecto turístico en costa oriental",
+    titleEn: "Tourism project on eastern coast",
+    sizeEs: "150 habitaciones proyectadas",
+    sizeEn: "150 projected rooms",
+    priceRange: "USD $10M – $15M",
+    highlightEs: "Terreno frente al mar con permisos aprobados y diseño arquitectónico. Busca inversión para construcción.",
+    highlightEn: "Beachfront land with approved permits and architectural design. Seeking investment for construction.",
+  },
+  {
+    id: "7",
+    transactionType: "sale",
+    vertical: "re",
+    titleEs: "Centro comercial en Barquisimeto",
+    titleEn: "Shopping center in Barquisimeto",
+    sizeEs: "25.000 m², 120 locales",
+    sizeEn: "25,000 m², 120 retail units",
+    priceRange: "USD $8M – $12M",
+    highlightEs: "Centro comercial con alta ocupación en zona de alto tráfico. Ingresos por alquiler estables.",
+    highlightEn: "High-occupancy shopping center in high-traffic area. Stable rental income.",
+  },
+  {
+    id: "8",
+    transactionType: "capital_raise",
+    vertical: "ind",
+    titleEs: "Planta de energía solar en Zulia",
+    titleEn: "Solar energy plant in Zulia",
+    sizeEs: "50 MW de capacidad proyectada",
+    sizeEn: "50 MW projected capacity",
+    priceRange: "USD $15M – $25M",
+    highlightEs: "Proyecto de energía renovable con estudios de factibilidad completados. Busca capital para primera fase.",
+    highlightEn: "Renewable energy project with completed feasibility studies. Seeking capital for first phase.",
+  },
+  {
+    id: "9",
+    transactionType: "sale",
+    vertical: "ag",
+    titleEs: "Destilería de ron en región central",
+    titleEn: "Rum distillery in central region",
+    sizeEs: "Capacidad: 500.000 litros/año",
+    sizeEn: "Capacity: 500,000 liters/year",
+    priceRange: "USD $4M – $7M",
+    highlightEs: "Destilería con denominación de origen y marca registrada. Incluye inventario envejecido.",
+    highlightEn: "Distillery with denomination of origin and registered trademark. Includes aged inventory.",
+  },
+  {
+    id: "10",
+    transactionType: "sale",
+    vertical: "hos",
+    titleEs: "Posada boutique en Mérida",
+    titleEn: "Boutique inn in Mérida",
+    sizeEs: "24 habitaciones",
+    sizeEn: "24 rooms",
+    priceRange: "USD $800K – $1.2M",
+    highlightEs: "Posada de montaña con clientela establecida y alta calificación en plataformas de reserva.",
+    highlightEn: "Mountain inn with established clientele and high ratings on booking platforms.",
+  },
+];

@@ -1,37 +1,82 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
+
+const footerLinks = [
+  { href: "/why-venezuela", key: "why_venezuela" },
+  { href: "/investors", key: "investors" },
+  { href: "/sellers", key: "sellers" },
+  { href: "/portfolio", key: "portfolio" },
+  { href: "/about", key: "about" },
+  { href: "/contact", key: "contact" },
+] as const;
 
 export function Footer({ locale }: { locale: string }) {
   const t = useTranslations("footer");
+  const nav = useTranslations("nav");
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto bg-charcoal text-warm-white/70">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
+    <footer className="mt-auto bg-charcoal">
+      {/* Gold separator */}
+      <div className="h-px bg-gold" />
+
+      <div className="mx-auto max-w-[1200px] px-6 py-12">
+        <div className="grid gap-10 md:grid-cols-3">
+          {/* Column 1: Logo + tagline */}
           <div>
-            <p className="text-lg font-semibold text-warm-white">
-              T3 Advisors
+            <Image
+              src="/logo/final_1_bold_tight_white_transparent.png"
+              alt="T3 Advisors"
+              width={140}
+              height={56}
+              className="h-14 w-auto"
+            />
+            <p className="mt-4 text-sm leading-relaxed text-stone">
+              {t("tagline")}
             </p>
-            <p className="mt-1 text-sm">{t("tagline")}</p>
           </div>
-          <div className="flex gap-6 text-sm">
-            <Link
-              href={`/${locale}/privacy`}
-              className="transition-colors hover:text-warm-white"
-            >
-              {t("privacy")}
-            </Link>
-            <Link
-              href={`/${locale}/contact`}
-              className="transition-colors hover:text-warm-white"
-            >
-              {locale === "es" ? "Contacto" : "Contact"}
-            </Link>
+
+          {/* Column 2: Navigation */}
+          <div>
+            <h3 className="font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
+              {t("navigation")}
+            </h3>
+            <ul className="mt-4 space-y-2">
+              {footerLinks.map((link) => (
+                <li key={link.key}>
+                  <Link
+                    href={`/${locale}${link.href}`}
+                    className="text-sm text-stone transition-colors hover:text-warm-white"
+                  >
+                    {nav(link.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Contact */}
+          <div>
+            <h3 className="font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
+              {t("contact_heading")}
+            </h3>
+            <div className="mt-4 space-y-2 text-sm text-stone">
+              <p>{t("email")}</p>
+              <p className="mt-4 text-stone/70">{t("locations")}</p>
+            </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-warm-white/10 pt-6 text-center text-xs">
-          &copy; {year} T3 Advisors. {t("rights")}
+
+        {/* Bottom bar */}
+        <div className="mt-10 border-t border-warm-white/10 pt-6 flex flex-col items-center gap-2 text-center text-xs text-stone/60 sm:flex-row sm:justify-between">
+          <p>&copy; {year} T3 Advisors. {t("rights")}</p>
+          <Link
+            href={`/${locale}/privacy`}
+            className="transition-colors hover:text-warm-white"
+          >
+            {t("privacy")}
+          </Link>
         </div>
       </div>
     </footer>

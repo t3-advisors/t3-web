@@ -9,11 +9,11 @@ import { useState } from "react";
 import { LocaleSwitcher } from "./locale-switcher";
 
 const navLinks = [
-  { href: "/", key: "home" },
-  { href: "/about", key: "about" },
-  { href: "/services", key: "services" },
-  { href: "/sectors", key: "sectors" },
+  { href: "/why-venezuela", key: "why_venezuela" },
+  { href: "/investors", key: "investors" },
+  { href: "/sellers", key: "sellers" },
   { href: "/portfolio", key: "portfolio" },
+  { href: "/about", key: "about" },
   { href: "/contact", key: "contact" },
 ] as const;
 
@@ -23,35 +23,33 @@ export function Navbar({ locale }: { locale: string }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   function isActive(href: string) {
-    const localized = `/${locale}${href === "/" ? "" : href}`;
-    return pathname === localized || pathname === `/${locale}` && href === "/";
+    const localized = `/${locale}${href}`;
+    return pathname === localized;
   }
 
   return (
     <nav className="sticky top-0 z-50 bg-forest text-warm-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-3">
         <Link href={`/${locale}`} className="flex items-center gap-3">
           <Image
-            src="/logo/t3-logo.png"
+            src="/logo/final_1_bold_tight_white_transparent.png"
             alt="T3 Advisors"
-            width={40}
-            height={40}
-            className="h-10 w-auto"
+            width={200}
+            height={80}
+            className="h-[49px] w-auto"
           />
-          <span className="text-lg font-semibold tracking-tight">
-            T3 Advisors
-          </span>
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.key}
-              href={`/${locale}${link.href === "/" ? "" : link.href}`}
-              className={`text-sm transition-colors hover:text-gold ${
+              href={`/${locale}${link.href}`}
+              className={`text-sm font-semibold tracking-wide transition-colors hover:text-gold ${
                 isActive(link.href) ? "text-gold" : "text-warm-white/80"
               }`}
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               {t(link.key)}
             </Link>
@@ -61,7 +59,7 @@ export function Navbar({ locale }: { locale: string }) {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -71,12 +69,12 @@ export function Navbar({ locale }: { locale: string }) {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="border-t border-warm-white/10 px-6 pb-4 md:hidden">
+        <div className="border-t border-warm-white/10 px-6 pb-4 lg:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.key}
-              href={`/${locale}${link.href === "/" ? "" : link.href}`}
-              className={`block py-2 text-sm transition-colors hover:text-gold ${
+              href={`/${locale}${link.href}`}
+              className={`block py-2 text-sm font-semibold tracking-wide transition-colors hover:text-gold ${
                 isActive(link.href) ? "text-gold" : "text-warm-white/80"
               }`}
               onClick={() => setMobileOpen(false)}
