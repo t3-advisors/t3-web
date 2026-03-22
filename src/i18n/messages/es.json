@@ -1,0 +1,35 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "sectors": "Sectores",
+    "portfolio": "Portafolio",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "tagline": "Acceso, traducción y acompañamiento para invertir en Venezuela."
+  },
+  "cta": {
+    "contact": "Contáctenos",
+    "portfolio": "Ver portafolio",
+    "request_access": "Solicitar acceso bajo NDA"
+  },
+  "contact": {
+    "title": "Contacto",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "company": "Empresa",
+    "phone": "Teléfono",
+    "message": "Mensaje",
+    "verticals": "Sectores de interés",
+    "submit": "Enviar",
+    "success": "Gracias por contactarnos. Le responderemos en 48 horas."
+  },
+  "locale_switcher": {
+    "es": "ES",
+    "en": "EN"
+  }
+}

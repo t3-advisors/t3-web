@@ -1,0 +1,35 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "sectors": "Sectors",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "tagline": "Access, translation, and guidance to invest in Venezuela."
+  },
+  "cta": {
+    "contact": "Contact Us",
+    "portfolio": "View Portfolio",
+    "request_access": "Request NDA Access"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "phone": "Phone",
+    "message": "Message",
+    "verticals": "Sectors of Interest",
+    "submit": "Submit",
+    "success": "Thank you for reaching out. We will get back to you within 48 hours."
+  },
+  "locale_switcher": {
+    "es": "ES",
+    "en": "EN"
+  }
+}
