@@ -72,7 +72,7 @@ export function CardLanguage() {
 
       {/* ── NAV ───────────────────────────────────────────── */}
       <nav style={{ padding: "0 40px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: `1px solid rgba(44,44,44,0.08)` }}>
-        <span style={{ fontWeight: 700, fontSize: 16, color: F, letterSpacing: "0.04em" }}>T3 ADVISORS</span>
+        <img src="/__mockup/images/logo-green.png" alt="T3 Advisors" style={{ height: 36, width: "auto" }} />
         <div style={{ display: "flex", gap: 28, fontSize: 14, color: `${CH}99` }}>
           {["¿Por qué Venezuela?", "Inversionistas", "Vendedores", "Portafolio", "Nosotros"].map(l => (
             <span key={l} style={{ cursor: "pointer" }}>{l}</span>
@@ -237,7 +237,7 @@ export function CardLanguage() {
 
       {/* ── FOOTER ────────────────────────────────────────── */}
       <footer style={{ backgroundColor: "#142e24", padding: "36px 40px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontWeight: 700, fontSize: 14, color: WW, opacity: 0.9, letterSpacing: "0.05em" }}>T3 ADVISORS</span>
+        <img src="/__mockup/images/logo-white.png" alt="T3 Advisors" style={{ height: 30, width: "auto", opacity: 0.9 }} />
         <span style={{ fontSize: 13, color: `${WW}66` }}>© 2025 · Todos los derechos reservados</span>
         <span style={{ fontSize: 13, color: `${WW}66` }}>Caracas · Madrid</span>
       </footer>
