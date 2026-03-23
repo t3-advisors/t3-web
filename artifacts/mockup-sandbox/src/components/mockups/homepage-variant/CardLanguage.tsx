@@ -259,7 +259,7 @@ export function CardLanguage() {
           <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.8, color: `${CH}CC` }}>Venezuela experimentó una de las mayores contracciones económicas de la historia moderna: 80% entre 2013 y 2021. Muchos activos comerciales se transan hoy a 20–30% de su valor hace solo unos años. Oficinas, hoteles, plantas industriales, terrenos agrícolas y asentamientos mineros se ofrecen a precios que no existen en ningún otro mercado de América Latina.</p>
           <p style={{ marginTop: 18, fontSize: 20, fontWeight: 600, lineHeight: 1.8, color: CH }}>La recuperación ya comenzó, y el capital sofisticado está mirando hacia Venezuela. La pregunta no es si Venezuela se normaliza, sino quién se posiciona antes de que lo haga.</p>
           <div style={{ marginTop: 36, display: "flex", justifyContent: "flex-end" }}>
-            <GoldBtn label="Leer la tesis completa" style={{ padding: "18px 40px", fontSize: 20, fontWeight: 700, backgroundColor: "transparent", color: GOLD, border: `2px solid ${GOLD}` }} />
+            <GoldBtn label="Leer la tesis completa" style={{ padding: "18px 40px", fontSize: 20, fontWeight: 700, background: "none", color: GOLD, border: `2px solid ${GOLD}`, boxShadow: "none" }} />
           </div>
         </Card>
       </section>
