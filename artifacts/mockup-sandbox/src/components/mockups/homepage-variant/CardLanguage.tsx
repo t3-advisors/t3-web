@@ -291,6 +291,15 @@ export function CardLanguage() {
               </Card>
             ))}
           </div>
+
+          {/* CTA vendedores */}
+          <div style={{ marginTop: 48, borderTop: `1px solid rgba(27,67,50,0.12)`, paddingTop: 40, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40 }}>
+            <div>
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 600, color: F }}>¿Tiene un activo que quiere vender o busca financiación?</p>
+              <p style={{ marginTop: 10, fontSize: 17, color: `${CH}99`, lineHeight: 1.6 }}>El primer paso es siempre una conversación. Sin compromisos.</p>
+            </div>
+            <GoldBtn label="Hablemos" style={{ flexShrink: 0, padding: "16px 36px", fontSize: 16 }} />
+          </div>
         </div>
       </section>
       {/* ── CTA PORTAFOLIO ────────────────────────────────── */}
