@@ -37,7 +37,9 @@ export default function InvestorsPage() {
       {/* 1. Page Header */}
       <section className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-[800px] text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-forest md:text-5xl">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">T3 Advisors</p>
+          <div className="mx-auto mt-3 h-px w-10 bg-gold/40" />
+          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-forest md:text-[52px] md:leading-tight">
             {t("hero_headline")}
           </h1>
           <p className="mx-auto mt-6 max-w-[640px] text-lg leading-relaxed text-charcoal/80">
@@ -47,43 +49,35 @@ export default function InvestorsPage() {
       </section>
 
       {/* 2. Process: 7-step vertical timeline */}
-      <section className="px-6 py-16 md:py-20">
+      <section className="bg-stone/10 px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[800px]">
-          <h2 className="mb-12 text-center text-3xl font-semibold text-forest">
+          <h2 className="mb-3 text-center text-3xl font-semibold text-forest">
             {t("process_headline")}
           </h2>
+          <div className="mx-auto mb-14 h-px w-12 bg-gold/40" />
 
-          <div className="mx-auto max-w-[640px]">
+          <div className="mx-auto max-w-[620px]">
             {steps.map((n, i) => (
-              <div key={n}>
-                <div className="grid grid-cols-[48px_1fr] gap-x-6 gap-y-0">
-                  {/* Numbered circle */}
-                  <div className="flex justify-center">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-forest text-base font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
-                      {n}
-                    </div>
+              <div key={n} className="flex gap-6">
+                {/* Left rail: circle + connector line */}
+                <div className="flex flex-col items-center">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-forest text-base font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
+                    {n}
                   </div>
-
-                  {/* Step content */}
-                  <div className="pb-2 pt-2">
-                    <h3 className="font-semibold text-forest">
-                      {t(`step${n}_title`)}
-                    </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-charcoal/80">
-                      {t(`step${n}_text`)}
-                    </p>
-                  </div>
+                  {i < steps.length - 1 && (
+                    <div className="my-1 w-px flex-1 bg-gold/40" />
+                  )}
                 </div>
 
-                {/* Connector line between steps */}
-                {i < steps.length - 1 && (
-                  <div className="grid grid-cols-[48px_1fr] gap-x-6">
-                    <div className="flex justify-center">
-                      <div className="h-10 w-px bg-gold/60" />
-                    </div>
-                    <div />
-                  </div>
-                )}
+                {/* Step content */}
+                <div className={`pb-10 pt-2 ${i === steps.length - 1 ? "pb-0" : ""}`}>
+                  <h3 className="text-base font-semibold text-forest">
+                    {t(`step${n}_title`)}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
+                    {t(`step${n}_text`)}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

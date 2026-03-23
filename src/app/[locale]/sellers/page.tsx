@@ -23,17 +23,19 @@ export default function SellersPage() {
       {/* 1. Page Header */}
       <section className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-[800px] text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-forest md:text-5xl">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">T3 Advisors</p>
+          <div className="mx-auto mt-3 h-px w-10 bg-gold/40" />
+          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-forest md:text-[52px] md:leading-tight">
             {t("hero_headline")}
           </h1>
-          <p className="mx-auto mt-6 max-w-[640px] text-lg text-charcoal/60">
+          <p className="mx-auto mt-6 max-w-[640px] text-lg leading-relaxed text-charcoal/70">
             {t("hero_intro")}
           </p>
         </div>
       </section>
 
       {/* 2. 6 Phases Process */}
-      <section className="bg-warm-white px-6 py-16 md:py-20">
+      <section className="bg-warm-white px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[800px]">
           <h2 className="text-3xl font-semibold text-forest">
             {t("process_headline")}
@@ -91,7 +93,7 @@ export default function SellersPage() {
       </section>
 
       {/* 4. Why T3 */}
-      <section className="bg-stone/10 px-6 py-16 md:py-20">
+      <section className="bg-stone/10 px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1200px]">
           <h2 className="text-center text-3xl font-semibold text-forest">
             {t("why_headline")}

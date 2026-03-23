@@ -38,7 +38,9 @@ export default function WhyVenezuelaPage() {
       {/* Page Header */}
       <section className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-[800px] text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-forest md:text-5xl">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">T3 Advisors</p>
+          <div className="mx-auto mt-3 h-px w-10 bg-gold/40" />
+          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-forest md:text-[52px] md:leading-tight">
             {t("hero_headline")}
           </h1>
           <p className="mx-auto mt-6 max-w-[640px] text-lg leading-relaxed text-charcoal/80">
@@ -48,7 +50,7 @@ export default function WhyVenezuelaPage() {
       </section>
 
       {/* Section 1: El contexto */}
-      <section className="px-6 py-16 md:py-20">
+      <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px]">
           <div className="grid items-start gap-12 md:grid-cols-[1fr_280px]">
             <div className="max-w-[640px]">
@@ -76,7 +78,7 @@ export default function WhyVenezuelaPage() {
       </section>
 
       {/* Section 2: Dislocación de precios + Tabla */}
-      <section className="bg-stone/10 px-6 py-16 md:py-20">
+      <section className="bg-stone/10 px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1200px]">
           <h2 className="text-3xl font-semibold text-forest">
             {t("prices_headline")}
@@ -137,7 +139,7 @@ export default function WhyVenezuelaPage() {
       </section>
 
       {/* Section 3: Precedentes históricos */}
-      <section className="px-6 py-16 md:py-20">
+      <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px]">
           <h2 className="text-3xl font-semibold text-forest">
             {t("precedents_headline")}
@@ -185,7 +187,7 @@ export default function WhyVenezuelaPage() {
       </section>
 
       {/* Section 4: Los riesgos */}
-      <section className="px-6 py-16 md:py-20">
+      <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[800px]">
           <h2 className="text-3xl font-semibold text-forest">
             {t("risks_headline")}

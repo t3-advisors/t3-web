@@ -52,7 +52,9 @@ export default function AboutPage() {
       {/* Page Header */}
       <section className="px-6 py-24 md:py-32">
         <div className="mx-auto max-w-[800px]">
-          <h1 className="text-4xl font-semibold tracking-tight text-forest md:text-5xl">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">T3 Advisors</p>
+          <div className="mt-3 h-px w-10 bg-gold/40" />
+          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-forest md:text-[52px] md:leading-tight">
             {t("hero_headline")}
           </h1>
           <div className="mt-8 space-y-4">
@@ -67,7 +69,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-stone/10 px-6 py-20 md:py-24">
+      <section className="bg-stone/10 px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px]">
           <h2 className="text-center text-3xl font-semibold text-forest">
             {t("team_headline")}
@@ -123,7 +125,7 @@ export default function AboutPage() {
       </section>
 
       {/* Operating Model */}
-      <section className="px-6 py-20 md:py-24">
+      <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[800px]">
           <h2 className="text-3xl font-semibold text-forest">
             {t("model_headline")}
@@ -140,16 +142,17 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-forest px-6 py-16 text-center text-warm-white">
-        <div className="mx-auto max-w-[640px]">
-          <h2 className="text-2xl font-semibold">
+      <section className="bg-forest px-6 py-20 text-center text-warm-white md:py-28">
+        <div className="mx-auto max-w-[680px]">
+          <div className="mx-auto mb-6 h-px w-12 bg-gold/50" />
+          <h2 className="text-3xl font-semibold leading-snug">
             {t("cta_headline")}
           </h2>
           <Link
             href="contact"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "mt-8 bg-gold text-charcoal hover:bg-gold/90"
+              "mt-10 bg-gold px-8 text-charcoal hover:bg-gold/90"
             )}
           >
             {t("cta_button")} <ArrowRight className="ml-2 h-4 w-4" />

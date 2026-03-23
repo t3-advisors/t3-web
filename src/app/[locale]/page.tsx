@@ -114,6 +114,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Gold separator */}
+      <div className="h-px bg-gold" />
+
       {/* Tesis Appetizer */}
       <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[1200px]">
@@ -149,6 +152,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Gold separator */}
+      <div className="h-px bg-gold" />
 
       {/* Qué Hacemos — 3 cards */}
       <section className="bg-stone/10 px-6 py-20 md:py-24">
@@ -204,6 +210,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* Gold separator */}
+      <div className="h-px bg-gold" />
 
       {/* Verticales Grid */}
       <section className="px-6 py-20 md:py-24">
