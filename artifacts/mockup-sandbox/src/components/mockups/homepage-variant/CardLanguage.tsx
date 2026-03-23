@@ -268,6 +268,8 @@ function PortfolioCarousel() {
 }
 
 export function CardLanguage() {
+  const [hoverInv, setHoverInv] = useState(false);
+  const [hoverSell, setHoverSell] = useState(false);
   return (
     <div style={{ fontFamily: "'Source Sans 3', 'Source Sans Pro', sans-serif", backgroundColor: WW, minHeight: "100vh", color: CH }}>
       {/* ── NAV ───────────────────────────────────────────── */}
@@ -314,20 +316,30 @@ export function CardLanguage() {
           T3 Advisors es la firma que conecta <strong style={{ color: CH }}>inversionistas</strong> con las mejores oportunidades en Venezuela, y a <strong style={{ color: CH }}>vendedores</strong> con el capital y acompañamiento que necesitan.
         </p>
         <div style={{ marginTop: 40, display: "flex", gap: 16 }}>
-          <button style={{
-            display: "inline-flex", alignItems: "center", gap: 8,
-            padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
-            backgroundColor: F, color: WW, border: "none", cursor: "pointer",
-            boxShadow: BTN_SHADOW,
-          }}>
+          <button
+            onMouseEnter={() => setHoverInv(true)}
+            onMouseLeave={() => setHoverInv(false)}
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
+              backgroundColor: hoverInv ? "#13321F" : F, color: WW, border: "none", cursor: "pointer",
+              boxShadow: BTN_SHADOW,
+              transition: "background-color 0.2s ease, transform 0.2s ease",
+              transform: hoverInv ? "translateY(-1px)" : "translateY(0)",
+            }}>
             Soy inversionista <ArrowRight size={16} />
           </button>
-          <button style={{
-            display: "inline-flex", alignItems: "center", gap: 8,
-            padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
-            backgroundColor: "transparent", color: F, border: `1.5px solid ${F}`, cursor: "pointer",
-            boxShadow: BTN_SHADOW,
-          }}>
+          <button
+            onMouseEnter={() => setHoverSell(true)}
+            onMouseLeave={() => setHoverSell(false)}
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
+              backgroundColor: hoverSell ? F : "transparent", color: hoverSell ? WW : F, border: `1.5px solid ${F}`, cursor: "pointer",
+              boxShadow: BTN_SHADOW,
+              transition: "background-color 0.2s ease, color 0.2s ease, transform 0.2s ease",
+              transform: hoverSell ? "translateY(-1px)" : "translateY(0)",
+            }}>
             Quiero vender <ArrowRight size={16} />
           </button>
         </div>
