@@ -132,15 +132,15 @@ export function CardLanguage() {
       <section style={{ padding: "72px 40px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 40, alignItems: "start" }}>
           <div style={{ paddingTop: 40 }}>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 46, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>La oportunidad</h2>
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 54, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>La oportunidad</h2>
             <div style={{ marginTop: 16, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
           </div>
           <Card>
             {GOLD_LINE}
-            <p style={{ fontSize: 18, lineHeight: 1.8, color: `${CH}CC` }}>
+            <p style={{ fontSize: 20, lineHeight: 1.8, color: `${CH}CC` }}>
               Venezuela experimentó una de las mayores contracciones económicas de la historia moderna: 80% entre 2013 y 2021. Los activos comerciales se transan hoy a 20–30% de su valor hace solo unos años. Oficinas, hoteles, plantas industriales, terrenos agrícolas y asentamientos mineros se ofrecen a precios que no existen en ningún otro mercado de América Latina.
             </p>
-            <p style={{ marginTop: 18, fontSize: 18, fontWeight: 600, lineHeight: 1.8, color: CH }}>
+            <p style={{ marginTop: 18, fontSize: 20, fontWeight: 600, lineHeight: 1.8, color: CH }}>
               La recuperación ya comenzó, y el capital sofisticado está mirando hacia Venezuela.
             </p>
             <div style={{ marginTop: 28, display: "flex", justifyContent: "flex-end" }}>
