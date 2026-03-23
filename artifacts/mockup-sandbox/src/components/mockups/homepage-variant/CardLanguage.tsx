@@ -1,4 +1,5 @@
-import { Activity, ArrowRight, FileText, Gem, Handshake, Hotel, Landmark, Users, Wheat, Zap } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Activity, ArrowRight, ChevronLeft, ChevronRight, FileText, Gem, Handshake, Hotel, Landmark, Users, Wheat, Zap } from "lucide-react";
 
 const F = "#1B4332";
 const GOLD = "#C9A84C";
@@ -169,6 +170,103 @@ function DarkCard({ children, style = {} }: { children: React.ReactNode; style?:
   );
 }
 
+const PORTFOLIO_ITEMS = [
+  { sector: "BIENES RAÍCES", name: "Centro Empresarial Las Mercedes", location: "Caracas, Miranda", type: "Edificio de oficinas · 4.200 m²", price: "USD 4.2M", tag: "En venta" },
+  { sector: "HOTELERÍA & TURISMO", name: "Hotel Boutique Los Andes", location: "Mérida, Mérida", type: "Hotel · 48 habitaciones", price: "USD 2.1M", tag: "En venta" },
+  { sector: "AGROINDUSTRIA", name: "Hacienda La Trinidad", location: "Barinas, Barinas", type: "Finca productiva · 380 ha", price: "USD 890K", tag: "En negociación" },
+  { sector: "INDUSTRIAL / ENERGÍA", name: "Planta Ensambladora Carabobo", location: "Valencia, Carabobo", type: "Planta industrial · 12.000 m²", price: "USD 3.8M", tag: "En venta" },
+  { sector: "SALUD", name: "Clínica Metropolitana del Lago", location: "Maracaibo, Zulia", type: "Clínica privada · 6.500 m²", price: "USD 2.4M", tag: "En venta" },
+];
+
+const CARD_W = 340;
+const CARD_GAP = 20;
+const VISIBLE = 3;
+
+function PortfolioCarousel() {
+  const [idx, setIdx] = useState(0);
+  const idxRef = useRef(0);
+  const max = PORTFOLIO_ITEMS.length - VISIBLE;
+
+  const goTo = (i: number) => {
+    const clamped = Math.max(0, Math.min(max, i));
+    idxRef.current = clamped;
+    setIdx(clamped);
+  };
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      const next = idxRef.current >= max ? 0 : idxRef.current + 1;
+      idxRef.current = next;
+      setIdx(next);
+    }, 3600);
+    return () => clearInterval(t);
+  }, [max]);
+
+  const translateX = idx * (CARD_W + CARD_GAP);
+
+  return (
+    <div>
+      <div style={{ overflow: "hidden", borderRadius: 4 }}>
+        <div style={{
+          display: "flex",
+          gap: CARD_GAP,
+          transform: `translateX(-${translateX}px)`,
+          transition: "transform 0.55s cubic-bezier(0.4,0,0.2,1)",
+          willChange: "transform",
+        }}>
+          {PORTFOLIO_ITEMS.map((item) => (
+            <div
+              key={item.name}
+              style={{
+                flex: `0 0 ${CARD_W}px`,
+                backgroundColor: WW,
+                borderRadius: 10,
+                padding: "32px 28px",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
+              }}
+            >
+              <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: GOLD }}>{item.sector}</p>
+              <h3 style={{ marginTop: 12, fontFamily: "'Montserrat', sans-serif", fontSize: 19, fontWeight: 600, color: F, lineHeight: 1.3 }}>{item.name}</h3>
+              <p style={{ marginTop: 8, fontSize: 14, color: `${F}88` }}>{item.location}</p>
+              <p style={{ marginTop: 3, fontSize: 13, color: `${F}66` }}>{item.type}</p>
+              <div style={{ marginTop: 20, borderTop: `1px solid rgba(27,67,50,0.10)`, paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, color: F }}>{item.price}</span>
+                <span style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 4, backgroundColor: `${F}12`, color: F, letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{item.tag}</span>
+              </div>
+              <p style={{ marginTop: 16, fontSize: 11, color: `${F}44`, fontStyle: "italic" }}>Detalles completos bajo NDA · solicitar acceso</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* controls */}
+      <div style={{ marginTop: 24, display: "flex", alignItems: "center", gap: 12 }}>
+        <button
+          onClick={() => goTo(idx - 1)}
+          disabled={idx === 0}
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, borderRadius: "50%", border: `1px solid rgba(201,168,76,0.4)`, backgroundColor: "transparent", color: GOLD, cursor: idx === 0 ? "default" : "pointer", opacity: idx === 0 ? 0.3 : 1, transition: "opacity 0.2s" }}
+        >
+          <ChevronLeft size={18} />
+        </button>
+        {Array.from({ length: max + 1 }, (_, i) => (
+          <div
+            key={i}
+            onClick={() => goTo(i)}
+            style={{ width: idx === i ? 24 : 8, height: 8, borderRadius: 4, backgroundColor: idx === i ? GOLD : `rgba(201,168,76,0.3)`, cursor: "pointer", transition: "all 0.3s" }}
+          />
+        ))}
+        <button
+          onClick={() => goTo(idx + 1)}
+          disabled={idx === max}
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, borderRadius: "50%", border: `1px solid rgba(201,168,76,0.4)`, backgroundColor: "transparent", color: GOLD, cursor: idx === max ? "default" : "pointer", opacity: idx === max ? 0.3 : 1, transition: "opacity 0.2s" }}
+        >
+          <ChevronRight size={18} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function CardLanguage() {
   return (
     <div style={{ fontFamily: "'Source Sans 3', 'Source Sans Pro', sans-serif", backgroundColor: WW, minHeight: "100vh", color: CH }}>
@@ -308,15 +406,21 @@ export function CardLanguage() {
           </div>
         </div>
       </section>
-      {/* ── CTA PORTAFOLIO ────────────────────────────────── */}
-      <section style={{ backgroundColor: F, padding: "64px 40px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <DarkCard style={{ textAlign: "center", padding: "52px 40px" }}>
-            <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.5, margin: "0 auto 20px" }} />
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 32, fontWeight: 600, color: WW }}>Más de 50 oportunidades de inversión en Venezuela</h2>
-            <p style={{ marginTop: 16, fontSize: 18, color: `${WW}AA`, maxWidth: 520, margin: "16px auto 32px" }}>Explore nuestro portafolio de activos comerciales, organizado por sector y tipo de transacción.</p>
-            <GoldBtn label="Ver portafolio" />
-          </DarkCard>
+      {/* ── PORTAFOLIO CARRUSEL ───────────────────────────── */}
+      <section style={{ backgroundColor: F, padding: "72px 40px 64px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          {/* header row */}
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 44 }}>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: GOLD, opacity: 0.75, marginBottom: 14 }}>Portafolio activo</p>
+              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: WW }}>50+ oportunidades de inversión en Venezuela</h2>
+              <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
+              <p style={{ marginTop: 18, fontSize: 17, color: `${WW}77`, maxWidth: 540 }}>Activos comerciales seleccionados, organizados por sector. Información completa disponible bajo NDA.</p>
+            </div>
+            <GoldBtn label="Ver portafolio completo" style={{ flexShrink: 0, marginLeft: 40 }} />
+          </div>
+          {/* carousel */}
+          <PortfolioCarousel />
         </div>
       </section>
       {/* gold rule */}
