@@ -171,7 +171,6 @@ function DarkCard({ children, style = {} }: { children: React.ReactNode; style?:
 export function CardLanguage() {
   return (
     <div style={{ fontFamily: "'Source Sans 3', 'Source Sans Pro', sans-serif", backgroundColor: WW, minHeight: "100vh", color: CH }}>
-
       {/* ── NAV ───────────────────────────────────────────── */}
       <nav style={{
         position: "sticky", top: 0, zIndex: 50,
@@ -205,7 +204,6 @@ export function CardLanguage() {
           Contacto
         </button>
       </nav>
-
       {/* ── HERO ──────────────────────────────────────────── */}
       <section style={{ padding: "72px 40px 64px", maxWidth: 1100, margin: "0 auto" }}>
         <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>T3 Advisors</p>
@@ -235,7 +233,6 @@ export function CardLanguage() {
           </button>
         </div>
       </section>
-
       {/* ── STAT BAR — Cards flotantes sobre verde ─────── */}
       <div style={{ backgroundColor: F, padding: "28px 40px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
@@ -251,10 +248,8 @@ export function CardLanguage() {
           ))}
         </div>
       </div>
-
       {/* gold rule */}
       <div style={{ height: 1, backgroundColor: GOLD }} />
-
       {/* ── TESIS ─────────────────────────────────────────── */}
       <section style={{ padding: "72px 40px", maxWidth: 1200, margin: "0 auto" }}>
         <Card>
@@ -263,18 +258,14 @@ export function CardLanguage() {
           <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.8, color: `${CH}CC` }}>
             Venezuela experimentó una de las mayores contracciones económicas de la historia moderna: 80% entre 2013 y 2021. Los activos comerciales se transan hoy a 20–30% de su valor hace solo unos años. Oficinas, hoteles, plantas industriales, terrenos agrícolas y asentamientos mineros se ofrecen a precios que no existen en ningún otro mercado de América Latina.
           </p>
-          <p style={{ marginTop: 18, fontSize: 20, fontWeight: 600, lineHeight: 1.8, color: CH }}>
-            La recuperación ya comenzó, y el capital sofisticado está mirando hacia Venezuela.
-          </p>
+          <p style={{ marginTop: 18, fontSize: 20, fontWeight: 600, lineHeight: 1.8, color: CH }}>La recuperación ya comenzó, y el capital sofisticado está mirando hacia Venezuela. La pregunta no es si Venezuela se normaliza, sino quién se posiciona antes de que lo haga.</p>
           <div style={{ marginTop: 28, display: "flex", justifyContent: "flex-end" }}>
             <GoldBtn label="Leer la tesis completa" />
           </div>
         </Card>
       </section>
-
       {/* gold rule */}
       <div style={{ height: 1, backgroundColor: GOLD }} />
-
       {/* ── CÓMO TRABAJAMOS ───────────────────────────────── */}
       <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -297,7 +288,6 @@ export function CardLanguage() {
           </div>
         </div>
       </section>
-
       {/* ── CTA PORTAFOLIO ────────────────────────────────── */}
       <section style={{ backgroundColor: F, padding: "64px 40px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -309,10 +299,8 @@ export function CardLanguage() {
           </DarkCard>
         </div>
       </section>
-
       {/* gold rule */}
       <div style={{ height: 1, backgroundColor: GOLD }} />
-
       {/* ── SECTORES ──────────────────────────────────────── */}
       <section style={{ padding: "72px 40px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{ marginBottom: 52 }}>
@@ -330,7 +318,6 @@ export function CardLanguage() {
           ))}
         </div>
       </section>
-
       {/* ── PRESENCIA ─────────────────────────────────────── */}
       <section style={{ backgroundColor: "#0D2318", borderTop: `1px solid rgba(201,168,76,0.25)`, overflow: "hidden" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 40px", display: "grid", gridTemplateColumns: "2fr 3fr", gap: 64, alignItems: "center" }}>
@@ -354,7 +341,6 @@ export function CardLanguage() {
           </div>
         </div>
       </section>
-
       {/* ── CTA FINAL — dos paths ─────────────────────────── */}
       <div style={{ backgroundColor: F, padding: "48px 40px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
@@ -376,7 +362,6 @@ export function CardLanguage() {
           </DarkCard>
         </div>
       </div>
-
       {/* ── FOOTER ────────────────────────────────────────── */}
       <footer style={{ backgroundColor: "#142e24", padding: "36px 40px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <img src="/__mockup/images/logo-white.png" alt="T3 Advisors" style={{ height: 32, width: "auto", opacity: 0.9 }} />
