@@ -184,7 +184,7 @@ export function CardLanguage() {
           <div style={{ marginBottom: 48 }}>
             <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>Cómo trabajamos</h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-            <p style={{ marginTop: 20, fontSize: 19, color: `${CH}AA`, maxWidth: 580 }}>T3 Advisors gestiona el proceso completo de intermediación, desde la preparación del activo hasta el cierre de la transacción.</p>
+            <p style={{ marginTop: 20, fontSize: 19, color: `${CH}AA` }}>T3 Advisors gestiona el proceso completo de intermediación, desde la preparación del activo hasta el cierre de la transacción.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
             {steps.map(({ num, Icon, title, desc }) => (
