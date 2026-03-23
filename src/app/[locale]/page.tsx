@@ -269,25 +269,50 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Band Final — Contact */}
-      <section className="bg-forest px-6 py-20 text-center text-warm-white md:py-28">
-        <div className="mx-auto max-w-[680px]">
-          <div className="mx-auto mb-6 h-px w-12 bg-gold/50" />
-          <h2 className="text-3xl font-semibold leading-snug">
-            {t("cta_contact_headline")}
-          </h2>
-          <p className="mt-5 text-lg text-warm-white/70">
-            {t("cta_contact_sub")}
-          </p>
-          <Link
-            href="contact"
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "mt-10 bg-gold px-8 text-charcoal hover:bg-gold/90"
-            )}
-          >
-            {t("cta_contact_button")} <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
+      {/* CTA Band Final — Two paths */}
+      <section className="bg-forest px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-[1100px]">
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Path 1: Invertir */}
+            <div className="flex flex-col rounded-lg border border-warm-white/10 bg-warm-white/5 p-10">
+              <div className="mb-6 h-px w-10 bg-gold/50" />
+              <h3 className="text-2xl font-semibold text-warm-white">
+                {t("cta_invest_title")}
+              </h3>
+              <p className="mt-4 flex-1 text-base leading-relaxed text-warm-white/65">
+                {t("cta_invest_sub")}
+              </p>
+              <Link
+                href="portfolio"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "mt-8 self-start bg-gold px-8 text-charcoal hover:bg-gold/90"
+                )}
+              >
+                {t("cta_invest_btn")} <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Path 2: Vender */}
+            <div className="flex flex-col rounded-lg border border-warm-white/10 bg-warm-white/5 p-10">
+              <div className="mb-6 h-px w-10 bg-gold/50" />
+              <h3 className="text-2xl font-semibold text-warm-white">
+                {t("cta_sell_title")}
+              </h3>
+              <p className="mt-4 flex-1 text-base leading-relaxed text-warm-white/65">
+                {t("cta_sell_sub")}
+              </p>
+              <Link
+                href="contact"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "mt-8 self-start border border-warm-white/30 bg-transparent px-8 text-warm-white hover:bg-warm-white/10"
+                )}
+              >
+                {t("cta_sell_btn")} <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>

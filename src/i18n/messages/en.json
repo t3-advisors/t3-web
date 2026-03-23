@@ -63,7 +63,13 @@
     "team_link": "Meet the team",
     "cta_contact_headline": "Interested in investing or selling?",
     "cta_contact_sub": "Let's talk. The first step is a conversation.",
-    "cta_contact_button": "Contact T3 Advisors"
+    "cta_contact_button": "Contact T3 Advisors",
+    "cta_invest_title": "Interested in investing?",
+    "cta_invest_sub": "Browse over 50 commercial real estate opportunities in Venezuela, organized by sector and transaction type.",
+    "cta_invest_btn": "View portfolio",
+    "cta_sell_title": "Looking to sell an asset?",
+    "cta_sell_sub": "The first step is a conversation with T3 Advisors. We'll walk you through the process, no commitment required.",
+    "cta_sell_btn": "Let's talk"
   },
   "about": {
     "hero_headline": "About T3 Advisors",
