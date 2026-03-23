@@ -126,13 +126,14 @@ function PresenciaMap() {
   );
 }
 
-function GoldBtn({ label }: { label: string }) {
+function GoldBtn({ label, style = {} }: { label: string; style?: React.CSSProperties }) {
   return (
     <button style={{
       display: "inline-flex", alignItems: "center", gap: 8,
       padding: "13px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600, cursor: "pointer",
       backgroundColor: GOLD, color: CH, border: "none",
       boxShadow: BTN_SHADOW,
+      ...style,
     }}>
       {label} <ArrowRight size={16} />
     </button>
@@ -257,8 +258,8 @@ export function CardLanguage() {
           <div style={{ marginTop: 16, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
           <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.8, color: `${CH}CC` }}>Venezuela experimentó una de las mayores contracciones económicas de la historia moderna: 80% entre 2013 y 2021. Muchos activos comerciales se transan hoy a 20–30% de su valor hace solo unos años. Oficinas, hoteles, plantas industriales, terrenos agrícolas y asentamientos mineros se ofrecen a precios que no existen en ningún otro mercado de América Latina.</p>
           <p style={{ marginTop: 18, fontSize: 20, fontWeight: 600, lineHeight: 1.8, color: CH }}>La recuperación ya comenzó, y el capital sofisticado está mirando hacia Venezuela. La pregunta no es si Venezuela se normaliza, sino quién se posiciona antes de que lo haga.</p>
-          <div style={{ marginTop: 28, display: "flex", justifyContent: "flex-end" }}>
-            <GoldBtn label="Leer la tesis completa" />
+          <div style={{ marginTop: 36, display: "flex", justifyContent: "flex-end" }}>
+            <GoldBtn label="Leer la tesis completa" style={{ padding: "18px 40px", fontSize: 18 }} />
           </div>
         </Card>
       </section>
