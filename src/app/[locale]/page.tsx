@@ -48,18 +48,18 @@ export default function HomePage() {
     <>
       {/* Hero — Warm White background */}
       <section className="px-6 py-28 md:py-36">
-        <div className="mx-auto max-w-[1100px] text-center">
+        <div className="mx-auto max-w-[1100px]">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">
             T3 Advisors
           </p>
-          <div className="mx-auto mt-3 h-px w-12 bg-gold/40" />
+          <div className="mt-3 h-px w-12 bg-gold/40" />
           <h1 className="mt-6 text-[42px] font-semibold leading-[1.15] tracking-tight text-forest md:text-[54px] lg:text-[66px] lg:leading-[1.1]">
             {t("hero_headline")}
           </h1>
-          <p className="mx-auto mt-7 max-w-[620px] text-lg leading-relaxed text-charcoal/75 md:text-xl">
+          <p className="mt-7 max-w-[620px] text-lg leading-relaxed text-charcoal/75 md:text-xl">
             {t("hero_sub")}
           </p>
-          <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-12 flex flex-col items-start gap-4 sm:flex-row">
             <Link
               href="investors"
               className={cn(
