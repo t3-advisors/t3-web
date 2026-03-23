@@ -90,7 +90,7 @@ export default function HomePage() {
               <p className="text-[64px] font-semibold leading-none text-gold md:text-[76px]" style={{ fontFamily: "var(--font-heading)" }}>
                 {t("stat1_value")}
               </p>
-              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/60">
+              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/80">
                 {t("stat1_label")}
               </p>
             </div>
@@ -98,7 +98,7 @@ export default function HomePage() {
               <p className="text-[64px] font-semibold leading-none text-gold md:text-[76px]" style={{ fontFamily: "var(--font-heading)" }}>
                 {t("stat2_value")}
               </p>
-              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/60">
+              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/80">
                 {t("stat2_label")}
               </p>
             </div>
@@ -106,7 +106,7 @@ export default function HomePage() {
               <p className="text-[64px] font-semibold leading-none text-gold md:text-[76px]" style={{ fontFamily: "var(--font-heading)" }}>
                 {t("stat3_value")}
               </p>
-              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/60">
+              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/80">
                 {t("stat3_label")}
               </p>
             </div>
