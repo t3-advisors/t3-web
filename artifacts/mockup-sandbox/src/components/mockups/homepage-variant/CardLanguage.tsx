@@ -25,83 +25,92 @@ const sectors = [
 ];
 
 function PresenciaMap() {
-  const W = 660, H = 330;
-  const px = (lon: number) => ((lon + 180) / 360) * W;
-  const py = (lat: number) => ((90 - lat) / 180) * H;
-  const pt = (pairs: [number, number][]) =>
-    "M " + pairs.map(([lon, lat]) => `${px(lon).toFixed(1)},${py(lat).toFixed(1)}`).join(" L ") + " Z";
+  const R = 155, CX = 185, CY = 185;
+  const cLon = -20 * Math.PI / 180;
+  const cLat = 15 * Math.PI / 180;
 
-  const vzlaX = px(-66), vzlaY = py(8);
+  const project = (lon: number, lat: number) => {
+    const λ = lon * Math.PI / 180;
+    const φ = lat * Math.PI / 180;
+    const cosC = Math.sin(φ) * Math.sin(cLat) + Math.cos(φ) * Math.cos(cLat) * Math.cos(λ - cLon);
+    const x = CX + R * Math.cos(φ) * Math.sin(λ - cLon);
+    const y = CY - R * (Math.sin(φ) * Math.cos(cLat) - Math.cos(φ) * Math.cos(λ - cLon) * Math.sin(cLat));
+    return { x, y, visible: cosC > 0 };
+  };
+
+  const makeLine = (points: Array<{ lon: number; lat: number }>) => {
+    let d = '', on = false;
+    for (const { lon, lat } of points) {
+      const { x, y, visible } = project(lon, lat);
+      if (visible) {
+        d += on ? ` L${x.toFixed(1)},${y.toFixed(1)}` : ` M${x.toFixed(1)},${y.toFixed(1)}`;
+        on = true;
+      } else { on = false; }
+    }
+    return d;
+  };
+
+  const parallels = [-60, -30, 0, 30, 60].map(lat =>
+    makeLine(Array.from({ length: 181 }, (_, i) => ({ lon: -180 + i, lat })))
+  );
+  const meridians = [-150, -120, -90, -60, -30, 0, 30, 60, 90, 120, 150, 180].map(lon =>
+    makeLine(Array.from({ length: 179 }, (_, i) => ({ lon, lat: -89 + i })))
+  );
 
   const cities = [
-    { name: "MIAMI",      lon: -80.2, lat: 25.8, dx: -7, dy:  3, anchor: "end"    },
-    { name: "NUEVA YORK", lon: -74,   lat: 40.7, dx:  0, dy: -8, anchor: "middle" },
-    { name: "MADRID",     lon: -3.7,  lat: 40.4, dx:  7, dy:  9, anchor: "start"  },
-    { name: "LONDRES",    lon: -0.1,  lat: 51.5, dx:  7, dy: -4, anchor: "start"  },
-    { name: "DUBAI",      lon: 55.3,  lat: 25.3, dx:  7, dy:  3, anchor: "start"  },
-    { name: "SÃO PAULO",  lon: -46.6, lat: -23.5,dx:  7, dy:  3, anchor: "start"  },
+    { name: "MIAMI",    lon: -80.2, lat: 25.8, dx: -7, dy:  3, anchor: "end"    },
+    { name: "N. YORK",  lon: -74,   lat: 40.7, dx:  0, dy: -8, anchor: "middle" },
+    { name: "MADRID",   lon: -3.7,  lat: 40.4, dx:  7, dy:  9, anchor: "start"  },
+    { name: "LONDRES",  lon: -0.1,  lat: 51.5, dx:  7, dy: -3, anchor: "start"  },
+    { name: "DUBAI",    lon: 55.3,  lat: 25.3, dx:  7, dy:  3, anchor: "start"  },
+    { name: "S. PAULO", lon: -46.6, lat: -23.5,dx:  7, dy:  4, anchor: "start"  },
   ];
 
-  const continents = [
-    // South America
-    pt([[-80,12],[-72,12],[-62,10],[-60,8],[-52,5],[-50,0],[-35,-5],[-34,-8],[-38,-15],[-42,-22],[-48,-28],[-50,-33],[-53,-34],[-57,-38],[-62,-46],[-66,-55],[-68,-54],[-65,-55],[-55,-52],[-50,-51],[-48,-28],[-45,-23],[-42,-20],[-38,-12],[-35,-6],[-38,-4],[-44,-2],[-44,0],[-52,4],[-58,6],[-63,7],[-65,0],[-68,-3],[-73,-8],[-77,-8],[-78,-2],[-80,0],[-80,6]]),
-    // North America
-    pt([[-168,72],[-140,62],[-125,48],[-125,38],[-115,30],[-108,23],[-90,15],[-83,10],[-78,8],[-76,9],[-80,12],[-80,16],[-75,20],[-70,21],[-65,18],[-60,15],[-62,11],[-66,9],[-72,10],[-80,15],[-85,20],[-85,25],[-80,25],[-65,40],[-60,47],[-67,48],[-70,50],[-65,55],[-62,63],[-68,63],[-80,65],[-100,68],[-120,68],[-130,65],[-140,62],[-150,60],[-160,62],[-168,72]]),
-    // Europe
-    pt([[-10,36],[-8,38],[-9,42],[-8,44],[0,44],[3,44],[5,46],[7,48],[12,50],[15,50],[20,55],[25,57],[28,60],[30,62],[28,64],[20,62],[15,58],[5,58],[0,57],[-5,52],[-5,48],[-2,46],[0,44],[-5,42],[-8,38],[-10,36]]),
-    // Africa
-    pt([[-18,16],[-15,12],[-10,5],[0,5],[8,5],[15,4],[20,4],[25,5],[30,2],[36,-2],[40,-8],[44,-12],[42,-18],[36,-26],[30,-34],[18,-35],[10,-35],[15,-25],[13,-20],[10,-5],[5,3],[5,10],[0,10],[-3,12],[-5,15],[-10,15],[-15,20],[-17,20],[-18,16]]),
-    // Asia (north)
-    pt([[26,42],[35,38],[45,42],[55,44],[65,52],[80,55],[100,55],[120,52],[135,48],[140,50],[142,52],[135,58],[120,65],[100,68],[80,70],[60,65],[40,62],[30,60],[26,58],[22,55],[22,50],[26,42]]),
-    // Asia (south — India / SE Asia)
-    pt([[38,38],[55,38],[75,38],[80,35],[85,30],[88,25],[85,15],[80,10],[75,10],[70,20],[65,25],[55,30],[45,36],[38,38]]),
-    // Australia
-    pt([[114,-22],[125,-18],[136,-12],[145,-15],[150,-23],[152,-28],[148,-36],[140,-38],[130,-34],[118,-30],[112,-24],[114,-22]]),
-  ];
+  const vzla = project(-66, 8);
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", height: "auto", display: "block" }}>
-      {/* graticule */}
-      {[-60,-30,0,30,60].map(lat => (
-        <line key={lat} x1={0} y1={py(lat)} x2={W} y2={py(lat)} stroke="rgba(248,246,240,0.06)" strokeWidth={0.5} />
-      ))}
-      {[-150,-120,-90,-60,-30,0,30,60,90,120,150].map(lon => (
-        <line key={lon} x1={px(lon)} y1={0} x2={px(lon)} y2={H} stroke="rgba(248,246,240,0.06)" strokeWidth={0.5} />
-      ))}
+    <svg viewBox="0 0 370 370" style={{ width: "100%", maxWidth: 400, height: "auto", display: "block", margin: "0 auto" }}>
+      {/* globe fill */}
+      <circle cx={CX} cy={CY} r={R} fill="rgba(13,35,24,0.6)" />
 
-      {/* continents */}
-      {continents.map((d, i) => (
-        <path key={i} d={d} fill="rgba(201,168,76,0.07)" stroke="rgba(248,246,240,0.15)" strokeWidth={0.8} />
-      ))}
+      {/* graticule lines */}
+      {parallels.map((d, i) => <path key={`p${i}`} d={d} fill="none" stroke="rgba(248,246,240,0.11)" strokeWidth={0.6} />)}
+      {meridians.map((d, i) => <path key={`m${i}`} d={d} fill="none" stroke="rgba(248,246,240,0.11)" strokeWidth={0.6} />)}
+
+      {/* globe outline */}
+      <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(248,246,240,0.2)" strokeWidth={1} />
 
       {/* connection lines */}
-      {cities.map(({ name, lon, lat }) => (
-        <line key={name} x1={vzlaX} y1={vzlaY} x2={px(lon)} y2={py(lat)}
-          stroke={GOLD} strokeWidth={0.9} strokeDasharray="4,5" opacity={0.5} />
-      ))}
+      {cities.map(({ name, lon, lat }) => {
+        const c = project(lon, lat);
+        if (!c.visible) return null;
+        return <line key={name} x1={vzla.x} y1={vzla.y} x2={c.x} y2={c.y}
+          stroke={GOLD} strokeWidth={0.9} strokeDasharray="3,4" opacity={0.5} />;
+      })}
 
       {/* city dots + labels */}
       {cities.map(({ name, lon, lat, dx, dy, anchor }) => {
-        const cx = px(lon), cy = py(lat);
+        const { x, y, visible } = project(lon, lat);
+        if (!visible) return null;
         return (
           <g key={name}>
-            <circle cx={cx} cy={cy} r={2.5} fill={GOLD} opacity={0.9} />
-            <text x={cx + dx} y={cy + dy} textAnchor={anchor as "start"|"middle"|"end"}
-              fontSize={7.5} fill="rgba(248,246,240,0.6)"
-              fontFamily="Montserrat, sans-serif" fontWeight={600} letterSpacing={0.8}>
+            <circle cx={x} cy={y} r={2.5} fill={GOLD} opacity={0.85} />
+            <text x={x + dx} y={y + dy + 4} textAnchor={anchor as "start"|"middle"|"end"}
+              fontSize={8} fill="rgba(248,246,240,0.6)"
+              fontFamily="Montserrat, sans-serif" fontWeight={600} letterSpacing={0.7}>
               {name}
             </text>
           </g>
         );
       })}
 
-      {/* Venezuela — concentric rings + dot */}
-      <circle cx={vzlaX} cy={vzlaY} r={22} fill="none" stroke={GOLD} strokeWidth={0.6} opacity={0.15} />
-      <circle cx={vzlaX} cy={vzlaY} r={14} fill="none" stroke={GOLD} strokeWidth={0.9} opacity={0.25} />
-      <circle cx={vzlaX} cy={vzlaY} r={6}  fill={GOLD} opacity={0.2} />
-      <circle cx={vzlaX} cy={vzlaY} r={3.5} fill={GOLD} opacity={1} />
-      <text x={vzlaX} y={vzlaY + 27} textAnchor="middle"
-        fontSize={8} fill={GOLD} fontFamily="Montserrat, sans-serif" fontWeight={700} letterSpacing={1.5}>
+      {/* Venezuela — rings + dot */}
+      <circle cx={vzla.x} cy={vzla.y} r={19} fill="none" stroke={GOLD} strokeWidth={0.6} opacity={0.14} />
+      <circle cx={vzla.x} cy={vzla.y} r={11} fill="none" stroke={GOLD} strokeWidth={0.9} opacity={0.28} />
+      <circle cx={vzla.x} cy={vzla.y} r={5}  fill={GOLD} opacity={0.22} />
+      <circle cx={vzla.x} cy={vzla.y} r={3}  fill={GOLD} opacity={1} />
+      <text x={vzla.x} y={vzla.y + 23} textAnchor="middle"
+        fontSize={7.5} fill={GOLD} fontFamily="Montserrat, sans-serif" fontWeight={700} letterSpacing={1.5}>
         VENEZUELA
       </text>
     </svg>
