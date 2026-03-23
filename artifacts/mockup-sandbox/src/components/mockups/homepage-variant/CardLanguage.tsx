@@ -335,9 +335,12 @@ export function CardLanguage() {
             style={{
               display: "inline-flex", alignItems: "center", gap: 8,
               padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
-              backgroundColor: hoverSell ? F : "transparent", color: hoverSell ? WW : F, border: `1.5px solid ${F}`, cursor: "pointer",
-              boxShadow: BTN_SHADOW,
-              transition: "background-color 0.2s ease, color 0.2s ease, transform 0.2s ease",
+              backgroundColor: hoverSell ? "rgba(27,67,50,0.07)" : "transparent",
+              color: F,
+              border: hoverSell ? `2px solid ${F}` : `1.5px solid ${F}`,
+              cursor: "pointer",
+              boxShadow: hoverSell ? "0 6px 20px rgba(27,67,50,0.20)" : "none",
+              transition: "background-color 0.18s ease, box-shadow 0.18s ease, border 0.1s ease, transform 0.15s ease",
               transform: hoverSell ? "translateY(-1px)" : "translateY(0)",
             }}>
             Quiero vender <ArrowRight size={16} />
