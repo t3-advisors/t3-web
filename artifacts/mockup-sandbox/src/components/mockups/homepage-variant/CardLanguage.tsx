@@ -298,7 +298,13 @@ export function CardLanguage() {
               <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 600, color: F }}>¿Tiene un activo que quiere vender o busca financiación?</p>
               <p style={{ marginTop: 10, fontSize: 17, color: `${CH}99`, lineHeight: 1.6 }}>El primer paso es siempre una conversación. Sin compromisos.</p>
             </div>
-            <GoldBtn label="Hablemos" style={{ flexShrink: 0, padding: "16px 36px", fontSize: 16 }} />
+            <button
+              style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 8, padding: "18px 44px", borderRadius: 6, fontSize: 19, fontWeight: 700, cursor: "pointer", backgroundColor: GOLD, color: CH, border: "none", boxShadow: "none", transition: "background 0.18s, box-shadow 0.18s, transform 0.12s" }}
+              onMouseEnter={e => { const b = e.currentTarget; b.style.backgroundColor = "#b8932e"; b.style.boxShadow = BTN_SHADOW; b.style.transform = "translateY(-1px)"; }}
+              onMouseLeave={e => { const b = e.currentTarget; b.style.backgroundColor = GOLD; b.style.boxShadow = "none"; b.style.transform = "none"; }}
+            >
+              Hablemos <ArrowRight size={18} />
+            </button>
           </div>
         </div>
       </section>
