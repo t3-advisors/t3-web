@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, Factory, FileText, Handshake, HeartPulse, Hotel, Users, Wheat } from "lucide-react";
+import { ArrowRight, Building2, Factory, FileText, Gem, Handshake, HeartPulse, Hotel, Users, Wheat } from "lucide-react";
 
 const F = "#1B4332";
 const GOLD = "#C9A84C";
@@ -16,11 +16,12 @@ const steps = [
 ];
 
 const sectors = [
-  { Icon: Building2, label: "Bienes Raíces", desc: "Terrenos, oficinas, locales comerciales" },
-  { Icon: Hotel, label: "Hotelería y Turismo", desc: "Hoteles, posadas, resorts" },
-  { Icon: Wheat, label: "Agroindustria", desc: "Fincas, plantas procesadoras" },
-  { Icon: Factory, label: "Industrial y Energía", desc: "Plantas, infraestructura energética" },
-  { Icon: HeartPulse, label: "Salud", desc: "Clínicas, laboratorios, farma" },
+  { Icon: Building2, label: "Bienes Raíces", desc: "Terrenos, oficinas, locales comerciales, complejos residenciales" },
+  { Icon: Hotel, label: "Hotelería y Turismo", desc: "Hoteles, posadas, resorts, proyectos turísticos" },
+  { Icon: Wheat, label: "Agroindustria", desc: "Fincas productivas, plantas procesadoras, destilerías" },
+  { Icon: Factory, label: "Industrial y Energía", desc: "Plantas manufactureras, fábricas, infraestructura energética" },
+  { Icon: HeartPulse, label: "Salud", desc: "Clínicas, laboratorios, distribuidoras farmacéuticas" },
+  { Icon: Gem, label: "Minería", desc: "Asentamientos mineros, concesiones, infraestructura extractiva" },
 ];
 
 function GoldBtn({ label }: { label: string }) {
@@ -216,16 +217,16 @@ export function CardLanguage() {
 
       {/* ── SECTORES ──────────────────────────────────────── */}
       <section style={{ padding: "72px 40px", maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 44 }}>
+        <div style={{ textAlign: "center", marginBottom: 52 }}>
           <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, color: F }}>Seis sectores de inversión</h2>
           <p style={{ marginTop: 12, fontSize: 17, color: `${CH}AA` }}>Nuestro portafolio abarca las principales verticales de bienes raíces comerciales en Venezuela.</p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 16 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {sectors.map(({ Icon, label, desc }) => (
-            <Card key={label} style={{ padding: "28px 20px", textAlign: "center", cursor: "pointer" }}>
-              <Icon size={34} color={GOLD} style={{ margin: "0 auto 14px" }} />
-              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 15, fontWeight: 600, color: F }}>{label}</p>
-              <p style={{ marginTop: 7, fontSize: 13, lineHeight: 1.55, color: `${CH}88` }}>{desc}</p>
+            <Card key={label} style={{ padding: "44px 36px", textAlign: "center", cursor: "pointer" }}>
+              <Icon size={52} color={GOLD} style={{ margin: "0 auto 20px" }} />
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 19, fontWeight: 600, color: F }}>{label}</p>
+              <p style={{ marginTop: 10, fontSize: 15, lineHeight: 1.65, color: `${CH}88` }}>{desc}</p>
             </Card>
           ))}
         </div>
