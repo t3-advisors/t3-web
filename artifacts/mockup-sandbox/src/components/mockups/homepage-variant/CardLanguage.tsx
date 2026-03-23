@@ -84,7 +84,7 @@ export function CardLanguage() {
       <section style={{ padding: "72px 40px 64px", maxWidth: 1100, margin: "0 auto" }}>
         <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>T3 Advisors</p>
         <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px 0 24px" }} />
-        <h1 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 56, fontWeight: 600, lineHeight: 1.12, letterSpacing: "-0.02em", color: F, maxWidth: 760 }}>
+        <h1 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 56, fontWeight: 600, lineHeight: 1.12, letterSpacing: "-0.02em", color: F }}>
           Invierte en activos comerciales en Venezuela de la mano de profesionales en el terreno
         </h1>
         <p style={{ marginTop: 24, fontSize: 18, lineHeight: 1.7, color: `${CH}BB`, maxWidth: 580 }}>
