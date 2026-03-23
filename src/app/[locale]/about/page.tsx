@@ -76,7 +76,7 @@ export default function AboutPage() {
           </h2>
 
           {/* Tovi — prominent */}
-          <div className="mx-auto mt-14 max-w-[640px] rounded border border-stone bg-warm-white p-8" style={{ borderTop: "3px solid #C9A84C" }}>
+          <div className="mx-auto mt-14 max-w-[640px] rounded border border-stone bg-warm-white p-8 border-t-[3px] border-t-gold">
             <div className="flex items-start gap-5">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded bg-forest text-xl font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
                 AT

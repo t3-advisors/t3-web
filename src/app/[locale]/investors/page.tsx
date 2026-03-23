@@ -101,18 +101,16 @@ export default function InvestorsPage() {
             {t("allies_intro")}
           </p>
 
-          <div className="mt-10 space-y-6">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {allies.map(({ icon: Icon, n }) => (
-              <div key={n} className="flex items-start gap-4">
-                <Icon className="mt-1 h-6 w-6 shrink-0 text-gold" />
-                <div>
-                  <h3 className="font-bold text-forest">
-                    {t(`ally${n}_title`)}
-                  </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-charcoal/80">
-                    {t(`ally${n}_desc`)}
-                  </p>
-                </div>
+              <div key={n} className="rounded border border-stone bg-warm-white p-6">
+                <Icon className="h-7 w-7 text-gold" />
+                <h3 className="mt-4 font-semibold text-forest">
+                  {t(`ally${n}_title`)}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
+                  {t(`ally${n}_desc`)}
+                </p>
               </div>
             ))}
           </div>

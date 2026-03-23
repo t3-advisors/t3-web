@@ -42,38 +42,40 @@ export default function SellersPage() {
           </h2>
           <p className="mt-4 text-charcoal/60">{t("process_sub")}</p>
 
-          <div className="mt-12 space-y-12">
+          <div className="mt-12 space-y-6">
             {phaseKeys.map((n) => (
-              <div key={n} className="grid grid-cols-[48px_1fr] gap-6">
-                <div
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-forest text-warm-white text-lg font-semibold"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  {n}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-forest">
-                    {t(`phase${n}_title`)}
-                  </h3>
-                  <div className="mt-4 space-y-3 text-sm text-charcoal/80">
-                    <p>
-                      <span className="font-bold text-charcoal">
-                        {t("label_what_we_do")}
-                      </span>{" "}
-                      {t(`phase${n}_do`)}
-                    </p>
-                    <p>
-                      <span className="font-bold text-charcoal">
-                        {t("label_what_you_need")}
-                      </span>{" "}
-                      {t(`phase${n}_need`)}
-                    </p>
-                    <p>
-                      <span className="font-bold text-charcoal">
-                        {t("label_what_to_expect")}
-                      </span>{" "}
-                      {t(`phase${n}_expect`)}
-                    </p>
+              <div key={n} className="rounded border border-stone bg-warm-white p-8">
+                <div className="flex items-start gap-5">
+                  <div
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-forest text-base font-semibold text-warm-white"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    {n}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-forest">
+                      {t(`phase${n}_title`)}
+                    </h3>
+                    <div className="mt-4 space-y-3 text-sm text-charcoal/80">
+                      <p>
+                        <span className="font-bold text-charcoal">
+                          {t("label_what_we_do")}
+                        </span>{" "}
+                        {t(`phase${n}_do`)}
+                      </p>
+                      <p>
+                        <span className="font-bold text-charcoal">
+                          {t("label_what_you_need")}
+                        </span>{" "}
+                        {t(`phase${n}_need`)}
+                      </p>
+                      <p>
+                        <span className="font-bold text-charcoal">
+                          {t("label_what_to_expect")}
+                        </span>{" "}
+                        {t(`phase${n}_expect`)}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
