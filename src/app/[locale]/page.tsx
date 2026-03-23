@@ -8,6 +8,7 @@ import {
   Factory,
   HeartPulse,
   ArrowRight,
+  ChevronRight,
   FileText,
   Users,
   Handshake,
@@ -169,24 +170,52 @@ export default function HomePage() {
               {t("services_sub")}
             </p>
           </div>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {steps.map((step) => {
-              const Icon = step.icon;
-              return (
-                <div
-                  key={step.num}
-                  className="rounded border border-stone bg-warm-white p-8"
-                >
-                  <Icon className="h-8 w-8 text-gold" />
-                  <h3 className="mt-4 text-xl font-semibold text-forest">
-                    {t(step.titleKey)}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-charcoal/80">
-                    {t(step.descKey)}
-                  </p>
-                </div>
-              );
-            })}
+          {/* Flow — desktop: horizontal pipeline, mobile: vertical stack */}
+          <div className="mt-14">
+            {/* Rail (desktop only) */}
+            <div className="relative mb-10 hidden md:block">
+              <div className="absolute left-[calc(1/6*100%)] right-[calc(1/6*100%)] top-1/2 h-px -translate-y-1/2 bg-gold/35" />
+              <div className="flex">
+                {steps.map((step) => (
+                  <div key={step.num} className="flex flex-1 flex-col items-center gap-2">
+                    <span className="text-[11px] font-bold tracking-[0.22em] text-gold">
+                      {step.num}
+                    </span>
+                    <div className="relative z-10 h-3.5 w-3.5 rounded-full border-2 border-gold bg-stone/10" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Step content */}
+            <div className="flex flex-col gap-0 md:flex-row">
+              {steps.map((step, i) => {
+                const Icon = step.icon;
+                return (
+                  <div key={step.num} className="flex flex-1 flex-col md:flex-row">
+                    <div className="flex-1 px-2 md:px-6 first:pl-0 last:pr-0">
+                      {/* Mobile: show number inline */}
+                      <span className="mb-4 block text-[11px] font-bold tracking-[0.22em] text-gold md:hidden">
+                        {step.num}
+                      </span>
+                      <Icon className="h-7 w-7 text-gold" />
+                      <h3 className="mt-4 text-xl font-semibold text-forest">
+                        {t(step.titleKey)}
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-charcoal/80">
+                        {t(step.descKey)}
+                      </p>
+                    </div>
+                    {/* Arrow connector between steps (desktop) */}
+                    {i < steps.length - 1 && (
+                      <div className="hidden items-start pt-1 md:flex">
+                        <ChevronRight className="h-5 w-5 text-gold/50" />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
