@@ -57,7 +57,9 @@ export default function HomePage() {
             {t("hero_headline")}
           </h1>
           <p className="mt-7 max-w-[620px] text-lg leading-relaxed text-charcoal/75 md:text-xl">
-            {t("hero_sub")}
+            {t.rich("hero_sub", {
+              b: (chunks) => <strong className="font-semibold text-charcoal">{chunks}</strong>,
+            })}
           </p>
           <div className="mt-12 flex flex-col items-start gap-4 sm:flex-row">
             <Link
