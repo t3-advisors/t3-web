@@ -274,13 +274,13 @@ export function CardLanguage() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
             {steps.map(({ num, Icon, title, desc }) => (
-              <Card key={num}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
-                  <Icon size={30} color={GOLD} strokeWidth={1} />
-                  <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 38, fontWeight: 700, color: GOLD, opacity: 0.18, lineHeight: 1 }}>{num}</span>
+              <Card key={num} style={{ padding: "48px 40px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28 }}>
+                  <Icon size={44} color={GOLD} strokeWidth={1} />
+                  <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 52, fontWeight: 700, color: GOLD, opacity: 0.15, lineHeight: 1 }}>{num}</span>
                 </div>
-                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 21, fontWeight: 600, color: F }}>{title}</h3>
-                <p style={{ marginTop: 12, fontSize: 16, lineHeight: 1.8, color: `${CH}CC` }}>{desc}</p>
+                <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 26, fontWeight: 600, color: F }}>{title}</h3>
+                <p style={{ marginTop: 16, fontSize: 18, lineHeight: 1.85, color: `${CH}CC` }}>{desc}</p>
               </Card>
             ))}
           </div>
