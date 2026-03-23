@@ -51,10 +51,10 @@ function PresenciaMap() {
   };
 
   const parallels = [-60, -30, 0, 30, 60].map(lat =>
-    makeLine(Array.from({ length: 181 }, (_, i) => ({ lon: -180 + i, lat })))
+    makeLine(Array.from({ length: 721 }, (_, i) => ({ lon: -180 + i * 0.5, lat })))
   );
   const meridians = [-150, -120, -90, -60, -30, 0, 30, 60, 90, 120, 150, 180].map(lon =>
-    makeLine(Array.from({ length: 179 }, (_, i) => ({ lon, lat: -89 + i })))
+    makeLine(Array.from({ length: 357 }, (_, i) => ({ lon, lat: -89 + i * 0.5 })))
   );
 
   const cities = [
@@ -68,6 +68,15 @@ function PresenciaMap() {
 
   const vzla = project(-66, 8);
 
+  const arcPath = (ax: number, ay: number, bx: number, by: number) => {
+    const mx = (ax + bx) / 2;
+    const my = (ay + by) / 2;
+    // Pull control point 30% toward the globe center → arc bows away from center
+    const cpx = mx + 0.3 * (CX - mx);
+    const cpy = my + 0.3 * (CY - my);
+    return `M${ax.toFixed(1)},${ay.toFixed(1)} Q${cpx.toFixed(1)},${cpy.toFixed(1)} ${bx.toFixed(1)},${by.toFixed(1)}`;
+  };
+
   return (
     <svg viewBox="0 0 370 370" style={{ width: "100%", maxWidth: 400, height: "auto", display: "block", margin: "0 auto" }}>
       {/* globe fill */}
@@ -80,12 +89,12 @@ function PresenciaMap() {
       {/* globe outline */}
       <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(248,246,240,0.2)" strokeWidth={1} />
 
-      {/* connection lines */}
+      {/* curved connection arcs */}
       {cities.map(({ name, lon, lat }) => {
         const c = project(lon, lat);
         if (!c.visible) return null;
-        return <line key={name} x1={vzla.x} y1={vzla.y} x2={c.x} y2={c.y}
-          stroke={GOLD} strokeWidth={0.9} strokeDasharray="3,4" opacity={0.5} />;
+        return <path key={name} d={arcPath(vzla.x, vzla.y, c.x, c.y)}
+          fill="none" stroke={GOLD} strokeWidth={0.9} strokeDasharray="3,4" opacity={0.5} />;
       })}
 
       {/* city dots + labels */}
