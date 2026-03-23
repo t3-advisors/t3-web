@@ -16,11 +16,11 @@ import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "T3 Advisors — Inversión en bienes raíces comerciales en Venezuela",
+  title: "T3 Advisors — Activos comerciales en Venezuela",
   description:
-    "Conectamos capital internacional con activos reales en Venezuela. Más de 50 oportunidades de inversión en 5 sectores.",
+    "Conectamos capital internacional con activos reales en Venezuela. Más de 50 oportunidades en 5 sectores: bienes raíces, hotelería, agroindustria, industrial y salud.",
   openGraph: {
-    title: "T3 Advisors — Inversión en bienes raíces comerciales en Venezuela",
+    title: "T3 Advisors — Activos comerciales en Venezuela",
     description:
       "Los activos comerciales en Venezuela se transan a una fracción de lo que cuestan en la región. T3 Advisors conecta inversionistas con estas oportunidades.",
     type: "website",
