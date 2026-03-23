@@ -1,4 +1,4 @@
-import { Activity, ArrowRight, Factory, FileText, Gem, Handshake, Hotel, Landmark, Users, Wheat } from "lucide-react";
+import { Activity, ArrowRight, Compass, FileText, Gem, Handshake, Landmark, Sun, Users, Zap } from "lucide-react";
 
 const F = "#1B4332";
 const GOLD = "#C9A84C";
@@ -17,9 +17,9 @@ const steps = [
 
 const sectors = [
   { Icon: Landmark, label: "Bienes Raíces", desc: "Terrenos, oficinas, locales comerciales, complejos residenciales" },
-  { Icon: Hotel, label: "Hotelería y Turismo", desc: "Hoteles, posadas, resorts, proyectos turísticos" },
-  { Icon: Wheat, label: "Agroindustria", desc: "Fincas productivas, plantas procesadoras, destilerías" },
-  { Icon: Factory, label: "Industrial y Energía", desc: "Plantas manufactureras, fábricas, infraestructura energética" },
+  { Icon: Compass, label: "Hotelería y Turismo", desc: "Hoteles, posadas, resorts, proyectos turísticos" },
+  { Icon: Sun, label: "Agroindustria", desc: "Fincas productivas, plantas procesadoras, destilerías" },
+  { Icon: Zap, label: "Industrial y Energía", desc: "Plantas manufactureras, fábricas, infraestructura energética" },
   { Icon: Activity, label: "Salud", desc: "Clínicas, laboratorios, distribuidoras farmacéuticas" },
   { Icon: Gem, label: "Minería", desc: "Asentamientos mineros, concesiones, infraestructura extractiva" },
 ];
