@@ -56,16 +56,16 @@ export default function InvestorsPage() {
           <div className="mx-auto max-w-[640px]">
             {steps.map((n, i) => (
               <div key={n}>
-                <div className="grid grid-cols-[40px_1fr] gap-x-6 gap-y-0">
+                <div className="grid grid-cols-[48px_1fr] gap-x-6 gap-y-0">
                   {/* Numbered circle */}
                   <div className="flex justify-center">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-forest text-sm font-semibold text-warm-white">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-forest text-base font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
                       {n}
                     </div>
                   </div>
 
                   {/* Step content */}
-                  <div className="pb-2 pt-1">
+                  <div className="pb-2 pt-2">
                     <h3 className="font-semibold text-forest">
                       {t(`step${n}_title`)}
                     </h3>
@@ -77,9 +77,9 @@ export default function InvestorsPage() {
 
                 {/* Connector line between steps */}
                 {i < steps.length - 1 && (
-                  <div className="grid grid-cols-[40px_1fr] gap-x-6">
+                  <div className="grid grid-cols-[48px_1fr] gap-x-6">
                     <div className="flex justify-center">
-                      <div className="h-8 w-px bg-gold" />
+                      <div className="h-10 w-px bg-gold/60" />
                     </div>
                     <div />
                   </div>

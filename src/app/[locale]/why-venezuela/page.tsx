@@ -62,11 +62,12 @@ export default function WhyVenezuelaPage() {
                 <p>{t("context_p4")}</p>
               </div>
             </div>
-            <div className="flex flex-col items-center rounded border border-stone bg-stone/10 p-8 text-center">
-              <p className="text-6xl font-semibold text-forest" style={{ fontFamily: "var(--font-heading)" }}>
+            <div className="flex flex-col items-center rounded border border-gold/30 bg-forest/5 p-8 text-center">
+              <p className="text-7xl font-semibold text-forest" style={{ fontFamily: "var(--font-heading)" }}>
                 {t("context_callout_value")}
               </p>
-              <p className="mt-2 text-sm text-charcoal/70">
+              <div className="mx-auto mt-3 h-px w-10 bg-gold/40" />
+              <p className="mt-3 text-sm leading-snug text-charcoal/70">
                 {t("context_callout_label")}
               </p>
             </div>
@@ -92,7 +93,7 @@ export default function WhyVenezuelaPage() {
                   <th className="py-3 pr-4 text-left font-semibold text-charcoal">
                     {t("prices_table_asset")}
                   </th>
-                  <th className="bg-forest/5 px-4 py-3 text-left font-semibold text-forest">
+                  <th className="border-l-4 border-gold bg-forest/5 px-4 py-3 text-left font-semibold text-forest">
                     {t("prices_table_caracas")}
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-charcoal/70">
@@ -112,7 +113,7 @@ export default function WhyVenezuelaPage() {
                     <td className="py-3 pr-4 font-medium text-charcoal">
                       {t(row.assetKey)}
                     </td>
-                    <td className="bg-forest/5 px-4 py-3 font-semibold text-forest">
+                    <td className="border-l-4 border-gold bg-forest/5 px-4 py-3 font-semibold text-forest">
                       {t(row.caracasKey)}
                     </td>
                     <td className="px-4 py-3 text-charcoal/70">
@@ -150,14 +151,14 @@ export default function WhyVenezuelaPage() {
                 <h3 className="text-lg font-semibold text-forest">
                   {t(p.titleKey)}
                 </h3>
-                <p className="mt-2">
-                  <span className="text-2xl font-semibold text-forest" style={{ fontFamily: "var(--font-heading)" }}>
+                <div className="mt-3 flex items-baseline gap-3">
+                  <span className="text-4xl font-semibold text-gold md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
                     {t(p.statKey)}
-                  </span>{" "}
-                  <span className="text-sm text-charcoal/60">
+                  </span>
+                  <span className="text-sm font-medium text-charcoal/60">
                     {t(p.statLabelKey)}
                   </span>
-                </p>
+                </div>
                 <p className="mt-3 text-sm leading-relaxed text-charcoal/80">
                   {t(p.textKey)}
                 </p>
@@ -168,12 +169,13 @@ export default function WhyVenezuelaPage() {
       </section>
 
       {/* Pull Quote */}
-      <section className="bg-forest px-6 py-16 md:py-20">
+      <section className="bg-forest px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[800px] text-center">
-          <p className="text-xl italic leading-relaxed text-warm-white">
+          <div className="mx-auto mb-8 h-px w-12 bg-gold/50" />
+          <p className="text-2xl italic leading-relaxed text-warm-white md:text-3xl" style={{ fontFamily: "var(--font-heading)" }}>
             &ldquo;{t("pullquote_text")}&rdquo;
           </p>
-          <p className="mt-4 text-sm text-stone">
+          <p className="mt-6 text-sm font-medium tracking-wide text-stone">
             — {t("pullquote_attribution")}
           </p>
           <p className="mt-6 text-sm italic text-warm-white/60">

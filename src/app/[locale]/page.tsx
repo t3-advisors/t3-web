@@ -47,23 +47,24 @@ export default function HomePage() {
   return (
     <>
       {/* Hero — Warm White background */}
-      <section className="px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-[800px] text-center">
-          <p className="text-xl font-bold uppercase tracking-[0.2em] text-gold md:text-2xl">
+      <section className="px-6 py-28 md:py-36">
+        <div className="mx-auto max-w-[820px] text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">
             T3 Advisors
           </p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-forest md:text-5xl lg:text-[56px] lg:leading-tight">
+          <div className="mx-auto mt-3 h-px w-12 bg-gold/40" />
+          <h1 className="mt-6 text-[42px] font-semibold leading-[1.15] tracking-tight text-forest md:text-[54px] lg:text-[66px] lg:leading-[1.1]">
             {t("hero_headline")}
           </h1>
-          <p className="mx-auto mt-6 max-w-[640px] text-lg leading-relaxed text-charcoal/80">
+          <p className="mx-auto mt-7 max-w-[620px] text-lg leading-relaxed text-charcoal/75 md:text-xl">
             {t("hero_sub")}
           </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="investors"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "bg-forest text-warm-white hover:bg-forest/90"
+                "bg-forest px-8 text-warm-white hover:bg-forest/90"
               )}
             >
               {t("hero_cta_investors")} <ArrowRight className="ml-2 h-4 w-4" />
@@ -72,7 +73,7 @@ export default function HomePage() {
               href="sellers"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
-                "border-forest text-forest hover:bg-forest/5"
+                "border-forest px-8 text-forest hover:bg-forest/5"
               )}
             >
               {t("hero_cta_sellers")} <ArrowRight className="ml-2 h-4 w-4" />
@@ -83,24 +84,32 @@ export default function HomePage() {
 
       {/* Stat Bar — Forest Green */}
       <section className="bg-forest">
-        <div className="mx-auto grid max-w-[1200px] md:grid-cols-2">
-          {/* Left — casts shadow to the right */}
-          <div className="relative z-10 px-10 py-14 text-center shadow-[12px_0_32px_-8px_rgba(0,0,0,0.4)]">
-            <p className="text-5xl font-semibold text-gold md:text-6xl" style={{ fontFamily: "var(--font-heading)" }}>
-              {t("stat1_value")}
-            </p>
-            <p className="mt-3 text-sm leading-snug text-warm-white/80">
-              {t("stat1_label")}
-            </p>
-          </div>
-          {/* Right — same bg, no extra styling */}
-          <div className="px-10 py-14 text-center">
-            <p className="text-5xl font-semibold text-gold md:text-6xl" style={{ fontFamily: "var(--font-heading)" }}>
-              {t("stat2_value")}
-            </p>
-            <p className="mt-3 text-sm leading-snug text-warm-white/80">
-              {t("stat2_label")}
-            </p>
+        <div className="mx-auto max-w-[1200px]">
+          <div className="grid divide-y divide-warm-white/10 md:grid-cols-3 md:divide-x md:divide-y-0">
+            <div className="px-10 py-14 text-center">
+              <p className="text-[64px] font-semibold leading-none text-gold md:text-[76px]" style={{ fontFamily: "var(--font-heading)" }}>
+                {t("stat1_value")}
+              </p>
+              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/60">
+                {t("stat1_label")}
+              </p>
+            </div>
+            <div className="px-10 py-14 text-center">
+              <p className="text-[64px] font-semibold leading-none text-gold md:text-[76px]" style={{ fontFamily: "var(--font-heading)" }}>
+                {t("stat2_value")}
+              </p>
+              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/60">
+                {t("stat2_label")}
+              </p>
+            </div>
+            <div className="px-10 py-14 text-center">
+              <p className="text-[64px] font-semibold leading-none text-gold md:text-[76px]" style={{ fontFamily: "var(--font-heading)" }}>
+                {t("stat3_value")}
+              </p>
+              <p className="mt-4 text-sm font-medium uppercase tracking-widest text-warm-white/60">
+                {t("stat3_label")}
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -175,19 +184,20 @@ export default function HomePage() {
       </section>
 
       {/* CTA Band — Portfolio */}
-      <section className="bg-forest px-6 py-16 text-center text-warm-white">
-        <div className="mx-auto max-w-[640px]">
-          <h2 className="text-2xl font-semibold">
+      <section className="bg-forest px-6 py-20 text-center text-warm-white md:py-28">
+        <div className="mx-auto max-w-[680px]">
+          <div className="mx-auto mb-6 h-px w-12 bg-gold/50" />
+          <h2 className="text-3xl font-semibold leading-snug">
             {t("cta_portfolio_headline")}
           </h2>
-          <p className="mt-4 text-warm-white/70">
+          <p className="mt-5 text-lg text-warm-white/70">
             {t("cta_portfolio_sub")}
           </p>
           <Link
             href="portfolio"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "mt-8 bg-gold text-charcoal hover:bg-gold/90"
+              "mt-10 bg-gold px-8 text-charcoal hover:bg-gold/90"
             )}
           >
             {t("cta_portfolio_button")} <ArrowRight className="ml-2 h-4 w-4" />
@@ -230,17 +240,18 @@ export default function HomePage() {
       </section>
 
       {/* Team Brief */}
-      <section className="px-6 py-16">
+      <section className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[640px] text-center">
-          <h2 className="text-2xl font-semibold text-forest">
+          <h2 className="text-3xl font-semibold text-forest">
             {t("team_headline")}
           </h2>
-          <p className="mt-4 leading-relaxed text-charcoal/80">
+          <div className="mx-auto mt-4 h-px w-12 bg-gold/40" />
+          <p className="mt-6 leading-relaxed text-charcoal/80">
             {t("team_desc")}
           </p>
           <Link
             href="about"
-            className="mt-6 inline-flex items-center text-sm font-semibold text-gold transition-colors hover:text-gold/80"
+            className="mt-8 inline-flex items-center text-sm font-semibold text-gold transition-colors hover:text-gold/80"
           >
             {t("team_link")} <ArrowRight className="ml-1 h-4 w-4" />
           </Link>
@@ -248,19 +259,20 @@ export default function HomePage() {
       </section>
 
       {/* CTA Band Final — Contact */}
-      <section className="bg-forest px-6 py-16 text-center text-warm-white">
-        <div className="mx-auto max-w-[640px]">
-          <h2 className="text-2xl font-semibold">
+      <section className="bg-forest px-6 py-20 text-center text-warm-white md:py-28">
+        <div className="mx-auto max-w-[680px]">
+          <div className="mx-auto mb-6 h-px w-12 bg-gold/50" />
+          <h2 className="text-3xl font-semibold leading-snug">
             {t("cta_contact_headline")}
           </h2>
-          <p className="mt-4 text-warm-white/70">
+          <p className="mt-5 text-lg text-warm-white/70">
             {t("cta_contact_sub")}
           </p>
           <Link
             href="contact"
             className={cn(
               buttonVariants({ size: "lg" }),
-              "mt-8 bg-gold text-charcoal hover:bg-gold/90"
+              "mt-10 bg-gold px-8 text-charcoal hover:bg-gold/90"
             )}
           >
             {t("cta_contact_button")} <ArrowRight className="ml-2 h-4 w-4" />

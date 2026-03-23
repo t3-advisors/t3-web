@@ -74,16 +74,16 @@ export default function AboutPage() {
           </h2>
 
           {/* Tovi — prominent */}
-          <div className="mx-auto mt-14 max-w-[640px] rounded border border-stone bg-warm-white p-8">
+          <div className="mx-auto mt-14 max-w-[640px] rounded border border-stone bg-warm-white p-8" style={{ borderTop: "3px solid #C9A84C" }}>
             <div className="flex items-start gap-5">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded bg-forest text-lg font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded bg-forest text-xl font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
                 AT
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-forest">
                   {t("team1_name")}
                 </h3>
-                <p className="text-sm font-semibold text-gold">
+                <p className="mt-1 text-sm font-semibold text-gold">
                   {t("team1_role")} · {t("team1_focus")}
                 </p>
                 <p className="mt-3 leading-relaxed text-charcoal/80">

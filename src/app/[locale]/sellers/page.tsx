@@ -81,9 +81,10 @@ export default function SellersPage() {
       </section>
 
       {/* 3. Pull Quote Band */}
-      <section className="bg-forest px-6 py-16 md:py-20">
+      <section className="bg-forest px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[800px] text-center">
-          <p className="text-xl italic text-warm-white">
+          <div className="mx-auto mb-8 h-px w-12 bg-gold/50" />
+          <p className="text-2xl italic leading-relaxed text-warm-white md:text-3xl" style={{ fontFamily: "var(--font-heading)" }}>
             &ldquo;{t("pullquote_text")}&rdquo;
           </p>
         </div>
