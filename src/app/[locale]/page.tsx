@@ -270,12 +270,12 @@ export default function HomePage() {
       </section>
 
       {/* CTA Band Final — Two paths */}
-      <section className="bg-forest px-6 py-20 md:py-28">
+      <section className="bg-forest px-6 py-12 md:py-16">
         <div className="mx-auto max-w-[1100px]">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2">
             {/* Path 1: Invertir */}
-            <div className="flex flex-col rounded-lg border border-warm-white/10 bg-warm-white/5 p-10">
-              <div className="mb-6 h-px w-10 bg-gold/50" />
+            <div className="flex flex-col rounded-lg border border-warm-white/10 bg-warm-white/8 p-9 shadow-xl shadow-black/30">
+              <div className="mb-5 h-px w-10 bg-gold/50" />
               <h3 className="text-2xl font-semibold text-warm-white">
                 {t("cta_invest_title")}
               </h3>
@@ -286,7 +286,7 @@ export default function HomePage() {
                 href="portfolio"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "mt-8 self-start bg-gold px-8 text-charcoal hover:bg-gold/90"
+                  "mt-7 self-start bg-gold px-8 text-charcoal hover:bg-gold/90"
                 )}
               >
                 {t("cta_invest_btn")} <ArrowRight className="ml-2 h-4 w-4" />
@@ -294,8 +294,8 @@ export default function HomePage() {
             </div>
 
             {/* Path 2: Vender */}
-            <div className="flex flex-col rounded-lg border border-warm-white/10 bg-warm-white/5 p-10">
-              <div className="mb-6 h-px w-10 bg-gold/50" />
+            <div className="flex flex-col rounded-lg border border-warm-white/10 bg-warm-white/8 p-9 shadow-xl shadow-black/30">
+              <div className="mb-5 h-px w-10 bg-gold/50" />
               <h3 className="text-2xl font-semibold text-warm-white">
                 {t("cta_sell_title")}
               </h3>
@@ -306,7 +306,7 @@ export default function HomePage() {
                 href="contact"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "mt-8 self-start border border-warm-white/30 bg-transparent px-8 text-warm-white hover:bg-warm-white/10"
+                  "mt-7 self-start bg-gold px-8 text-charcoal hover:bg-gold/90"
                 )}
               >
                 {t("cta_sell_btn")} <ArrowRight className="ml-2 h-4 w-4" />
