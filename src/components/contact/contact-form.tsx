@@ -10,6 +10,7 @@ const verticalKeys = [
   { key: "vertical_ag", value: "Agribusiness" },
   { key: "vertical_ind", value: "Industrial" },
   { key: "vertical_hc", value: "Healthcare" },
+  { key: "vertical_min", value: "Mining" },
 ] as const;
 
 export function ContactForm() {
