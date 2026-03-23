@@ -70,13 +70,37 @@ export function CardLanguage() {
     <div style={{ fontFamily: "'Source Sans 3', 'Source Sans Pro', sans-serif", backgroundColor: WW, minHeight: "100vh", color: CH }}>
 
       {/* ── NAV ───────────────────────────────────────────── */}
-      <nav style={{ padding: "0 40px", height: 68, display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: `1px solid rgba(44,44,44,0.08)` }}>
-        <img src="/__mockup/images/logo-green.png" alt="T3 Advisors" style={{ height: 38, width: "auto" }} />
-        <div style={{ display: "flex", gap: 32, fontSize: 16, fontWeight: 500, color: `${CH}99` }}>
-          {["¿Por qué Venezuela?", "Inversionistas", "Vendedores", "Portafolio", "Nosotros"].map(l => (
-            <span key={l} style={{ cursor: "pointer" }}>{l}</span>
+      <nav style={{
+        position: "sticky", top: 0, zIndex: 50,
+        padding: "0 40px", height: 72,
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        backgroundColor: "rgba(248,246,240,0.96)",
+        backdropFilter: "blur(8px)",
+        borderBottom: `1px solid rgba(27,67,50,0.12)`,
+        boxShadow: "0 2px 16px rgba(27,67,50,0.08)",
+      }}>
+        <img src="/__mockup/images/logo-green.png" alt="T3 Advisors" style={{ height: 40, width: "auto" }} />
+        <div style={{ display: "flex", gap: 36, fontSize: 15, fontWeight: 700, letterSpacing: "0.01em" }}>
+          {[
+            { label: "¿Por qué Venezuela?", active: false },
+            { label: "Inversionistas", active: false },
+            { label: "Vendedores", active: false },
+            { label: "Portafolio", active: false },
+            { label: "Nosotros", active: false },
+          ].map(({ label }) => (
+            <span key={label} style={{ cursor: "pointer", color: F, opacity: 0.75, transition: "opacity 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "0.75")}
+            >{label}</span>
           ))}
         </div>
+        <button style={{
+          padding: "9px 22px", borderRadius: 6, fontSize: 14, fontWeight: 700,
+          backgroundColor: F, color: WW, border: "none", cursor: "pointer",
+          boxShadow: "0 2px 8px rgba(27,67,50,0.25)",
+        }}>
+          Contacto
+        </button>
       </nav>
 
       {/* ── HERO ──────────────────────────────────────────── */}
