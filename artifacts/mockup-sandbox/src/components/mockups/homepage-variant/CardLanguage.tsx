@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, Factory, FileText, Gem, Handshake, HeartPulse, Hotel, Users, Wheat } from "lucide-react";
+import { Activity, ArrowRight, Factory, FileText, Gem, Handshake, Hotel, Landmark, Users, Wheat } from "lucide-react";
 
 const F = "#1B4332";
 const GOLD = "#C9A84C";
@@ -16,11 +16,11 @@ const steps = [
 ];
 
 const sectors = [
-  { Icon: Building2, label: "Bienes Raíces", desc: "Terrenos, oficinas, locales comerciales, complejos residenciales" },
+  { Icon: Landmark, label: "Bienes Raíces", desc: "Terrenos, oficinas, locales comerciales, complejos residenciales" },
   { Icon: Hotel, label: "Hotelería y Turismo", desc: "Hoteles, posadas, resorts, proyectos turísticos" },
   { Icon: Wheat, label: "Agroindustria", desc: "Fincas productivas, plantas procesadoras, destilerías" },
   { Icon: Factory, label: "Industrial y Energía", desc: "Plantas manufactureras, fábricas, infraestructura energética" },
-  { Icon: HeartPulse, label: "Salud", desc: "Clínicas, laboratorios, distribuidoras farmacéuticas" },
+  { Icon: Activity, label: "Salud", desc: "Clínicas, laboratorios, distribuidoras farmacéuticas" },
   { Icon: Gem, label: "Minería", desc: "Asentamientos mineros, concesiones, infraestructura extractiva" },
 ];
 
@@ -189,7 +189,7 @@ export function CardLanguage() {
             {steps.map(({ num, Icon, title, desc }) => (
               <Card key={num}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
-                  <Icon size={30} color={GOLD} />
+                  <Icon size={30} color={GOLD} strokeWidth={1} />
                   <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 38, fontWeight: 700, color: GOLD, opacity: 0.18, lineHeight: 1 }}>{num}</span>
                 </div>
                 <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 21, fontWeight: 600, color: F }}>{title}</h3>
@@ -224,7 +224,7 @@ export function CardLanguage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {sectors.map(({ Icon, label, desc }) => (
             <Card key={label} style={{ padding: "44px 36px", textAlign: "center", cursor: "pointer" }}>
-              <Icon size={52} color={GOLD} style={{ margin: "0 auto 20px" }} />
+              <Icon size={48} color={GOLD} strokeWidth={1} style={{ margin: "0 auto 20px" }} />
               <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 19, fontWeight: 600, color: F }}>{label}</p>
               <p style={{ marginTop: 10, fontSize: 15, lineHeight: 1.65, color: `${CH}88` }}>{desc}</p>
             </Card>
