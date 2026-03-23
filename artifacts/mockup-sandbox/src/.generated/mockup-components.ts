@@ -4,5 +4,6 @@ export const modules: ModuleMap = {
   "./components/mockups/hero-variants/ElPuente.tsx": () => import("../components/mockups/hero-variants/ElPuente.tsx"),
   "./components/mockups/hero-variants/Institucional.tsx": () => import("../components/mockups/hero-variants/Institucional.tsx"),
   "./components/mockups/hero-variants/LaDislocacion.tsx": () => import("../components/mockups/hero-variants/LaDislocacion.tsx"),
-  "./components/mockups/hero-variants/LosCincoSectores.tsx": () => import("../components/mockups/hero-variants/LosCincoSectores.tsx")
+  "./components/mockups/hero-variants/LosCincoSectores.tsx": () => import("../components/mockups/hero-variants/LosCincoSectores.tsx"),
+  "./components/mockups/homepage-variant/CardLanguage.tsx": () => import("../components/mockups/homepage-variant/CardLanguage.tsx")
 };
