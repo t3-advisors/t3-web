@@ -217,16 +217,17 @@ export function CardLanguage() {
 
       {/* ── SECTORES ──────────────────────────────────────── */}
       <section style={{ padding: "72px 40px", maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: 52 }}>
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, color: F }}>Seis sectores de inversión</h2>
-          <p style={{ marginTop: 12, fontSize: 17, color: `${CH}AA` }}>Nuestro portafolio abarca las principales verticales de bienes raíces comerciales en Venezuela.</p>
+        <div style={{ marginBottom: 52 }}>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>Seis sectores estratégicos de inversión</h2>
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
+          <p style={{ marginTop: 20, fontSize: 19, color: `${CH}AA` }}>Nuestro portafolio abarca las principales verticales de bienes raíces comerciales en Venezuela.</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {sectors.map(({ Icon, label, desc }) => (
             <Card key={label} style={{ padding: "44px 36px", textAlign: "center", cursor: "pointer" }}>
-              <Icon size={48} color={GOLD} strokeWidth={1} style={{ margin: "0 auto 20px" }} />
-              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 19, fontWeight: 600, color: F }}>{label}</p>
-              <p style={{ marginTop: 10, fontSize: 15, lineHeight: 1.65, color: `${CH}88` }}>{desc}</p>
+              <Icon size={48} color={GOLD} strokeWidth={1} style={{ margin: "0 auto 24px" }} />
+              <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 600, color: F }}>{label}</p>
+              <p style={{ marginTop: 12, fontSize: 17, lineHeight: 1.65, color: `${CH}88` }}>{desc}</p>
             </Card>
           ))}
         </div>
