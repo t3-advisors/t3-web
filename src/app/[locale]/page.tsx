@@ -48,7 +48,7 @@ export default function HomePage() {
     <>
       {/* Hero — Warm White background */}
       <section className="px-6 py-28 md:py-36">
-        <div className="mx-auto max-w-[820px] text-center">
+        <div className="mx-auto max-w-[1100px] text-center">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">
             T3 Advisors
           </p>
