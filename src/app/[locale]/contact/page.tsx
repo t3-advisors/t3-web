@@ -5,54 +5,85 @@ import { ContactForm } from "@/components/contact/contact-form";
 
 export const metadata: Metadata = {
   title: "Contacto — T3 Advisors",
-  description:
-    "Contáctenos para explorar oportunidades de inversión en Venezuela.",
+  description: "Contáctenos para explorar oportunidades de inversión en Venezuela.",
 };
+
+const F    = "#1B4332";
+const GOLD = "#C9A84C";
+const WW   = "#F8F6F0";
+const CH   = "#2C2C2C";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
 
   return (
-    <section className="px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-[1200px]">
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-forest md:text-5xl">
-            {t("title")}
-          </h1>
-          <p className="mx-auto mt-4 max-w-[640px] text-lg text-charcoal/70">
-            {t("subtitle")}
-          </p>
-        </div>
+    <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
-        {/* 2-column layout */}
-        <div className="mt-16 grid gap-16 md:grid-cols-[3fr_2fr]">
-          {/* Form */}
-          <ContactForm />
+      {/* ── PAGE HEADER ─────────────────────────────────── */}
+      <section style={{ padding: "80px 40px 64px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+          T3 Advisors
+        </p>
+        <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
+        <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+          {t("title")}
+        </h1>
+        <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 580, margin: "24px auto 0" }}>
+          {t("subtitle")}
+        </p>
+      </section>
 
-          {/* Contact data */}
-          <div className="space-y-8">
-            <div>
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-gold" />
-                <h3 className="font-semibold text-forest">{t("email_label")}</h3>
+      {/* gold rule */}
+      <div style={{ height: 1, backgroundColor: GOLD }} />
+
+      {/* ── FORMULARIO + DATOS ──────────────────────────── */}
+      <section style={{ padding: "64px 40px 80px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "3fr 2fr", gap: 32 }}>
+
+          {/* Form Card */}
+          <div style={{
+            backgroundColor: WW, borderRadius: 10, padding: "48px 52px",
+            boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
+          }}>
+            <ContactForm />
+          </div>
+
+          {/* Info Card */}
+          <div style={{
+            backgroundColor: WW, borderRadius: 10, padding: "48px 44px",
+            boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
+            borderTop: `4px solid ${GOLD}`,
+            alignSelf: "start",
+          }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
+              <div>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                  <Mail size={20} color={GOLD} />
+                  <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 16, fontWeight: 700, color: F }}>
+                    {t("email_label")}
+                  </h3>
+                </div>
+                <p style={{ fontSize: 17, color: `${CH}CC`, lineHeight: 1.6 }}>{t("email_value")}</p>
               </div>
-              <p className="mt-2 text-charcoal/80">{t("email_value")}</p>
-            </div>
 
-            <div>
-              <div className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 text-gold" />
-                <h3 className="font-semibold text-forest">{t("locations_label")}</h3>
-              </div>
-              <div className="mt-2 space-y-1 text-charcoal/80">
-                <p>Caracas, Venezuela</p>
-                <p>Madrid, España</p>
+              <div style={{ height: 1, backgroundColor: "rgba(27,67,50,0.10)" }} />
+
+              <div>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                  <MapPin size={20} color={GOLD} />
+                  <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 16, fontWeight: 700, color: F }}>
+                    {t("locations_label")}
+                  </h3>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  <p style={{ fontSize: 17, color: `${CH}CC` }}>Caracas, Venezuela</p>
+                  <p style={{ fontSize: 17, color: `${CH}CC` }}>Madrid, España</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

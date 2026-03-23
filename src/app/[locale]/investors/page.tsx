@@ -2,79 +2,92 @@ import { useTranslations } from "next-intl";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  ArrowRight,
-  Scale,
-  ShieldCheck,
-  Calculator,
-  Award,
-  HardHat,
+  ArrowRight, Scale, ShieldCheck, Calculator, Award, HardHat,
 } from "lucide-react";
 import { CtaBand } from "@/components/sections/cta-band";
 
 export const metadata: Metadata = {
   title: "Para Inversionistas — T3 Advisors",
-  description:
-    "Cómo funciona invertir en Venezuela con T3 Advisors. Proceso paso a paso, red de aliados, riesgos.",
+  description: "Cómo funciona invertir en Venezuela con T3 Advisors. Proceso paso a paso, red de aliados, riesgos.",
 };
 
+const F    = "#1B4332";
+const GOLD = "#C9A84C";
+const WW   = "#F8F6F0";
+const CH   = "#2C2C2C";
+
 const steps = [1, 2, 3, 4, 5, 6, 7] as const;
-
 const allies = [
-  { icon: Scale, n: 1 },
-  { icon: ShieldCheck, n: 2 },
+  { icon: Scale,      n: 1 },
+  { icon: ShieldCheck,n: 2 },
   { icon: Calculator, n: 3 },
-  { icon: Award, n: 4 },
-  { icon: HardHat, n: 5 },
+  { icon: Award,      n: 4 },
+  { icon: HardHat,    n: 5 },
 ] as const;
-
 const foreignTopics = ["vehicles", "legal", "ofac", "repatriation"] as const;
+const riskKeys = [1, 2, 3, 4] as const;
 
 export default function InvestorsPage() {
   const t = useTranslations("investorsPage");
 
   return (
-    <>
-      {/* 1. Page Header */}
-      <section className="px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-[800px] text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">T3 Advisors</p>
-          <div className="mx-auto mt-3 h-px w-10 bg-gold/40" />
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-forest md:text-[52px] md:leading-tight">
-            {t("hero_headline")}
-          </h1>
-          <p className="mx-auto mt-6 max-w-[640px] text-lg leading-relaxed text-charcoal/80">
-            {t("hero_intro")}
-          </p>
-        </div>
+    <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
+
+      {/* ── PAGE HEADER ─────────────────────────────────── */}
+      <section style={{ padding: "80px 40px 72px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+          T3 Advisors
+        </p>
+        <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
+        <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+          {t("hero_headline")}
+        </h1>
+        <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
+          {t("hero_intro")}
+        </p>
       </section>
 
-      {/* 2. Process: 7-step vertical timeline */}
-      <section className="bg-stone/10 px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-[800px]">
-          <h2 className="mb-3 text-center text-3xl font-semibold text-forest">
+      {/* gold rule */}
+      <div style={{ height: 1, backgroundColor: GOLD }} />
+
+      {/* ── PROCESO: 7 PASOS ────────────────────────────── */}
+      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+        <div style={{ maxWidth: 860, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F, textAlign: "center" }}>
             {t("process_headline")}
           </h2>
-          <div className="mx-auto mb-14 h-px w-12 bg-gold/40" />
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "14px auto 52px" }} />
 
-          <div className="mx-auto max-w-[620px]">
+          <div style={{ maxWidth: 680, margin: "0 auto", display: "flex", flexDirection: "column", gap: 0 }}>
             {steps.map((n, i) => (
-              <div key={n} className="flex gap-6">
-                {/* Left rail: circle + connector line */}
-                <div className="flex flex-col items-center">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold bg-forest text-base font-semibold text-warm-white" style={{ fontFamily: "var(--font-heading)" }}>
+              <div key={n} style={{ display: "flex", gap: 28 }}>
+                {/* Rail */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
+                  <div style={{
+                    width: 52, height: 52, borderRadius: "50%",
+                    backgroundColor: F, border: `2px solid ${GOLD}`,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontFamily: "var(--font-heading)", fontSize: 18, fontWeight: 700, color: WW,
+                    flexShrink: 0,
+                  }}>
                     {n}
                   </div>
                   {i < steps.length - 1 && (
-                    <div className="my-1 w-px flex-1 bg-gold/40" />
+                    <div style={{ width: 1, flexGrow: 1, backgroundColor: GOLD, opacity: 0.35, margin: "6px 0" }} />
                   )}
                 </div>
-
-                {/* Step content */}
-                <div className={`pb-10 pt-2 ${i === steps.length - 1 ? "pb-0" : ""}`}>
-                  <h3 className="text-base font-semibold text-forest">
+                {/* Content */}
+                <div style={{
+                  paddingBottom: i < steps.length - 1 ? 32 : 0, paddingTop: 10,
+                  backgroundColor: WW, borderRadius: 10, marginBottom: i < steps.length - 1 ? 0 : 0,
+                  padding: "16px 28px 28px",
+                  marginLeft: 0, marginBottom: i < steps.length - 1 ? 12 : 0, flex: 1,
+                  boxShadow: "0 4px 20px rgba(44,44,44,0.07), 0 1px 6px rgba(44,44,44,0.05)",
+                }}>
+                  <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 19, fontWeight: 600, color: F }}>
                     {t(`step${n}_title`)}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
+                  <p style={{ marginTop: 8, fontSize: 16, lineHeight: 1.75, color: `${CH}CC` }}>
                     {t(`step${n}_text`)}
                   </p>
                 </div>
@@ -84,98 +97,119 @@ export default function InvestorsPage() {
         </div>
       </section>
 
-      {/* 3. CTA Band (portfolio) */}
+      {/* ── CTA PORTFOLIO ───────────────────────────────── */}
       <CtaBand
         headline={t("cta1_headline")}
         primaryHref="portfolio"
         primaryLabel={t("cta1_btn")}
       />
 
-      {/* 4. Professional Allies */}
-      <section className="bg-stone/10 px-6 py-16 md:py-20">
-        <div className="mx-auto max-w-[800px]">
-          <h2 className="text-3xl font-semibold text-forest">
+      {/* ── RED DE ALIADOS ──────────────────────────────── */}
+      <section style={{ backgroundColor: WW, padding: "72px 40px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
             {t("allies_headline")}
           </h2>
-          <p className="mt-4 leading-relaxed text-charcoal/80">
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
+          <p style={{ marginTop: 24, fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640 }}>
             {t("allies_intro")}
           </p>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          <div style={{ marginTop: 40, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {allies.map(({ icon: Icon, n }) => (
-              <div key={n} className="rounded border border-stone bg-warm-white p-6">
-                <Icon className="h-7 w-7 text-gold" />
-                <h3 className="mt-4 font-semibold text-forest">
+              <div key={n} style={{
+                backgroundColor: WW, borderRadius: 10, padding: "36px 32px",
+                boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
+              }}>
+                <Icon size={40} color={GOLD} strokeWidth={1.25} />
+                <h3 style={{ marginTop: 20, fontFamily: "var(--font-heading)", fontSize: 19, fontWeight: 600, color: F }}>
                   {t(`ally${n}_title`)}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
+                <p style={{ marginTop: 10, fontSize: 16, lineHeight: 1.75, color: `${CH}BB` }}>
                   {t(`ally${n}_desc`)}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="mt-10 leading-relaxed text-charcoal/80">
+          <p style={{ marginTop: 36, fontSize: 17, lineHeight: 1.75, color: `${CH}CC` }}>
             {t("allies_closing")}
           </p>
         </div>
       </section>
 
-      {/* 5. Risks brief */}
-      <section className="px-6 py-16 md:py-20">
-        <div className="mx-auto max-w-[640px] text-center">
-          <h2 className="text-3xl font-semibold text-forest">
+      {/* gold rule */}
+      <div style={{ height: 1, backgroundColor: GOLD }} />
+
+      {/* ── RIESGOS ─────────────────────────────────────── */}
+      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
             {t("risks_headline")}
           </h2>
-          <p className="mt-4 leading-relaxed text-charcoal/80">
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 32 }} />
+          <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC` }}>
             {t("risks_text")}
           </p>
-          <Link
-            href="/why-venezuela"
-            className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold hover:text-gold/80"
-          >
-            {t("risks_link")}
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div style={{ marginTop: 28 }}>
+            <Link
+              href="why-venezuela"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                fontSize: 15, fontWeight: 700, color: GOLD, textDecoration: "none",
+                letterSpacing: "0.03em",
+              }}
+            >
+              {t("risks_link")} <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* 6. Foreign investment */}
-      <section className="px-6 py-16 md:py-20">
-        <div className="mx-auto max-w-[800px]">
-          <h2 className="text-3xl font-semibold text-forest">
+      {/* gold rule */}
+      <div style={{ height: 1, backgroundColor: GOLD }} />
+
+      {/* ── INVERSIÓN EXTRANJERA ────────────────────────── */}
+      <section style={{ padding: "72px 40px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
             {t("foreign_headline")}
           </h2>
-          <p className="mt-4 leading-relaxed text-charcoal/80">
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 24 }} />
+          <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640, marginBottom: 40 }}>
             {t("foreign_intro")}
           </p>
 
-          <div className="mt-10 space-y-8">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
             {foreignTopics.map((topic) => (
-              <div key={topic}>
-                <h3 className="text-lg font-bold text-forest">
+              <div key={topic} style={{
+                backgroundColor: WW, borderRadius: 10, padding: "36px 32px",
+                boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
+                borderLeft: `4px solid ${GOLD}`,
+              }}>
+                <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 20, fontWeight: 600, color: F }}>
                   {t(`foreign_${topic}_title`)}
                 </h3>
-                <p className="mt-2 leading-relaxed text-charcoal/80">
+                <p style={{ marginTop: 14, fontSize: 17, lineHeight: 1.75, color: `${CH}CC` }}>
                   {t(`foreign_${topic}_text`)}
                 </p>
               </div>
             ))}
           </div>
 
-          <p className="mt-10 leading-relaxed text-charcoal/80">
+          <p style={{ marginTop: 36, fontSize: 17, lineHeight: 1.75, color: `${CH}CC` }}>
             {t("foreign_closing")}
           </p>
         </div>
       </section>
 
-      {/* 7. CTA Band final */}
+      {/* ── CTA FINAL ───────────────────────────────────── */}
       <CtaBand
         headline={t("cta2_headline")}
         sub={t("cta2_sub")}
         primaryHref="contact"
         primaryLabel={t("cta2_btn")}
       />
-    </>
+    </div>
   );
 }

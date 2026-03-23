@@ -4,9 +4,13 @@ import { CtaBand } from "@/components/sections/cta-band";
 
 export const metadata: Metadata = {
   title: "¿Por qué Venezuela? — T3 Advisors",
-  description:
-    "La tesis de inversión en Venezuela. Datos, precedentes históricos, riesgos y oportunidades en bienes raíces comerciales.",
+  description: "La tesis de inversión en Venezuela. Datos, precedentes históricos, riesgos y oportunidades en bienes raíces comerciales.",
 };
+
+const F    = "#1B4332";
+const GOLD = "#C9A84C";
+const WW   = "#F8F6F0";
+const CH   = "#2C2C2C";
 
 const tableRows = [
   { assetKey: "prices_row1_asset", caracasKey: "prices_row1_caracas", bogotaKey: "prices_row1_bogota", sdKey: "prices_row1_santo_domingo", panamaKey: "prices_row1_panama" },
@@ -17,8 +21,8 @@ const tableRows = [
 
 const precedents = [
   { titleKey: "precedents_argentina_title", statKey: "precedents_argentina_stat", statLabelKey: "precedents_argentina_stat_label", textKey: "precedents_argentina_text" },
-  { titleKey: "precedents_colombia_title", statKey: "precedents_colombia_stat", statLabelKey: "precedents_colombia_stat_label", textKey: "precedents_colombia_text" },
-  { titleKey: "precedents_myanmar_title", statKey: "precedents_myanmar_stat", statLabelKey: "precedents_myanmar_stat_label", textKey: "precedents_myanmar_text" },
+  { titleKey: "precedents_colombia_title",  statKey: "precedents_colombia_stat",  statLabelKey: "precedents_colombia_stat_label",  textKey: "precedents_colombia_text"  },
+  { titleKey: "precedents_myanmar_title",   statKey: "precedents_myanmar_stat",   statLabelKey: "precedents_myanmar_stat_label",   textKey: "precedents_myanmar_text"   },
   { titleKey: "precedents_kurdistan_title", statKey: "precedents_kurdistan_stat", statLabelKey: "precedents_kurdistan_stat_label", textKey: "precedents_kurdistan_text" },
 ] as const;
 
@@ -34,42 +38,51 @@ export default function WhyVenezuelaPage() {
   const t = useTranslations("whyVenezuela");
 
   return (
-    <>
-      {/* Page Header */}
-      <section className="px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-[800px] text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-gold">T3 Advisors</p>
-          <div className="mx-auto mt-3 h-px w-10 bg-gold/40" />
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-forest md:text-[52px] md:leading-tight">
-            {t("hero_headline")}
-          </h1>
-          <p className="mx-auto mt-6 max-w-[640px] text-lg leading-relaxed text-charcoal/80">
-            {t("hero_intro")}
-          </p>
-        </div>
+    <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
+
+      {/* ── PAGE HEADER ─────────────────────────────────── */}
+      <section style={{ padding: "80px 40px 72px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+          T3 Advisors
+        </p>
+        <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
+        <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+          {t("hero_headline")}
+        </h1>
+        <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
+          {t("hero_intro")}
+        </p>
       </section>
 
-      {/* Section 1: El contexto */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="grid items-start gap-12 md:grid-cols-[1fr_280px]">
-            <div className="max-w-[640px]">
-              <h2 className="text-3xl font-semibold text-forest">
+      {/* gold rule */}
+      <div style={{ height: 1, backgroundColor: GOLD }} />
+
+      {/* ── EL CONTEXTO ─────────────────────────────────── */}
+      <section style={{ padding: "72px 40px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 48, alignItems: "start" }}>
+            <div>
+              <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
                 {t("context_headline")}
               </h2>
-              <div className="mt-6 space-y-4 leading-relaxed text-charcoal/80">
-                <p>{t("context_p1")}</p>
-                <p>{t("context_p2")}</p>
-                <p>{t("context_p3")}</p>
-                <p>{t("context_p4")}</p>
+              <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 28 }} />
+              <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+                {(["context_p1", "context_p2", "context_p3", "context_p4"] as const).map((k) => (
+                  <p key={k} style={{ fontSize: 18, lineHeight: 1.8, color: `${CH}CC` }}>{t(k)}</p>
+                ))}
               </div>
             </div>
-            <div className="flex flex-col items-center rounded border border-gold/30 bg-forest/5 p-8 text-center">
-              <p className="text-7xl font-semibold text-forest" style={{ fontFamily: "var(--font-heading)" }}>
+            {/* Callout stat */}
+            <div style={{
+              backgroundColor: WW, borderRadius: 10, padding: "44px 36px", textAlign: "center",
+              boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
+              borderTop: `4px solid ${GOLD}`,
+            }}>
+              <p style={{ fontFamily: "var(--font-heading)", fontSize: 72, fontWeight: 600, lineHeight: 1, color: F }}>
                 {t("context_callout_value")}
               </p>
-              <div className="mx-auto mt-3 h-px w-10 bg-gold/40" />
-              <p className="mt-3 text-sm leading-snug text-charcoal/70">
+              <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "16px auto" }} />
+              <p style={{ fontSize: 15, lineHeight: 1.55, color: `${CH}BB` }}>
                 {t("context_callout_label")}
               </p>
             </div>
@@ -77,91 +90,98 @@ export default function WhyVenezuelaPage() {
         </div>
       </section>
 
-      {/* Section 2: Dislocación de precios + Tabla */}
-      <section className="bg-stone/10 px-6 py-20 md:py-24">
-        <div className="mx-auto max-w-[1200px]">
-          <h2 className="text-3xl font-semibold text-forest">
+      {/* gold rule */}
+      <div style={{ height: 1, backgroundColor: GOLD }} />
+
+      {/* ── TABLA DE PRECIOS ────────────────────────────── */}
+      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
             {t("prices_headline")}
           </h2>
-          <div className="mt-6 max-w-[640px] space-y-4 leading-relaxed text-charcoal/80">
-            <p>{t("prices_p1")}</p>
-            <p>{t("prices_p2")}</p>
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 24 }} />
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 640, marginBottom: 40 }}>
+            <p style={{ fontSize: 18, lineHeight: 1.8, color: `${CH}CC` }}>{t("prices_p1")}</p>
+            <p style={{ fontSize: 18, lineHeight: 1.8, color: `${CH}CC` }}>{t("prices_p2")}</p>
           </div>
 
-          <div className="mt-10 overflow-x-auto">
-            <table className="w-full min-w-[600px] border-collapse text-sm">
+          {/* Table in a Card */}
+          <div style={{
+            backgroundColor: WW, borderRadius: 10, padding: "8px",
+            boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
+            overflowX: "auto",
+          }}>
+            <table style={{ width: "100%", minWidth: 600, borderCollapse: "collapse", fontSize: 15 }}>
               <thead>
-                <tr className="border-b-2 border-forest/20">
-                  <th className="py-3 pr-4 text-left font-semibold text-charcoal">
+                <tr style={{ borderBottom: `2px solid rgba(27,67,50,0.15)` }}>
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontWeight: 700, color: CH }}>
                     {t("prices_table_asset")}
                   </th>
-                  <th className="border-l-4 border-gold bg-forest/5 px-4 py-3 text-left font-semibold text-forest">
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontWeight: 700, color: F, backgroundColor: `${F}09`, borderLeft: `4px solid ${GOLD}` }}>
                     {t("prices_table_caracas")}
                   </th>
-                  <th className="px-4 py-3 text-left font-semibold text-charcoal/70">
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontWeight: 600, color: `${CH}AA` }}>
                     {t("prices_table_bogota")}
                   </th>
-                  <th className="px-4 py-3 text-left font-semibold text-charcoal/70">
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontWeight: 600, color: `${CH}AA` }}>
                     {t("prices_table_santo_domingo")}
                   </th>
-                  <th className="px-4 py-3 text-left font-semibold text-charcoal/70">
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontWeight: 600, color: `${CH}AA` }}>
                     {t("prices_table_panama")}
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {tableRows.map((row, i) => (
-                  <tr key={i} className="border-b border-stone/50">
-                    <td className="py-3 pr-4 font-medium text-charcoal">
-                      {t(row.assetKey)}
-                    </td>
-                    <td className="border-l-4 border-gold bg-forest/5 px-4 py-3 font-semibold text-forest">
-                      {t(row.caracasKey)}
-                    </td>
-                    <td className="px-4 py-3 text-charcoal/70">
-                      {t(row.bogotaKey)}
-                    </td>
-                    <td className="px-4 py-3 text-charcoal/70">
-                      {t(row.sdKey)}
-                    </td>
-                    <td className="px-4 py-3 text-charcoal/70">
-                      {t(row.panamaKey)}
-                    </td>
+                  <tr key={i} style={{ borderBottom: `1px solid rgba(44,44,44,0.08)` }}>
+                    <td style={{ padding: "14px 20px", fontWeight: 600, color: CH }}>{t(row.assetKey)}</td>
+                    <td style={{ padding: "14px 20px", fontWeight: 700, color: F, backgroundColor: `${F}09`, borderLeft: `4px solid ${GOLD}` }}>{t(row.caracasKey)}</td>
+                    <td style={{ padding: "14px 20px", color: `${CH}88` }}>{t(row.bogotaKey)}</td>
+                    <td style={{ padding: "14px 20px", color: `${CH}88` }}>{t(row.sdKey)}</td>
+                    <td style={{ padding: "14px 20px", color: `${CH}88` }}>{t(row.panamaKey)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-xs italic text-charcoal/60">
+          <p style={{ marginTop: 16, fontSize: 13, fontStyle: "italic", color: `${CH}66` }}>
             {t("prices_table_note")}
           </p>
         </div>
       </section>
 
-      {/* Section 3: Precedentes históricos */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-[1200px]">
-          <h2 className="text-3xl font-semibold text-forest">
+      {/* gold rule */}
+      <div style={{ height: 1, backgroundColor: GOLD }} />
+
+      {/* ── PRECEDENTES HISTÓRICOS ──────────────────────── */}
+      <section style={{ padding: "72px 40px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
             {t("precedents_headline")}
           </h2>
-          <p className="mt-4 max-w-[640px] text-charcoal/70">
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 24 }} />
+          <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640, marginBottom: 44 }}>
             {t("precedents_intro")}
           </p>
-          <div className="mt-12 grid gap-10 md:grid-cols-2">
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
             {precedents.map((p) => (
-              <div key={p.titleKey}>
-                <h3 className="text-lg font-semibold text-forest">
+              <div key={p.titleKey} style={{
+                backgroundColor: WW, borderRadius: 10, padding: "36px 36px",
+                boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
+              }}>
+                <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 20, fontWeight: 600, color: F }}>
                   {t(p.titleKey)}
                 </h3>
-                <div className="mt-3 flex items-baseline gap-3">
-                  <span className="text-4xl font-semibold text-gold md:text-5xl" style={{ fontFamily: "var(--font-heading)" }}>
+                <div style={{ marginTop: 16, display: "flex", alignItems: "baseline", gap: 12 }}>
+                  <span style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1, color: GOLD }}>
                     {t(p.statKey)}
                   </span>
-                  <span className="text-sm font-medium text-charcoal/60">
+                  <span style={{ fontSize: 14, fontWeight: 600, color: `${CH}77` }}>
                     {t(p.statLabelKey)}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-charcoal/80">
+                <p style={{ marginTop: 16, fontSize: 16, lineHeight: 1.75, color: `${CH}CC` }}>
                   {t(p.textKey)}
                 </p>
               </div>
@@ -170,50 +190,64 @@ export default function WhyVenezuelaPage() {
         </div>
       </section>
 
-      {/* Pull Quote */}
-      <section className="bg-forest px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-[800px] text-center">
-          <div className="mx-auto mb-8 h-px w-12 bg-gold/50" />
-          <p className="text-2xl italic leading-relaxed text-warm-white md:text-3xl" style={{ fontFamily: "var(--font-heading)" }}>
+      {/* ── PULL QUOTE ──────────────────────────────────── */}
+      <section style={{ backgroundColor: F, padding: "80px 40px" }}>
+        <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+          <div style={{ width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "0 auto 36px" }} />
+          <p style={{
+            fontFamily: "var(--font-heading)", fontSize: 28, fontStyle: "italic",
+            lineHeight: 1.6, color: WW, letterSpacing: "-0.01em",
+          }}>
             &ldquo;{t("pullquote_text")}&rdquo;
           </p>
-          <p className="mt-6 text-sm font-medium tracking-wide text-stone">
+          <p style={{ marginTop: 28, fontSize: 14, fontWeight: 600, letterSpacing: "0.06em", color: `${WW}99`, textTransform: "uppercase" }}>
             — {t("pullquote_attribution")}
           </p>
-          <p className="mt-6 text-sm italic text-warm-white/60">
+          <p style={{ marginTop: 12, fontSize: 14, fontStyle: "italic", color: `${WW}66` }}>
             {t("pullquote_note")}
           </p>
+          <div style={{ width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "36px auto 0", opacity: 0.35 }} />
         </div>
       </section>
 
-      {/* Section 4: Los riesgos */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-[800px]">
-          <h2 className="text-3xl font-semibold text-forest">
+      {/* gold rule */}
+      <div style={{ height: 1, backgroundColor: GOLD }} />
+
+      {/* ── LOS RIESGOS ─────────────────────────────────── */}
+      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
             {t("risks_headline")}
           </h2>
-          <p className="mt-4 text-charcoal/70">
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 24 }} />
+          <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, marginBottom: 40 }}>
             {t("risks_intro")}
           </p>
-          <div className="mt-10 space-y-8">
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {risks.map((risk) => (
-              <div key={risk.titleKey} className="border-l-2 border-stone pl-6">
-                <h3 className="font-semibold text-charcoal">
+              <div key={risk.titleKey} style={{
+                backgroundColor: WW, borderRadius: 10, padding: "28px 32px",
+                boxShadow: "0 4px 20px rgba(44,44,44,0.08), 0 1px 6px rgba(44,44,44,0.04)",
+                borderLeft: `4px solid ${GOLD}`,
+              }}>
+                <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 18, fontWeight: 600, color: F }}>
                   {t(risk.titleKey)}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
+                <p style={{ marginTop: 10, fontSize: 16, lineHeight: 1.75, color: `${CH}CC` }}>
                   {t(risk.textKey)}
                 </p>
               </div>
             ))}
           </div>
-          <p className="mt-10 text-center text-sm italic text-charcoal/70">
+
+          <p style={{ marginTop: 36, textAlign: "center", fontSize: 15, fontStyle: "italic", color: `${CH}88` }}>
             {t("risks_closing")}
           </p>
         </div>
       </section>
 
-      {/* CTA Band */}
+      {/* ── CTA FINAL ───────────────────────────────────── */}
       <CtaBand
         headline={t("cta_headline")}
         primaryHref="portfolio"
@@ -221,6 +255,6 @@ export default function WhyVenezuelaPage() {
         secondaryHref="contact"
         secondaryLabel={t("cta_btn_contact")}
       />
-    </>
+    </div>
   );
 }
