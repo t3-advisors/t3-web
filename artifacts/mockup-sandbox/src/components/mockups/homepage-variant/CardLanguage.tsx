@@ -231,7 +231,7 @@ function PortfolioCarousel() {
               <h3 style={{ marginTop: 12, fontFamily: "'Montserrat', sans-serif", fontSize: 19, fontWeight: 600, color: F, lineHeight: 1.3 }}>{item.name}</h3>
               <p style={{ marginTop: 8, fontSize: 14, color: `${F}88` }}>{item.location}</p>
               <p style={{ marginTop: 3, fontSize: 13, color: `${F}66` }}>{item.type}</p>
-              <div style={{ marginTop: "auto", paddingTop: 14, borderTop: `1px solid rgba(27,67,50,0.10)`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ marginTop: "auto", paddingTop: 5, borderTop: `1px solid rgba(27,67,50,0.10)`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, color: F }}>{item.price}</span>
                 <span style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 4, backgroundColor: `${F}12`, color: F, letterSpacing: "0.08em", textTransform: "uppercase" as const }}>{item.tag}</span>
               </div>
