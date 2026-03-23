@@ -181,9 +181,10 @@ export function CardLanguage() {
       {/* ── CÓMO TRABAJAMOS ───────────────────────────────── */}
       <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, color: F }}>Cómo trabajamos</h2>
-            <p style={{ marginTop: 12, fontSize: 17, color: `${CH}AA`, maxWidth: 580, margin: "12px auto 0" }}>T3 Advisors gestiona el proceso completo de intermediación, desde la preparación del activo hasta el cierre de la transacción.</p>
+          <div style={{ marginBottom: 48 }}>
+            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>Cómo trabajamos</h2>
+            <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
+            <p style={{ marginTop: 20, fontSize: 19, color: `${CH}AA`, maxWidth: 580 }}>T3 Advisors gestiona el proceso completo de intermediación, desde la preparación del activo hasta el cierre de la transacción.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
             {steps.map(({ num, Icon, title, desc }) => (
@@ -235,11 +236,10 @@ export function CardLanguage() {
 
       {/* ── EQUIPO ────────────────────────────────────────── */}
       <section style={{ padding: "16px 40px 72px", maxWidth: 900, margin: "0 auto" }}>
-        <Card style={{ textAlign: "center" }}>
-          {GOLD_LINE}
-          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 32, fontWeight: 600, color: F }}>Presencia local, alcance internacional</h2>
-          <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "16px auto" }} />
-          <p style={{ fontSize: 18, lineHeight: 1.8, color: `${CH}BB`, maxWidth: 560, margin: "0 auto" }}>
+        <Card>
+          <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 32, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>Presencia local, alcance internacional</h2>
+          <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
+          <p style={{ marginTop: 20, fontSize: 18, lineHeight: 1.8, color: `${CH}BB` }}>
             T3 Advisors opera con un equipo en el terreno en Venezuela y capacidad de comunicación profesional desde Europa. Combinamos décadas de experiencia en bienes raíces comerciales venezolanos con los estándares de presentación y proceso que el capital internacional exige.
           </p>
           <a href="#" style={{ marginTop: 24, display: "inline-flex", alignItems: "center", gap: 6, fontSize: 15, fontWeight: 700, color: GOLD, textDecoration: "none" }}>
