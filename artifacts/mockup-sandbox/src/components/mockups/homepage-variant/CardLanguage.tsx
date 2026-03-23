@@ -225,6 +225,7 @@ function PortfolioCarousel() {
                 boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
                 display: "flex",
                 flexDirection: "column",
+                minHeight: 280,
               }}
             >
               <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: GOLD }}>{item.sector}</p>
