@@ -100,7 +100,10 @@ export default function SellersPage() {
           }}>
             &ldquo;{t("pullquote_text")}&rdquo;
           </p>
-          <div style={{ width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "36px auto 0", opacity: 0.4 }} />
+          <p style={{ marginTop: 28, fontSize: 14, fontWeight: 600, letterSpacing: "0.06em", color: `${WW}99`, textTransform: "uppercase" }}>
+            — {t("pullquote_attribution")}
+          </p>
+          <div style={{ width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "28px auto 0", opacity: 0.4 }} />
         </div>
       </section>
 
