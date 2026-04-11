@@ -338,21 +338,42 @@
   },
   "portfolioPage": {
     "hero_headline": "Portafolio de inversión",
-    "hero_intro": "Presentamos una selección de las oportunidades de inversión que T3 Advisors tiene en cartera. Cada perfil muestra información general del activo (sector, ubicación, rango de precio) sin revelar su identidad. Para recibir documentación completa de cualquier oportunidad, se requiere la firma de un acuerdo de confidencialidad.",
-    "filter_all": "Todas las oportunidades",
-    "filter_sale": "Venta",
-    "filter_capital_raise": "Capital Raise",
-    "filter_re": "Real Estate",
-    "filter_hos": "Hotelería",
-    "filter_ag": "Agroindustria",
-    "filter_ind": "Industrial",
-    "filter_hc": "Salud",
-    "filter_min": "Minería",
-    "opportunities": "oportunidades",
-    "card_request_info": "Solicitar información",
-    "cta_headline": "¿Interesado en alguna oportunidad?",
-    "cta_sub": "Solicite acceso a nuestro portafolio completo bajo acuerdo de confidencialidad.",
-    "cta_btn_access": "Solicitar acceso",
-    "cta_btn_contact": "Contactar a T3"
+    "hero_intro": "T3 Advisors identifica, analiza y estructura oportunidades de inversión en seis sectores clave de la economía venezolana. Cada sector representa una tesis de inversión específica, respaldada por activos reales en nuestra cartera. El acceso a la información detallada de cada oportunidad se gestiona bajo acuerdo de confidencialidad.",
+
+    "sector_label_re": "Inmobiliario",
+    "sector_title_re": "Activos comerciales a una fracción de su valor de reposición",
+    "sector_p1_re": "Los principales activos inmobiliarios comerciales de Venezuela (torres de oficinas, centros comerciales, complejos residenciales) pueden adquirirse a entre un 10% y un 30% de su costo de reposición. Caracas, Valencia, Maracaibo y Barquisimeto mantienen corredores comerciales consolidados con demanda comprobada.",
+    "sector_p2_re": "El ciclo de recuperación crea una ventana única: propiedades con ingresos por alquiler activos e infraestructura existente, valoradas muy por debajo de los costos de construcción y de los comparables regionales.",
+
+    "sector_label_hos": "Hotelería y turismo",
+    "sector_title_hos": "2.700 km de costa caribeña, un sector por redescubrir",
+    "sector_p1_hos": "Venezuela tiene costa caribeña, montañas andinas y parques nacionales que compiten con los mejores de la región. Su infraestructura hotelera y turística existe, pero ha estado severamente subvalorada durante más de una década.",
+    "sector_p2_hos": "Hoteles, resorts y apart-hoteles con operaciones activas y ocupación en recuperación representan un punto de entrada inusual en un mercado con enorme potencial al alza, a medida que se normalizan las rutas de viaje.",
+
+    "sector_label_ag": "Agroindustria",
+    "sector_title_ag": "Tierra fértil, infraestructura existente, demanda insatisfecha",
+    "sector_p1_ag": "Venezuela posee algunas de las tierras agrícolas más productivas de Sudamérica. El café, el cacao, la ganadería y la agricultura diversificada tienen raíces profundas en el país y una tradición exportadora que antecede al petróleo.",
+    "sector_p2_ag": "Plantas de procesamiento, fincas y operaciones listas para exportación con infraestructura existente están disponibles a precios que reflejan años de subinversión, no la capacidad productiva real de la tierra.",
+
+    "sector_label_ind": "Industrial y energía",
+    "sector_title_ind": "Capacidad instalada subutilizada en corredores estratégicos",
+    "sector_p1_ind": "La base industrial de Venezuela, concentrada en el corredor Valencia-Maracay y la región de Guayana, opera muy por debajo de su capacidad. Hay plantas manufactureras disponibles con equipos instalados y cadenas de suministro establecidas.",
+    "sector_p2_ind": "La posición estratégica para exportar al Caribe y Latinoamérica, combinada con infraestructura existente y mano de obra capacitada, crea puntos de entrada atractivos tanto para operadores como para inversionistas.",
+
+    "sector_label_hc": "Salud",
+    "sector_title_hc": "Infraestructura médica privada con demanda creciente",
+    "sector_p1_hc": "El sector de salud privado en Venezuela ha mantenido estándares de calidad en medio de los desafíos económicos. Clínicas y centros médicos atienden una demanda creciente mientras el sistema público se reorganiza.",
+    "sector_p2_hc": "Instalaciones con equipos actualizados, bases de pacientes establecidas y capacidades especializadas representan un sector esencial con fundamentos estables y potencial significativo de expansión.",
+
+    "sector_label_min": "Minería",
+    "sector_title_min": "Reservas minerales de clase mundial en etapa temprana",
+    "sector_p1_min": "Venezuela alberga algunas de las mayores reservas de oro, diamantes, bauxita, hierro y coltán del mundo, concentradas en la región de Guayana al sur del Orinoco.",
+    "sector_p2_min": "Concesiones formales con estudios geológicos completados, permisos ambientales e infraestructura de campamento existente ofrecen un punto de entrada estructurado a una de las últimas grandes regiones mineras sin explotar en América Latina.",
+
+    "sector_cta": "Ver las oportunidades",
+
+    "cta_headline": "Acceda a nuestro portafolio completo",
+    "cta_sub": "Las oportunidades detalladas se comparten bajo acuerdo de confidencialidad. Solicite acceso y un asesor de T3 lo contactará.",
+    "cta_btn": "Solicitar acceso"
   }
 }

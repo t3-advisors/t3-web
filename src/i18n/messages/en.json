@@ -338,21 +338,42 @@
   },
   "portfolioPage": {
     "hero_headline": "Investment portfolio",
-    "hero_intro": "We present a selection of investment opportunities that T3 Advisors has in its pipeline. Each profile shows general asset information (sector, location, price range) without revealing its identity. To receive full documentation on any opportunity, a signed confidentiality agreement is required.",
-    "filter_all": "All opportunities",
-    "filter_sale": "Sale",
-    "filter_capital_raise": "Capital Raise",
-    "filter_re": "Real Estate",
-    "filter_hos": "Hospitality",
-    "filter_ag": "Agribusiness",
-    "filter_ind": "Industrial",
-    "filter_hc": "Healthcare",
-    "filter_min": "Mining",
-    "opportunities": "opportunities",
-    "card_request_info": "Request information",
-    "cta_headline": "Interested in an opportunity?",
-    "cta_sub": "Request access to our full portfolio under a confidentiality agreement.",
-    "cta_btn_access": "Request access",
-    "cta_btn_contact": "Contact T3"
+    "hero_intro": "T3 Advisors identifies, analyzes, and structures investment opportunities across six key sectors of the Venezuelan economy. Each sector represents a specific investment thesis, backed by real assets in our pipeline. Access to detailed information on each opportunity is managed under a confidentiality agreement.",
+
+    "sector_label_re": "Real Estate",
+    "sector_title_re": "Commercial assets at a fraction of replacement cost",
+    "sector_p1_re": "Venezuela's prime commercial real estate (office towers, shopping centers, residential complexes) can be acquired at 10% to 30% of replacement cost. Caracas, Valencia, Maracaibo, and Barquisimeto maintain established commercial corridors with proven demand.",
+    "sector_p2_re": "The recovery cycle creates a unique window: properties with active rental income and existing infrastructure, priced well below construction costs and regional comparables.",
+
+    "sector_label_hos": "Hospitality & Tourism",
+    "sector_title_hos": "2,700 km of Caribbean coast, a sector to rediscover",
+    "sector_p1_hos": "Venezuela has Caribbean coastline, Andean mountains, and national parks that rival the best in the region. Its hotel and tourism infrastructure exists but has been severely undervalued for over a decade.",
+    "sector_p2_hos": "Hotels, resorts, and apart-hotels with active operations and recovering occupancy represent an unusual entry point into a market with massive upside as travel routes normalize.",
+
+    "sector_label_ag": "Agribusiness",
+    "sector_title_ag": "Fertile land, existing infrastructure, unmet demand",
+    "sector_p1_ag": "Venezuela has some of South America's most productive agricultural land. Coffee, cacao, cattle ranching, and diversified agriculture have deep roots in the country and an export tradition that predates oil.",
+    "sector_p2_ag": "Processing plants, farms, and export-ready operations with existing infrastructure are available at prices that reflect years of underinvestment, not the land's actual productive capacity.",
+
+    "sector_label_ind": "Industrial & Energy",
+    "sector_title_ind": "Underutilized installed capacity in strategic corridors",
+    "sector_p1_ind": "Venezuela's industrial base, concentrated in the Valencia-Maracay corridor and the Guayana region, operates well below capacity. Manufacturing plants with installed equipment and established supply chains are available.",
+    "sector_p2_ind": "Strategic positioning for export to the Caribbean and Latin America, combined with existing infrastructure and skilled workforce, creates compelling entry points for both operators and investors.",
+
+    "sector_label_hc": "Healthcare",
+    "sector_title_hc": "Private medical infrastructure with growing demand",
+    "sector_p1_hc": "Venezuela's private healthcare sector has maintained quality standards amid economic challenges. Clinics and medical centers serve growing demand as the public system reorganizes.",
+    "sector_p2_hc": "Facilities with updated equipment, established patient bases, and specialized capabilities represent an essential sector with stable fundamentals and significant expansion potential.",
+
+    "sector_label_min": "Mining",
+    "sector_title_min": "World-class mineral reserves at an early stage",
+    "sector_p1_min": "Venezuela holds some of the world's largest reserves of gold, diamonds, bauxite, iron, and coltan, concentrated in the Guayana region south of the Orinoco.",
+    "sector_p2_min": "Formal concessions with completed geological studies, environmental permits, and existing camp infrastructure offer a structured entry point into one of the last major untapped mining regions in Latin America.",
+
+    "sector_cta": "View opportunities",
+
+    "cta_headline": "Access our full portfolio",
+    "cta_sub": "Detailed opportunities are shared under a confidentiality agreement. Request access and a T3 advisor will contact you.",
+    "cta_btn": "Request access"
   }
 }
