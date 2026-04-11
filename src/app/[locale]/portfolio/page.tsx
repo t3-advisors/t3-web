@@ -3,6 +3,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { listings } from "@/data/portfolio-listings";
 import { PortfolioClient } from "@/components/portfolio/portfolio-client";
 import { CtaBand } from "@/components/sections/cta-band";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Portafolio — T3 Advisors",
@@ -23,16 +24,22 @@ export default function PortfolioPage() {
 
       {/* ── PAGE HEADER ─────────────────────────────────── */}
       <section style={{ padding: "80px 40px 64px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
-        <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
-          T3 Advisors
-        </p>
-        <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
-        <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
-          {t("hero_headline")}
-        </h1>
-        <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
-          {t("hero_intro")}
-        </p>
+        <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+            T3 Advisors
+          </p>
+          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
+        </div>
+        <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
+          <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+            {t("hero_headline")}
+          </h1>
+        </div>
+        <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
+          <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
+            {t("hero_intro")}
+          </p>
+        </div>
       </section>
 
       {/* gold rule */}
@@ -41,7 +48,9 @@ export default function PortfolioPage() {
       {/* ── FILTROS + GRID ──────────────────────────────── */}
       <section style={{ padding: "52px 40px 80px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <PortfolioClient listings={listings} locale={locale} />
+          <ScrollReveal>
+            <PortfolioClient listings={listings} locale={locale} />
+          </ScrollReveal>
         </div>
       </section>
 

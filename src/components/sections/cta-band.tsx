@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const F    = "#1B4332";
 const GOLD = "#C9A84C";
@@ -25,6 +26,7 @@ export function CtaBand({ headline, sub, primaryHref, primaryLabel, secondaryHre
 
   return (
     <section style={{ backgroundColor: F, padding: "72px 40px", textAlign: "center" }}>
+      <ScrollReveal>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.5, margin: "0 auto 32px" }} />
         <h2 style={{
@@ -47,8 +49,7 @@ export function CtaBand({ headline, sub, primaryHref, primaryLabel, secondaryHre
               fontFamily: "var(--font-heading)",
               backgroundColor: hp ? "#b8932e" : GOLD, color: CH, textDecoration: "none",
               boxShadow: hp ? BTN_SHADOW : "0 2px 8px rgba(0,0,0,0.18)",
-              transform: hp ? "translateY(-1px)" : "none",
-              transition: "background-color 0.18s, box-shadow 0.18s, transform 0.15s",
+              transition: "background-color 0.18s, box-shadow 0.18s",
             }}
           >
             {primaryLabel} <ArrowRight size={18} />
@@ -73,6 +74,7 @@ export function CtaBand({ headline, sub, primaryHref, primaryLabel, secondaryHre
           )}
         </div>
       </div>
+      </ScrollReveal>
     </section>
   );
 }

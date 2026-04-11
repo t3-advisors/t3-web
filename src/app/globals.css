@@ -91,6 +91,12 @@
   --sidebar-ring: #1B4332;
 }
 
+/* Page entrance animation */
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
