@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight, Scale, ShieldCheck, Calculator, Award, HardHat,
+  Building2, ShieldAlert, Banknote,
 } from "lucide-react";
 import { CtaBand } from "@/components/sections/cta-band";
 
@@ -24,7 +25,12 @@ const allies = [
   { icon: Award,      n: 4 },
   { icon: HardHat,    n: 5 },
 ] as const;
-const foreignTopics = ["vehicles", "legal", "ofac", "repatriation"] as const;
+const foreignTopics = [
+  { key: "ofac",        Icon: ShieldAlert, highlight: true  },
+  { key: "vehicles",    Icon: Building2,   highlight: false },
+  { key: "legal",       Icon: Scale,       highlight: false },
+  { key: "repatriation",Icon: Banknote,    highlight: false },
+] as const;
 const riskKeys = [1, 2, 3, 4] as const;
 
 export default function InvestorsPage() {
@@ -79,7 +85,7 @@ export default function InvestorsPage() {
                 {/* Content */}
                 <div style={{
                   paddingBottom: i < steps.length - 1 ? 32 : 0, paddingTop: 10,
-                  backgroundColor: WW, borderRadius: 10, marginBottom: i < steps.length - 1 ? 0 : 0,
+                  backgroundColor: WW, borderRadius: 10,
                   padding: "16px 28px 28px",
                   marginLeft: 0, marginBottom: i < steps.length - 1 ? 12 : 0, flex: 1,
                   boxShadow: "0 4px 20px rgba(44,44,44,0.07), 0 1px 6px rgba(44,44,44,0.05)",
@@ -132,9 +138,12 @@ export default function InvestorsPage() {
             ))}
           </div>
 
-          <p style={{ marginTop: 36, fontSize: 17, lineHeight: 1.75, color: `${CH}CC` }}>
-            {t("allies_closing")}
-          </p>
+          <div style={{ marginTop: 40, display: "flex", gap: 24, alignItems: "stretch" }}>
+            <div style={{ width: 4, borderRadius: 2, backgroundColor: GOLD, flexShrink: 0 }} />
+            <p style={{ fontSize: 23, fontStyle: "italic", lineHeight: 1.8, color: CH }}>
+              {t("allies_closing")}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -143,7 +152,7 @@ export default function InvestorsPage() {
 
       {/* ── RIESGOS ─────────────────────────────────────── */}
       <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
             {t("risks_headline")}
           </h2>
@@ -180,26 +189,49 @@ export default function InvestorsPage() {
             {t("foreign_intro")}
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
-            {foreignTopics.map((topic) => (
-              <div key={topic} style={{
-                backgroundColor: WW, borderRadius: 10, padding: "36px 32px",
-                boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
-                borderLeft: `4px solid ${GOLD}`,
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {foreignTopics.map(({ key, Icon, highlight }) => (
+              <div key={key} style={{
+                backgroundColor: WW, borderRadius: 10, padding: "28px 36px",
+                boxShadow: highlight
+                  ? "0 8px 32px rgba(27,67,50,0.14), 0 2px 8px rgba(27,67,50,0.08)"
+                  : "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
+                borderLeft: highlight ? `4px solid ${GOLD}` : "4px solid transparent",
+                display: "flex", gap: 36, alignItems: "flex-start",
               }}>
-                <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 20, fontWeight: 600, color: F }}>
-                  {t(`foreign_${topic}_title`)}
-                </h3>
-                <p style={{ marginTop: 14, fontSize: 17, lineHeight: 1.75, color: `${CH}CC` }}>
-                  {t(`foreign_${topic}_text`)}
-                </p>
+                <div style={{ flexShrink: 0, paddingTop: 4 }}>
+                  <Icon size={57} color={GOLD} strokeWidth={1.25} />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+                    <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 20, fontWeight: 600, color: F }}>
+                      {t(`foreign_${key}_title`)}
+                    </h3>
+                    {highlight && (
+                      <span style={{
+                        fontSize: 11, fontWeight: 700, letterSpacing: "0.06em",
+                        padding: "3px 10px", borderRadius: 4,
+                        backgroundColor: `${GOLD}18`, color: GOLD,
+                        textTransform: "uppercase",
+                      }}>
+                        {t("foreign_ofac_badge")}
+                      </span>
+                    )}
+                  </div>
+                  <p style={{ marginTop: 10, fontSize: 17, lineHeight: 1.75, color: `${CH}CC` }}>
+                    {t(`foreign_${key}_text`)}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
 
-          <p style={{ marginTop: 36, fontSize: 17, lineHeight: 1.75, color: `${CH}CC` }}>
-            {t("foreign_closing")}
-          </p>
+          <div style={{ marginTop: 48, display: "flex", gap: 24, alignItems: "stretch" }}>
+            <div style={{ width: 4, borderRadius: 2, backgroundColor: GOLD, flexShrink: 0 }} />
+            <p style={{ fontSize: 20, fontStyle: "italic", lineHeight: 1.8, color: CH }}>
+              {t("foreign_closing")}
+            </p>
+          </div>
         </div>
       </section>
 

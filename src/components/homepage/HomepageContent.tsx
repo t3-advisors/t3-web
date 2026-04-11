@@ -23,12 +23,12 @@ const steps = [
 ] as const;
 
 const sectors = [
-  { Icon: Landmark, labelKey: "vertical_re",  descKey: "vertical_re_desc"  },
-  { Icon: Hotel,    labelKey: "vertical_hos", descKey: "vertical_hos_desc" },
-  { Icon: Wheat,    labelKey: "vertical_ag",  descKey: "vertical_ag_desc"  },
-  { Icon: Zap,      labelKey: "vertical_ind", descKey: "vertical_ind_desc" },
-  { Icon: Activity, labelKey: "vertical_hc",  descKey: "vertical_hc_desc"  },
-  { Icon: Gem,      labelKey: "vertical_min", descKey: "vertical_min_desc" },
+  { Icon: Landmark, labelKey: "vertical_re",  descKey: "vertical_re_desc",  vertical: "re"  },
+  { Icon: Hotel,    labelKey: "vertical_hos", descKey: "vertical_hos_desc", vertical: "hos" },
+  { Icon: Wheat,    labelKey: "vertical_ag",  descKey: "vertical_ag_desc",  vertical: "ag"  },
+  { Icon: Zap,      labelKey: "vertical_ind", descKey: "vertical_ind_desc", vertical: "ind" },
+  { Icon: Activity, labelKey: "vertical_hc",  descKey: "vertical_hc_desc",  vertical: "hc"  },
+  { Icon: Gem,      labelKey: "vertical_min", descKey: "vertical_min_desc", vertical: "min" },
 ] as const;
 
 const GOLD_LINE = (
@@ -277,10 +277,10 @@ export function HomepageContent() {
           <p style={{ marginTop: 20, fontSize: 19, color: `${CH}AA` }}>{t("verticals_sub")}</p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-          {sectors.map(({ Icon, labelKey, descKey }) => (
+          {sectors.map(({ Icon, labelKey, descKey, vertical }) => (
             <Link
               key={labelKey}
-              href="portfolio"
+              href={`portfolio?vertical=${vertical}`}
               style={{
                 display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
                 padding: "44px 36px", borderRadius: 10, backgroundColor: WW, textDecoration: "none",

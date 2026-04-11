@@ -1,5 +1,5 @@
 export type TransactionType = "sale" | "capital_raise";
-export type Vertical = "re" | "hos" | "ag" | "ind" | "hc";
+export type Vertical = "re" | "hos" | "ag" | "ind" | "hc" | "min";
 
 export interface BlindProfile {
   id: string;
@@ -134,5 +134,29 @@ export const listings: BlindProfile[] = [
     priceRange: "USD $800K – $1.2M",
     highlightEs: "Posada de montaña con clientela establecida y alta calificación en plataformas de reserva.",
     highlightEn: "Mountain inn with established clientele and high ratings on booking platforms.",
+  },
+  {
+    id: "11",
+    transactionType: "sale",
+    vertical: "min",
+    titleEs: "Asentamiento minero en Bolívar",
+    titleEn: "Mining settlement in Bolívar",
+    sizeEs: "1.200 hectáreas de concesión",
+    sizeEn: "1,200 hectares under concession",
+    priceRange: "USD $5M – $10M",
+    highlightEs: "Concesión activa con infraestructura de campamento, acceso fluvial y estudios geológicos completados.",
+    highlightEn: "Active concession with camp infrastructure, river access, and completed geological surveys.",
+  },
+  {
+    id: "12",
+    transactionType: "capital_raise",
+    vertical: "min",
+    titleEs: "Proyecto de extracción en Guayana",
+    titleEn: "Extraction project in Guayana",
+    sizeEs: "800 hectáreas, fase exploratoria",
+    sizeEn: "800 hectares, exploratory phase",
+    priceRange: "USD $3M – $6M",
+    highlightEs: "Proyecto con permisos ambientales y estudios de factibilidad. Busca capital para fase de desarrollo.",
+    highlightEn: "Project with environmental permits and feasibility studies. Seeking capital for development phase.",
   },
 ];

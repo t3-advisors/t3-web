@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { BlindProfileCard } from "./blind-profile-card";
 import type { BlindProfile, TransactionType, Vertical } from "@/data/portfolio-listings";
 
-const verticals: Vertical[] = ["re", "hos", "ag", "ind", "hc"];
+const verticals: Vertical[] = ["re", "hos", "ag", "ind", "hc", "min"];
 
 const verticalLabels: Record<Vertical, { labelKey: string }> = {
   re: { labelKey: "filter_re" },
@@ -13,6 +14,7 @@ const verticalLabels: Record<Vertical, { labelKey: string }> = {
   ag: { labelKey: "filter_ag" },
   ind: { labelKey: "filter_ind" },
   hc: { labelKey: "filter_hc" },
+  min: { labelKey: "filter_min" },
 };
 
 interface PortfolioClientProps {
@@ -22,8 +24,12 @@ interface PortfolioClientProps {
 
 export function PortfolioClient({ listings, locale }: PortfolioClientProps) {
   const t = useTranslations("portfolioPage");
+  const searchParams = useSearchParams();
+  const paramVertical = searchParams.get("vertical") as Vertical | null;
   const [activeType, setActiveType] = useState<TransactionType | "all">("all");
-  const [activeVertical, setActiveVertical] = useState<Vertical | null>(null);
+  const [activeVertical, setActiveVertical] = useState<Vertical | null>(
+    paramVertical && verticals.includes(paramVertical) ? paramVertical : null
+  );
 
   const filtered = listings.filter((item) => {
     if (activeType !== "all" && item.transactionType !== activeType) return false;

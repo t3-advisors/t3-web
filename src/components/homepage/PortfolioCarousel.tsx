@@ -1,25 +1,41 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { listings } from "@/data/portfolio-listings";
 
 const F = "#1B4332";
 const GOLD = "#C9A84C";
 const WW = "#F8F6F0";
 
-const ITEMS = [
-  { sector: "BIENES RAÍCES", name: "Centro Empresarial Las Mercedes", location: "Caracas, Miranda", type: "Edificio de oficinas · 4.200 m²", price: "USD 4.2M", tag: "En venta" },
-  { sector: "HOTELERÍA & TURISMO", name: "Hotel Boutique Los Andes", location: "Mérida, Mérida", type: "Hotel · 48 habitaciones", price: "USD 2.1M", tag: "En venta" },
-  { sector: "AGROINDUSTRIA", name: "Hacienda La Trinidad", location: "Barinas, Barinas", type: "Finca productiva · 380 ha", price: "USD 890K", tag: "En negociación" },
-  { sector: "INDUSTRIAL / ENERGÍA", name: "Planta Ensambladora Carabobo", location: "Valencia, Carabobo", type: "Planta industrial · 12.000 m²", price: "USD 3.8M", tag: "En venta" },
-  { sector: "SALUD", name: "Clínica Metropolitana del Lago", location: "Maracaibo, Zulia", type: "Clínica privada · 6.500 m²", price: "USD 2.4M", tag: "En venta" },
-];
+const SECTOR_LABELS: Record<string, { es: string; en: string }> = {
+  re:  { es: "BIENES RAÍCES",       en: "REAL ESTATE" },
+  hos: { es: "HOTELERÍA & TURISMO", en: "HOSPITALITY & TOURISM" },
+  ag:  { es: "AGROINDUSTRIA",       en: "AGRIBUSINESS" },
+  ind: { es: "INDUSTRIAL / ENERGÍA",en: "INDUSTRIAL / ENERGY" },
+  hc:  { es: "SALUD",               en: "HEALTHCARE" },
+  min: { es: "MINERÍA",             en: "MINING" },
+};
+
+const TX_LABELS: Record<string, { es: string; en: string }> = {
+  sale:          { es: "Venta",         en: "Sale" },
+  capital_raise: { es: "Capital Raise", en: "Capital Raise" },
+};
+
+// Show a representative sample across verticals
+const CAROUSEL_IDS = ["2", "1", "3", "4", "5", "11", "6"];
+const ITEMS = CAROUSEL_IDS.map((id) => listings.find((l) => l.id === id)!);
 
 const CARD_W = 340;
 const CARD_GAP = 20;
 const VISIBLE = 3;
 
 export function PortfolioCarousel() {
+  const locale = useLocale();
+  const t = useTranslations("portfolioPage");
+  const isEs = locale === "es";
+
   const [idx, setIdx] = useState(0);
   const idxRef = useRef(0);
   const max = ITEMS.length - VISIBLE;
@@ -31,12 +47,12 @@ export function PortfolioCarousel() {
   };
 
   useEffect(() => {
-    const t = setInterval(() => {
+    const timer = setInterval(() => {
       const next = idxRef.current >= max ? 0 : idxRef.current + 1;
       idxRef.current = next;
       setIdx(next);
     }, 3600);
-    return () => clearInterval(t);
+    return () => clearInterval(timer);
   }, [max]);
 
   const translateX = idx * (CARD_W + CARD_GAP);
@@ -51,31 +67,41 @@ export function PortfolioCarousel() {
           transition: "transform 0.55s cubic-bezier(0.4,0,0.2,1)",
           willChange: "transform",
         }}>
-          {ITEMS.map((item) => (
-            <div
-              key={item.name}
-              style={{
-                flex: `0 0 ${CARD_W}px`,
-                backgroundColor: WW,
-                borderRadius: 10,
-                padding: "32px 28px",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
-                display: "flex",
-                flexDirection: "column",
-                minHeight: 280,
-              }}
-            >
-              <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: GOLD }}>{item.sector}</p>
-              <h3 style={{ marginTop: 12, fontFamily: "'Montserrat', sans-serif", fontSize: 19, fontWeight: 600, color: F, lineHeight: 1.3 }}>{item.name}</h3>
-              <p style={{ marginTop: 8, fontSize: 14, color: `${F}88` }}>{item.location}</p>
-              <p style={{ marginTop: 3, fontSize: 13, color: `${F}66` }}>{item.type}</p>
-              <div style={{ marginTop: "auto", paddingTop: 5, borderTop: `1px solid rgba(27,67,50,0.10)`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 700, color: F }}>{item.price}</span>
-                <span style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 4, backgroundColor: `${F}12`, color: F, letterSpacing: "0.08em", textTransform: "uppercase" }}>{item.tag}</span>
+          {ITEMS.map((item) => {
+            const sector = SECTOR_LABELS[item.vertical]?.[isEs ? "es" : "en"] ?? item.vertical;
+            const txLabel = TX_LABELS[item.transactionType]?.[isEs ? "es" : "en"] ?? item.transactionType;
+            const title = isEs ? item.titleEs : item.titleEn;
+            const size = isEs ? item.sizeEs : item.sizeEn;
+            const highlight = isEs ? item.highlightEs : item.highlightEn;
+
+            return (
+              <div
+                key={item.id}
+                style={{
+                  flex: `0 0 ${CARD_W}px`,
+                  backgroundColor: WW,
+                  borderRadius: 10,
+                  padding: "32px 28px",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
+                  display: "flex",
+                  flexDirection: "column",
+                  minHeight: 280,
+                }}
+              >
+                <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: GOLD }}>{sector}</p>
+                <h3 style={{ marginTop: 12, fontFamily: "'Montserrat', sans-serif", fontSize: 19, fontWeight: 600, color: F, lineHeight: 1.3 }}>{title}</h3>
+                <p style={{ marginTop: 8, fontSize: 14, color: `${F}88` }}>{size}</p>
+                <p style={{ marginTop: 6, fontSize: 13, lineHeight: 1.55, color: `${F}66`, flex: 1 }}>{highlight}</p>
+                <div style={{ marginTop: "auto", paddingTop: 12, borderTop: `1px solid rgba(27,67,50,0.10)`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 20, fontWeight: 700, color: F }}>{item.priceRange}</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 4, backgroundColor: `${F}12`, color: F, letterSpacing: "0.08em", textTransform: "uppercase" }}>{txLabel}</span>
+                </div>
+                <p style={{ marginTop: 12, fontSize: 11, color: `${F}44`, fontStyle: "italic" }}>
+                  {isEs ? "Detalles completos bajo NDA · solicitar acceso" : "Full details under NDA · request access"}
+                </p>
               </div>
-              <p style={{ marginTop: 12, fontSize: 11, color: `${F}44`, fontStyle: "italic" }}>Detalles completos bajo NDA · solicitar acceso</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

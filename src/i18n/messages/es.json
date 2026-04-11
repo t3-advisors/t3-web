@@ -243,11 +243,12 @@
     "allies_closing": "T3 recomienda profesionales, facilita su contratación, y coordina su trabajo a lo largo de la transacción. Cada profesional trabaja directamente para quien lo contrata.",
 
     "risks_headline": "Riesgos que usted debe conocer",
-    "risks_text": "Invertir en Venezuela tiene complejidades significativas: riesgo político, corrupción, infraestructura deteriorada, restricciones de sanciones (OFAC), y un entorno regulatorio en transición. Nosotros no minimizamos estos riesgos; los documentamos en cada oportunidad que presentamos.",
+    "risks_text": "Invertir en Venezuela tiene complejidades significativas: riesgo político, corrupción, infraestructura deteriorada, restricciones de sanciones (OFAC), y un entorno regulatorio en transición. T3 Advisors le ayuda a comprender y navegar cada uno de estos riesgos, y lo asesora para mitigarlos con los mejores profesionales del mercado.",
     "risks_link": "Leer el análisis completo de riesgos",
 
     "foreign_headline": "Cómo invierte un extranjero en Venezuela",
-    "foreign_intro": "Si usted no es venezolano o no ha operado en el país antes, hay consideraciones específicas que debe conocer. T3 no es un asesor legal ni fiscal, pero conocemos el terreno y trabajamos con profesionales que le pueden orientar en cada uno de estos temas:",
+    "foreign_intro": "Venezuela es un mercado abierto a la inversión extranjera. Estas son las cuatro consideraciones prácticas que debe conocer antes de estructurar una operación. T3 lo orienta en cada una y lo conecta con los profesionales que pueden resolverlas.",
+    "foreign_ofac_badge": "Aplica si tiene nexo con EE.UU.",
     "foreign_vehicles_title": "Vehículos de inversión",
     "foreign_vehicles_text": "La estructura más común es una empresa domiciliada en Venezuela. La constitución de 1999 establece trato igualitario para inversión nacional y extranjera. Un abogado transaccional local estructura el vehículo más adecuado para cada caso.",
     "foreign_legal_title": "Marco legal",
@@ -256,7 +257,7 @@
     "foreign_ofac_text": "Si usted tiene conexión con Estados Unidos (ciudadanía, residencia, o empresa registrada en EE.UU.), cada transacción en Venezuela requiere una evaluación de cumplimiento con las regulaciones de OFAC. T3 trabaja con abogados especializados en este tema.",
     "foreign_repatriation_title": "Consideraciones sobre repatriación",
     "foreign_repatriation_text": "La economía opera de facto en dólares, lo que simplifica las transacciones. Las consideraciones sobre repatriación de capital dependen de la estructura utilizada y la jurisdicción del inversionista.",
-    "foreign_closing": "Estos temas se abordan caso por caso. Lo importante es que usted sepa que existen, que son manejables con asesoría adecuada, y que T3 sabe conectarlo con quien puede resolverlos.",
+    "foreign_closing": "T3 convierte lo que parece complejo en un proceso claro. Ninguno de estos temas es un obstáculo insalvable — la diferencia está en abordarlo con el asesor correcto desde el principio.",
 
     "cta2_headline": "¿Tiene preguntas? El primer paso es una conversación.",
     "cta2_sub": "No hay compromiso. Cuéntenos qué busca y le orientamos.",
@@ -339,6 +340,7 @@
     "filter_ag": "Agroindustria",
     "filter_ind": "Industrial",
     "filter_hc": "Salud",
+    "filter_min": "Minería",
     "opportunities": "oportunidades",
     "card_request_info": "Solicitar información",
     "cta_headline": "¿Interesado en alguna oportunidad?",

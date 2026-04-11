@@ -243,11 +243,12 @@
     "allies_closing": "T3 recommends professionals, facilitates their engagement, and coordinates their work throughout the transaction. Each professional works directly for whoever retains them.",
 
     "risks_headline": "Risks you should know about",
-    "risks_text": "Investing in Venezuela involves significant complexities: political risk, corruption, deteriorated infrastructure, sanctions restrictions (OFAC), and a regulatory environment in transition. We do not minimize these risks; we document them in every opportunity we present.",
+    "risks_text": "Investing in Venezuela involves significant complexities: political risk, corruption, deteriorated infrastructure, sanctions restrictions (OFAC), and a regulatory environment in transition. T3 Advisors helps you understand and navigate each of these risks, and advises you on how to mitigate them with the best professionals in the market.",
     "risks_link": "Read the full risk analysis",
 
     "foreign_headline": "How a foreign investor invests in Venezuela",
-    "foreign_intro": "If you are not Venezuelan or have not operated in the country before, there are specific considerations you should know about. T3 is not a legal or tax advisor, but we know the terrain and work with professionals who can guide you on each of these topics:",
+    "foreign_intro": "Venezuela is an open market for foreign investment. These are the four practical considerations you need to know before structuring a transaction. T3 guides you through each one and connects you with the professionals who can resolve them.",
+    "foreign_ofac_badge": "Applies if you have a U.S. nexus",
     "foreign_vehicles_title": "Investment vehicles",
     "foreign_vehicles_text": "The most common structure is a company domiciled in Venezuela. The 1999 constitution establishes equal treatment for domestic and foreign investment. A local transactional lawyer structures the most appropriate vehicle for each case.",
     "foreign_legal_title": "Legal framework",
@@ -256,7 +257,7 @@
     "foreign_ofac_text": "If you have a U.S. nexus (citizenship, residency, or a U.S.-registered company), every transaction in Venezuela requires a compliance assessment under OFAC regulations. T3 works with lawyers who specialize in this area.",
     "foreign_repatriation_title": "Repatriation considerations",
     "foreign_repatriation_text": "The economy operates de facto in dollars, which simplifies transactions. Capital repatriation considerations depend on the structure used and the investor's jurisdiction.",
-    "foreign_closing": "These topics are addressed on a case-by-case basis. The important thing is that you know they exist, that they are manageable with proper counsel, and that T3 knows how to connect you with the right people.",
+    "foreign_closing": "T3 turns what seems complex into a clear process. None of these topics is an insurmountable obstacle — the difference is addressing it with the right advisor from the start.",
 
     "cta2_headline": "Have questions? The first step is a conversation.",
     "cta2_sub": "No commitment. Tell us what you're looking for and we'll point you in the right direction.",
@@ -339,6 +340,7 @@
     "filter_ag": "Agribusiness",
     "filter_ind": "Industrial",
     "filter_hc": "Healthcare",
+    "filter_min": "Mining",
     "opportunities": "opportunities",
     "card_request_info": "Request information",
     "cta_headline": "Interested in an opportunity?",
