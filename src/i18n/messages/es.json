@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Inicio",
     "why_venezuela": "¿Por qué Venezuela?",
     "investors": "Inversionistas",
     "sellers": "Vendedores",
@@ -145,7 +146,7 @@
     "price_15m_50m": "USD $15M – $50M",
     "price_over_50m": "Más de USD $50M",
     "submit_seller": "Enviar mensaje",
-    "success_seller": "Mensaje recibido. Le contactaremos en un máximo de 48 horas.",
+    "success_seller": "Mensaje recibido. Lo contactaremos en un máximo de 48 horas.",
 
     "buyer_verticals_required": "Seleccione al menos un sector de interés.",
     "buyer_intro": "Al completar este formulario, le enviaremos un correo electrónico con las oportunidades disponibles en los sectores que seleccione. Si desea información detallada sobre alguna oportunidad específica, podrá solicitarla directamente a través de ese correo. También puede contactarnos por las vías que aparecen a la derecha.",
@@ -374,7 +375,8 @@
   },
   "portfolioPage": {
     "hero_headline": "Portafolio de inversión",
-    "hero_intro": "T3 Advisors identifica, analiza y estructura oportunidades de inversión en seis sectores clave de la economía venezolana. Cada sector representa una tesis de inversión específica, respaldada por activos reales en nuestra cartera. El acceso a la información detallada de cada oportunidad se gestiona bajo acuerdo de confidencialidad.",
+    "hero_intro_1": "T3 Advisors identifica, analiza y estructura oportunidades de inversión en seis sectores clave de la economía venezolana. Cada sector representa una tesis de inversión específica, respaldada por activos reales en nuestra cartera.",
+    "hero_intro_2": "Para cada sector, puede solicitar el <b>listado completo de oportunidades disponibles</b> a través del <b>formulario de contacto</b>. Recibirá la información preliminar de todas ellas directamente en su correo electrónico. El acceso a la información detallada de cada oportunidad se gestiona bajo <b>acuerdo de confidencialidad</b>.",
 
     "sector_label_re": "Inmobiliario",
     "sector_title_re": "Activos comerciales a una fracción de su valor de reposición",

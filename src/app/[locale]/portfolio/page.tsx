@@ -105,9 +105,16 @@ export default function PortfolioPage() {
           </h1>
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-          <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 640, margin: "24px auto 0" }}>
-            {t("hero_intro")}
-          </p>
+          <div style={{ maxWidth: 840, margin: "32px auto 0" }}>
+            <p style={{ fontSize: 19, lineHeight: 1.8, color: `${CH}BB` }}>
+              {t("hero_intro_1")}
+            </p>
+            <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.8, color: `${CH}BB` }}>
+              {t.rich("hero_intro_2", {
+                b: (chunks) => <strong style={{ color: CH, fontWeight: 700 }}>{chunks}</strong>,
+              })}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -136,6 +143,10 @@ export default function PortfolioPage() {
                   flex: "0 0 calc(50vw + 24px)",
                   position: "relative", overflow: "hidden",
                   background: sector.gradient,
+                  boxShadow: sector.imgLeft
+                    ? "8px 0 32px rgba(0,0,0,0.22)"
+                    : "-8px 0 32px rgba(0,0,0,0.22)",
+                  zIndex: 1,
                 }}>
                   <img
                     src={`/images/portfolio/${sector.id}.jpg`}
@@ -173,13 +184,13 @@ export default function PortfolioPage() {
                   {/* Decorative number — bottom-right of content block, slightly inset */}
                   <p style={{
                     position: "absolute",
-                    bottom: -30,
+                    bottom: 1,
                     right: 28,
-                    fontSize: 220,
+                    fontSize: 160,
                     fontFamily: "var(--font-heading)",
                     fontWeight: 800,
                     color: headingColor,
-                    opacity: 0.035,
+                    opacity: 0.08,
                     lineHeight: 1,
                     pointerEvents: "none",
                     userSelect: "none",
@@ -257,6 +268,7 @@ export default function PortfolioPage() {
         sub={t("cta_sub")}
         primaryHref="contact"
         primaryLabel={t("cta_btn")}
+        light
       />
     </div>
   );

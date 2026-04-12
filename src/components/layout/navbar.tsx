@@ -12,6 +12,7 @@ const F    = "#1B4332";
 const WW   = "#F8F6F0";
 
 const navLinks = [
+  { href: "",               key: "home"          },
   { href: "/why-venezuela", key: "why_venezuela" },
   { href: "/investors",     key: "investors"     },
   { href: "/sellers",       key: "sellers"       },

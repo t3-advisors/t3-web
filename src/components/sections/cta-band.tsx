@@ -18,25 +18,30 @@ interface CtaBandProps {
   primaryLabel: string;
   secondaryHref?: string;
   secondaryLabel?: string;
+  light?: boolean;
 }
 
-export function CtaBand({ headline, sub, primaryHref, primaryLabel, secondaryHref, secondaryLabel }: CtaBandProps) {
+export function CtaBand({ headline, sub, primaryHref, primaryLabel, secondaryHref, secondaryLabel, light = false }: CtaBandProps) {
   const [hp, setHp] = useState(false);
   const [hs, setHs] = useState(false);
 
+  const bg        = light ? "#F2EFE8" : F;
+  const headingCl = light ? F  : WW;
+  const subCl     = light ? `${CH}99` : `${WW}B3`;
+
   return (
-    <section style={{ backgroundColor: F, padding: "72px 40px", textAlign: "center" }}>
+    <section style={{ backgroundColor: bg, padding: "72px 40px", textAlign: "center" }}>
       <ScrollReveal>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.5, margin: "0 auto 32px" }} />
         <h2 style={{
           fontFamily: "var(--font-heading)", fontSize: 34, fontWeight: 600,
-          lineHeight: 1.3, color: WW, letterSpacing: "-0.01em",
+          lineHeight: 1.3, color: headingCl, letterSpacing: "-0.01em",
         }}>
           {headline}
         </h2>
         {sub && (
-          <p style={{ marginTop: 20, fontSize: 18, lineHeight: 1.75, color: `${WW}B3` }}>{sub}</p>
+          <p style={{ marginTop: 20, fontSize: 18, lineHeight: 1.75, color: subCl }}>{sub}</p>
         )}
         <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16 }}>
           <Link

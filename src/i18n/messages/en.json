@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "why_venezuela": "Why Venezuela?",
     "investors": "Investors",
     "sellers": "Sellers",
@@ -374,7 +375,8 @@
   },
   "portfolioPage": {
     "hero_headline": "Investment portfolio",
-    "hero_intro": "T3 Advisors identifies, analyzes, and structures investment opportunities across six key sectors of the Venezuelan economy. Each sector represents a specific investment thesis, backed by real assets in our pipeline. Access to detailed information on each opportunity is managed under a confidentiality agreement.",
+    "hero_intro_1": "T3 Advisors identifies, analyzes, and structures investment opportunities across six key sectors of the Venezuelan economy. Each sector represents a specific investment thesis, backed by real assets in our pipeline.",
+    "hero_intro_2": "For each sector, you can request the <b>complete list of available opportunities</b> through the <b>contact form</b>. You will receive preliminary information on all of them directly to your email. Access to detailed information on each opportunity is managed under a <b>confidentiality agreement</b>.",
 
     "sector_label_re": "Real Estate",
     "sector_title_re": "Commercial assets at a fraction of replacement cost",
