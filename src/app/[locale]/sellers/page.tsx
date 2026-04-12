@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import type { Metadata } from "next";
-import { Eye, Presentation, Lock, BarChart3, Briefcase, UserCheck, Clock } from "lucide-react";
+import { Eye, Presentation, Lock, BarChart3, Briefcase, UserCheck, Clock, Trophy } from "lucide-react";
 import { CtaBand } from "@/components/sections/cta-band";
 import { FaqSection } from "@/components/sellers/faq-section";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -108,19 +108,13 @@ export default function SellersPage() {
                                 {t(labelKey)}
                               </p>
                             </div>
-                            {lines.length === 1 ? (
-                              <p style={{ fontSize: 16, lineHeight: 1.75, color: `${CH}BB` }}>
-                                {lines[0]}
-                              </p>
-                            ) : (
-                              <ul style={{ margin: 0, paddingLeft: 18, display: "flex", flexDirection: "column", gap: 6 }}>
-                                {lines.map((line, li) => (
-                                  <li key={li} style={{ fontSize: 16, lineHeight: 1.7, color: `${CH}BB`, listStyleType: "disc" }}>
-                                    {line}
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
+                            <ul style={{ margin: 0, paddingLeft: 18, display: "flex", flexDirection: "column", gap: 6 }}>
+                              {lines.map((line, li) => (
+                                <li key={li} style={{ fontSize: 16, lineHeight: 1.7, color: `${CH}BB`, listStyleType: "disc" }}>
+                                  {line}
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         );
                       })}
@@ -130,6 +124,31 @@ export default function SellersPage() {
               </ScrollReveal>
             ))}
           </div>
+
+          {/* ── HONORARIOS ──────────────────────────────── */}
+          <ScrollReveal>
+            <div style={{
+              marginTop: 48,
+              backgroundColor: F, borderRadius: 12,
+              padding: "40px 48px",
+              display: "flex", alignItems: "center", gap: 40,
+              boxShadow: "0 12px 48px rgba(27,67,50,0.30)",
+            }}>
+              <Trophy size={56} color={GOLD} strokeWidth={1.25} style={{ flexShrink: 0 }} />
+              <div>
+                <h3 style={{
+                  fontFamily: "var(--font-heading)", fontSize: 24, fontWeight: 600,
+                  color: WW, marginBottom: 12, letterSpacing: "-0.01em",
+                }}>
+                  {t("fee_headline")}
+                </h3>
+                <p style={{ fontSize: 17, lineHeight: 1.75, color: `${WW}CC` }}>
+                  {t("fee_body")}
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+
         </div>
       </section>
 

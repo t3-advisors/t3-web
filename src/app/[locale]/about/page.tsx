@@ -79,7 +79,7 @@ export default function AboutPage() {
                     display: "flex", alignItems: "center", justifyContent: "center",
                     fontFamily: "var(--font-heading)", fontSize: 48, fontWeight: 700, color: GOLD,
                   }}>
-                    {t(member.nameKey).split(" ").map((w: string) => w[0]).join("")}
+                    {t(member.nameKey).split(" ").slice(0, 2).map((w: string) => w[0]).join("")}
                   </div>
                   <div style={{ flex: 1, paddingTop: 12 }}>
                     <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 28, fontWeight: 600, color: F }}>

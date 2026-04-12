@@ -7,7 +7,6 @@ import {
   Activity, ArrowRight, FileText, Gem, Handshake,
   Hotel, Landmark, Users, Wheat, Zap,
 } from "lucide-react";
-import { PortfolioCarousel } from "./PortfolioCarousel";
 import { PresenciaMap } from "./PresenciaMap";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -305,50 +304,6 @@ export function HomepageContent() {
         </div>
       </section>
 
-      {/* ── PORTAFOLIO CARRUSEL ───────────────────────── */}
-      <section style={{ position: "relative", overflow: "hidden", backgroundColor: F, padding: "72px 40px 64px" }}>
-        <NoiseOverlay id="carousel" opacity={0.045} />
-        <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto" }}>
-          <ScrollReveal>
-            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 44 }}>
-              <div>
-                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: GOLD, opacity: 0.75, marginBottom: 14 }}>
-                  Portafolio activo
-                </p>
-                <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: WW }}>
-                  {t("cta_portfolio_headline")}
-                </h2>
-                <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-                <p style={{ marginTop: 18, fontSize: 17, color: `${WW}77`, maxWidth: 540 }}>
-                  {t("cta_portfolio_sub")}
-                </p>
-              </div>
-              <Link
-                href="portfolio"
-                style={{
-                  flexShrink: 0, marginLeft: 40, display: "inline-flex", alignItems: "center", gap: 8,
-                  padding: "13px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
-                  backgroundColor: GOLD, color: CH, textDecoration: "none", boxShadow: BTN_SHADOW,
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = "#b8932e"; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = GOLD; }}
-              >
-                {t("cta_portfolio_button")} <ArrowRight size={16} />
-              </Link>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <PortfolioCarousel />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* subtle centered gold transition */}
-      <div style={{
-        height: 1,
-        background: `linear-gradient(to right, transparent 10%, ${GOLD} 50%, transparent 90%)`,
-      }} />
-
       {/* ── SECTORES ──────────────────────────────────── */}
       <section style={{ padding: "72px 40px", maxWidth: 1200, margin: "0 auto" }}>
         <ScrollReveal>
@@ -424,14 +379,13 @@ export function HomepageContent() {
       </section>
 
       {/* ── CTA FINAL — dos paths ─────────────────────── */}
-      <div style={{ position: "relative", overflow: "hidden", backgroundColor: F, padding: "48px 40px" }}>
-        <NoiseOverlay id="cta" opacity={0.035} />
-        <div style={{ position: "relative", maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+      <div style={{ backgroundColor: "#F2EFE8", padding: "48px 40px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
           <ScrollReveal>
-            <DarkCard style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+            <Card style={{ height: "100%", display: "flex", flexDirection: "column" }}>
               {GOLD_LINE}
-              <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 24, fontWeight: 600, color: WW }}>{t("cta_invest_title")}</h3>
-              <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: `${WW}99` }}>{t("cta_invest_sub")}</p>
+              <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 24, fontWeight: 600, color: F }}>{t("cta_invest_title")}</h3>
+              <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: `${CH}BB` }}>{t("cta_invest_sub")}</p>
               <div style={{ marginTop: "auto", paddingTop: 28 }}>
                 <Link
                   href="portfolio"
@@ -446,13 +400,13 @@ export function HomepageContent() {
                   {t("cta_invest_btn")} <ArrowRight size={16} />
                 </Link>
               </div>
-            </DarkCard>
+            </Card>
           </ScrollReveal>
           <ScrollReveal delay={0.12}>
-            <DarkCard style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+            <Card style={{ height: "100%", display: "flex", flexDirection: "column" }}>
               {GOLD_LINE}
-              <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 24, fontWeight: 600, color: WW }}>{t("cta_sell_title")}</h3>
-              <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: `${WW}99` }}>{t("cta_sell_sub")}</p>
+              <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 24, fontWeight: 600, color: F }}>{t("cta_sell_title")}</h3>
+              <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: `${CH}BB` }}>{t("cta_sell_sub")}</p>
               <div style={{ marginTop: "auto", paddingTop: 28 }}>
                 <Link
                   href="contact"
@@ -467,7 +421,7 @@ export function HomepageContent() {
                   {t("cta_sell_btn")} <ArrowRight size={16} />
                 </Link>
               </div>
-            </DarkCard>
+            </Card>
           </ScrollReveal>
         </div>
       </div>

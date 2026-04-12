@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight, Scale, ShieldCheck, Calculator, Award, HardHat,
-  Building2, ShieldAlert, Banknote,
+  Building2, ShieldAlert, Banknote, TrendingUp,
 } from "lucide-react";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -20,6 +20,7 @@ const CH   = "#2C2C2C";
 
 const steps = [1, 2, 3, 4, 5, 6, 7] as const;
 const allies = [
+  { icon: TrendingUp, n: 6 },
   { icon: Scale,      n: 1 },
   { icon: ShieldCheck,n: 2 },
   { icon: Calculator, n: 3 },
@@ -33,6 +34,7 @@ const foreignTopics = [
   { key: "repatriation",Icon: Banknote,    highlight: false },
 ] as const;
 const riskKeys = [1, 2, 3, 4] as const;
+const natReqs = [1, 2, 3, 4, 5, 6] as const;
 
 export default function InvestorsPage() {
   const t = useTranslations("investorsPage");
@@ -179,13 +181,15 @@ export default function InvestorsPage() {
             <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC` }}>
               {t("risks_text")}
             </p>
-            <div style={{ marginTop: 28 }}>
+            <div style={{ marginTop: 32, display: "flex", justifyContent: "flex-end" }}>
               <Link
                 href="why-venezuela"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
-                  fontSize: 15, fontWeight: 700, color: GOLD, textDecoration: "none",
-                  letterSpacing: "0.03em",
+                  padding: "14px 36px", borderRadius: 6,
+                  fontSize: 16, fontWeight: 700, fontFamily: "var(--font-heading)",
+                  backgroundColor: GOLD, color: CH, textDecoration: "none",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.18)",
                 }}
               >
                 {t("risks_link")} <ArrowRight size={16} />
@@ -209,6 +213,60 @@ export default function InvestorsPage() {
             <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640, marginBottom: 40 }}>
               {t("foreign_intro")}
             </p>
+          </ScrollReveal>
+
+          {/* ── REQUISITOS POR NACIONALIDAD ── */}
+          <ScrollReveal>
+            <div style={{ marginBottom: 40 }}>
+              <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 22, fontWeight: 600, color: F, letterSpacing: "-0.01em", marginBottom: 24 }}>
+                {t("reqs_headline")}
+              </h3>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+                {/* EE.UU. */}
+                <div style={{ backgroundColor: WW, borderRadius: 10, padding: "32px 36px", boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)" }}>
+                  <div style={{ marginBottom: 20 }}>
+                    <div style={{ fontSize: 40, lineHeight: 1, marginBottom: 12 }}>🇺🇸</div>
+                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: 20, fontWeight: 600, color: F }}>
+                      {t("reqs_us_title")}
+                    </h4>
+                  </div>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                    {natReqs.map(n => (
+                      <li key={n} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                        <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: GOLD, flexShrink: 0, marginTop: 8 }} />
+                        <span style={{ fontSize: 15, lineHeight: 1.65, color: `${CH}CC` }}>{t(`reqs_us_${n}`)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Europa */}
+                <div style={{ backgroundColor: WW, borderRadius: 10, padding: "32px 36px", boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)" }}>
+                  <div style={{ marginBottom: 20 }}>
+                    <div style={{ fontSize: 40, lineHeight: 1, marginBottom: 12 }}>🇪🇺</div>
+                    <h4 style={{ fontFamily: "var(--font-heading)", fontSize: 20, fontWeight: 600, color: F }}>
+                      {t("reqs_eu_title")}
+                    </h4>
+                  </div>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                    {natReqs.map(n => (
+                      <li key={n} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                        <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: GOLD, flexShrink: 0, marginTop: 8 }} />
+                        <span style={{ fontSize: 15, lineHeight: 1.65, color: `${CH}CC` }}>{t(`reqs_eu_${n}`)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <p style={{ marginTop: 16, fontSize: 13, fontStyle: "italic", lineHeight: 1.7, color: `${CH}77` }}>
+                {t("reqs_disclaimer")}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 22, fontWeight: 600, color: F, letterSpacing: "-0.01em", marginBottom: 24 }}>
+              {t("foreign_considerations_headline")}
+            </h3>
           </ScrollReveal>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
