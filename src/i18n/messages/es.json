@@ -117,10 +117,46 @@
     "vertical_ind": "Industrial / Energía",
     "vertical_hc": "Salud",
     "vertical_min": "Minería",
+    "toggle_buyer": "Quiero invertir",
+    "toggle_seller": "Quiero vender",
+
+    "transaction_type": "Tipo de transacción",
+    "transaction_sale": "Venta",
+    "transaction_capital_raise": "Capital Raise",
+    "transaction_both": "Ambos",
+    "submit_buyer": "Solicitar información",
+    "success_buyer": "Solicitud recibida. Recibirá un correo con las oportunidades disponibles en pocos minutos.",
+
+    "seller_transaction_type": "Tipo de operación",
+    "seller_tx_full_sale": "Venta del activo",
+    "seller_tx_equity": "Venta de equity",
+    "seller_tx_partners": "Buscar socios",
+    "seller_tx_financing": "Buscar financiamiento",
+    "seller_tx_required": "Seleccione al menos una opción.",
+
+    "asset_type": "Tipo de activo",
+    "asset_location": "Ubicación del activo",
+    "asset_location_placeholder": "Estado / Ciudad",
+    "price_range": "Rango de precio estimado",
+    "price_range_placeholder": "Seleccionar rango",
+    "price_under_1m": "Menos de USD $1M",
+    "price_1m_5m": "USD $1M – $5M",
+    "price_5m_15m": "USD $5M – $15M",
+    "price_15m_50m": "USD $15M – $50M",
+    "price_over_50m": "Más de USD $50M",
+    "submit_seller": "Enviar mensaje",
+    "success_seller": "Mensaje recibido. Le contactaremos en un máximo de 48 horas.",
+
+    "buyer_verticals_required": "Seleccione al menos un sector de interés.",
+    "buyer_intro": "Al completar este formulario, le enviaremos un correo electrónico con las oportunidades disponibles en los sectores que seleccione. Si desea información detallada sobre alguna oportunidad específica, podrá solicitarla directamente a través de ese correo. También puede contactarnos por las vías que aparecen a la derecha.",
+
     "email_label": "Email",
     "locations_label": "Oficinas",
-    "email_value": "info@t3-advisors.com",
-    "locations_value": "Caracas, Venezuela\nMadrid, España"
+    "email_value": "alejandro.tovar@t3-advisors.com",
+    "locations_value": "Caracas, Venezuela\nMadrid, España",
+    "phone_label": "Teléfono",
+    "phone_name": "Alejandro Tovar Alegrett",
+    "phone_value": "+58 424 143 4135"
   },
   "whyVenezuela": {
     "hero_headline": "¿Por qué Venezuela?",

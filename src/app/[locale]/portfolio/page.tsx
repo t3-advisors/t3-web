@@ -125,16 +125,18 @@ export default function PortfolioPage() {
           <section key={sector.id} id={sector.id} style={{ backgroundColor: bg }}>
             <ScrollReveal>
               <div style={{
-                maxWidth: 1200,
-                margin: "0 auto",
                 display: "flex",
                 flexDirection: sector.imgLeft ? "row" : "row-reverse",
                 alignItems: "stretch",
                 minHeight: 520,
               }}>
 
-                {/* ── Sector image ── */}
-                <div style={{ flex: "0 0 52%", position: "relative", overflow: "hidden", background: sector.gradient }}>
+                {/* ── Image: bleeds to screen edge, same visual split as before ── */}
+                <div style={{
+                  flex: "0 0 calc(50vw + 24px)",
+                  position: "relative", overflow: "hidden",
+                  background: sector.gradient,
+                }}>
                   <img
                     src={`/images/portfolio/${sector.id}.jpg`}
                     alt={t(`sector_label_${sector.id}`)}
@@ -151,21 +153,28 @@ export default function PortfolioPage() {
                   }} />
                 </div>
 
-                {/* ── Text content ── */}
+                {/* ── Text panel: fills remaining space, content constrained to original width ── */}
                 <div style={{
                   flex: 1,
-                  position: "relative",
-                  overflow: "hidden",
-                  padding: sector.imgLeft ? "72px 40px 72px 56px" : "72px 56px 72px 40px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
+                  alignItems: sector.imgLeft ? "flex-start" : "flex-end",
                 }}>
-                  {/* Decorative number */}
+                  {/* Inner content — same 576px width as original (48% of 1200) */}
+                  <div style={{
+                    width: "100%",
+                    maxWidth: 576,
+                    position: "relative",
+                    overflow: "hidden",
+                    padding: sector.imgLeft ? "72px 40px 72px 56px" : "72px 56px 72px 40px",
+                  }}>
+
+                  {/* Decorative number — bottom-right of content block, slightly inset */}
                   <p style={{
                     position: "absolute",
                     bottom: -30,
-                    ...(sector.imgLeft ? { right: -8 } : { left: -8 }),
+                    right: 28,
                     fontSize: 220,
                     fontFamily: "var(--font-heading)",
                     fontWeight: 800,
@@ -229,7 +238,9 @@ export default function PortfolioPage() {
                       {t("sector_cta")} <ArrowRight size={16} />
                     </Link>
                   </div>
-                </div>
+
+                  </div>{/* end inner content */}
+                </div>{/* end text panel */}
 
               </div>
             </ScrollReveal>

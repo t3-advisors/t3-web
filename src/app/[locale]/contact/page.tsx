@@ -1,6 +1,7 @@
+import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 import type { Metadata } from "next";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -53,7 +54,9 @@ export default function ContactPage() {
               backgroundColor: WW, borderRadius: 10, padding: "48px 52px",
               boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
             }}>
-              <ContactForm />
+              <Suspense fallback={null}>
+                <ContactForm />
+              </Suspense>
             </div>
           </ScrollReveal>
 
@@ -80,16 +83,17 @@ export default function ContactPage() {
 
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
-                    <MapPin size={20} color={GOLD} />
+                    <Phone size={20} color={GOLD} />
                     <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 16, fontWeight: 700, color: F }}>
-                      {t("locations_label")}
+                      {t("phone_label")}
                     </h3>
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                    <p style={{ fontSize: 17, color: `${CH}CC` }}>Caracas, Venezuela</p>
-                    <p style={{ fontSize: 17, color: `${CH}CC` }}>Madrid, España</p>
-                  </div>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: `${CH}BB`, marginBottom: 4 }}>
+                    {t("phone_name")}
+                  </p>
+                  <p style={{ fontSize: 17, color: `${CH}CC`, lineHeight: 1.6 }}>{t("phone_value")}</p>
                 </div>
+
               </div>
             </div>
           </ScrollReveal>

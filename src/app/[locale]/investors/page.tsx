@@ -265,7 +265,7 @@ export default function InvestorsPage() {
       <CtaBand
         headline={t("cta2_headline")}
         sub={t("cta2_sub")}
-        primaryHref="contact"
+        primaryHref="contact?mode=buyer"
         primaryLabel={t("cta2_btn")}
       />
     </div>

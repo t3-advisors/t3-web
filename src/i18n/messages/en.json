@@ -117,10 +117,46 @@
     "vertical_ind": "Industrial / Energy",
     "vertical_hc": "Healthcare",
     "vertical_min": "Mining",
+    "toggle_buyer": "I want to invest",
+    "toggle_seller": "I want to sell",
+
+    "transaction_type": "Transaction type",
+    "transaction_sale": "Sale",
+    "transaction_capital_raise": "Capital Raise",
+    "transaction_both": "Both",
+    "submit_buyer": "Request information",
+    "success_buyer": "Request received. You will receive an email with available opportunities in a few minutes.",
+
+    "seller_transaction_type": "Transaction type",
+    "seller_tx_full_sale": "Full asset sale",
+    "seller_tx_equity": "Equity sale",
+    "seller_tx_partners": "Seeking partners",
+    "seller_tx_financing": "Seeking financing",
+    "seller_tx_required": "Please select at least one option.",
+
+    "asset_type": "Asset type",
+    "asset_location": "Asset location",
+    "asset_location_placeholder": "State / City",
+    "price_range": "Estimated price range",
+    "price_range_placeholder": "Select range",
+    "price_under_1m": "Under USD $1M",
+    "price_1m_5m": "USD $1M – $5M",
+    "price_5m_15m": "USD $5M – $15M",
+    "price_15m_50m": "USD $15M – $50M",
+    "price_over_50m": "Over USD $50M",
+    "submit_seller": "Send message",
+    "success_seller": "Message received. We will contact you within 48 hours.",
+
+    "buyer_verticals_required": "Please select at least one sector of interest.",
+    "buyer_intro": "Once you submit this form, we'll send you an email with available opportunities in the sectors you select. For detailed information on any specific opportunity, you can request it directly through that email. You can also reach us directly through the contact details on the right.",
+
     "email_label": "Email",
     "locations_label": "Offices",
-    "email_value": "info@t3-advisors.com",
-    "locations_value": "Caracas, Venezuela\nMadrid, Spain"
+    "email_value": "alejandro.tovar@t3-advisors.com",
+    "locations_value": "Caracas, Venezuela\nMadrid, Spain",
+    "phone_label": "Phone",
+    "phone_name": "Alejandro Tovar Alegrett",
+    "phone_value": "+58 424 143 4135"
   },
   "whyVenezuela": {
     "hero_headline": "Why Venezuela?",
