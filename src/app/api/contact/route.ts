@@ -102,8 +102,7 @@ export async function POST(request: NextRequest) {
           priceRange: data.priceRange,
           message: data.message,
           sheetsError,
-        }) as React.ReactElement
-      );
+        })      );
 
       const modeLabel = data.mode === "buyer" ? "Inversionista" : "Vendedor";
       await resend.emails.send({
@@ -118,8 +117,7 @@ export async function POST(request: NextRequest) {
       // Auto-reply to the user
       if (data.mode === "seller") {
         const sellerHtml = await render(
-          SellerConfirmation({ name: data.name, locale }) as React.ReactElement
-        );
+          SellerConfirmation({ name: data.name, locale })        );
         await resend.emails.send({
           from: emailFrom,
           to: data.email,
@@ -133,8 +131,7 @@ export async function POST(request: NextRequest) {
             name: data.name,
             locale,
             verticals: data.verticals ?? [],
-          }) as React.ReactElement
-        );
+          })        );
         await resend.emails.send({
           from: emailFrom,
           to: data.email,
