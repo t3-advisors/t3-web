@@ -146,6 +146,8 @@
     "price_15m_50m": "USD $15M – $50M",
     "price_over_50m": "Más de USD $50M",
     "submit_seller": "Enviar mensaje",
+    "submitting": "Enviando...",
+    "submit_error": "Ocurrió un error. Por favor intenta de nuevo.",
     "success_seller": "Mensaje recibido. Lo contactaremos en un máximo de 48 horas.",
 
     "buyer_verticals_required": "Seleccione al menos un sector de interés.",

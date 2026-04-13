@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import type { Vertical } from "@/data/portfolio-listings";
 
@@ -32,6 +32,7 @@ const INPUT_CLS =
 
 export function ContactForm() {
   const t = useTranslations("contact");
+  const locale = useLocale();
   const searchParams = useSearchParams();
 
   const interestParam = searchParams.get("interest") as Vertical | null;
@@ -41,6 +42,8 @@ export function ContactForm() {
 
   const [mode, setMode] = useState<FormMode>(initialMode);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [sellerTxError, setSellerTxError] = useState(false);
   const [buyerVerticalsError, setBuyerVerticalsError] = useState(false);
 
@@ -84,7 +87,7 @@ export function ContactForm() {
     }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!shared.name.trim() || !shared.email.trim()) return;
     if (mode === "buyer" && buyerFields.verticals.length === 0) {
@@ -95,7 +98,38 @@ export function ContactForm() {
       setSellerTxError(true);
       return;
     }
-    setSubmitted(true);
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          mode,
+          locale,
+          ...shared,
+          ...(mode === "buyer"
+            ? { verticals: buyerFields.verticals }
+            : {
+                transactionTypes: sellerFields.transactionTypes,
+                assetType: sellerFields.assetType,
+                location: sellerFields.location,
+                priceRange: sellerFields.priceRange,
+                message: sellerFields.message,
+              }),
+          website: "", // honeypot — always empty from humans
+        }),
+      });
+
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setSubmitError(t("submit_error"));
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -345,13 +379,19 @@ export function ContactForm() {
       )}
 
       {/* ── Submit ── */}
-      <button
-        type="submit"
-        className="inline-flex items-center rounded-lg bg-forest px-6 py-3 text-base font-semibold text-warm-white transition-colors hover:bg-forest/90"
-      >
-        {mode === "buyer" ? t("submit_buyer") : t("submit_seller")}
-        <ArrowRight className="ml-2 h-4 w-4" />
-      </button>
+      <div className="space-y-3">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="inline-flex items-center rounded-lg bg-forest px-6 py-3 text-base font-semibold text-warm-white transition-colors hover:bg-forest/90 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? t("submitting") : (mode === "buyer" ? t("submit_buyer") : t("submit_seller"))}
+          {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
+        </button>
+        {submitError && (
+          <p className="text-sm text-red-600">{submitError}</p>
+        )}
+      </div>
     </form>
   );
 }
