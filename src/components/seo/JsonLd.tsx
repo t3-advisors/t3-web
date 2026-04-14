@@ -11,7 +11,7 @@ export function JsonLd({ data }: JsonLdProps) {
   );
 }
 
-const BASE = "https://t3-advisors.com";
+const BASE = "https://www.t3-advisors.com";
 
 export function OrganizationJsonLd() {
   return (

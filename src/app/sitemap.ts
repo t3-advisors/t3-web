@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://t3-advisors.com";
+const BASE = "https://www.t3-advisors.com";
 const locales = ["es", "en"] as const;
 
 const pages: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [

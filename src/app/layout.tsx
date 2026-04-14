@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://t3-advisors.com"),
+  metadataBase: new URL("https://www.t3-advisors.com"),
   title: "T3 Advisors",
   description:
     "Investment advisory and commercial real estate intermediation in Venezuela.",

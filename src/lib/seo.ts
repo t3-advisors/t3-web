@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const BASE = "https://t3-advisors.com";
+const BASE = "https://www.t3-advisors.com";
 
 /**
  * Generate alternates (canonical + hreflang) for a page.
