@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { alternates } from "@/lib/seo";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export async function generateMetadata({
@@ -15,6 +16,7 @@ export async function generateMetadata({
   return {
     title: t("about_title"),
     description: t("about_desc"),
+    alternates: alternates(locale, "/about"),
     openGraph: {
       title: t("about_title"),
       description: t("about_desc"),

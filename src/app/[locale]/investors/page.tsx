@@ -6,6 +6,7 @@ import {
   ArrowRight, Scale, ShieldCheck, Calculator, Award, HardHat,
   Building2, ShieldAlert, Banknote, TrendingUp,
 } from "lucide-react";
+import { alternates } from "@/lib/seo";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -19,6 +20,12 @@ export async function generateMetadata({
   return {
     title: t("investors_title"),
     description: t("investors_desc"),
+    alternates: alternates(locale, "/investors"),
+    openGraph: {
+      title: t("investors_title"),
+      description: t("investors_desc"),
+      type: "website",
+    },
   };
 }
 

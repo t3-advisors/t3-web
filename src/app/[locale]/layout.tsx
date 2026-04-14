@@ -4,6 +4,7 @@ import { Montserrat, Source_Sans_3 } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 
 const montserrat = Montserrat({
   variable: "--font-heading",
@@ -35,6 +36,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${montserrat.variable} ${sourceSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar locale={locale} />
           <main className="flex-1">{children}</main>

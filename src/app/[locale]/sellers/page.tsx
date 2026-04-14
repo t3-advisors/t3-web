@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Eye, Presentation, Lock, BarChart3, Briefcase, UserCheck, Clock, Trophy } from "lucide-react";
+import { alternates } from "@/lib/seo";
 import { CtaBand } from "@/components/sections/cta-band";
 import { FaqSection } from "@/components/sellers/faq-section";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -16,6 +17,12 @@ export async function generateMetadata({
   return {
     title: t("sellers_title"),
     description: t("sellers_desc"),
+    alternates: alternates(locale, "/sellers"),
+    openGraph: {
+      title: t("sellers_title"),
+      description: t("sellers_desc"),
+      type: "website",
+    },
   };
 }
 

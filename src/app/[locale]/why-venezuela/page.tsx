@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Landmark, ShieldAlert, Wrench, Shield, Scale } from "lucide-react";
+import { alternates } from "@/lib/seo";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -15,6 +16,12 @@ export async function generateMetadata({
   return {
     title: t("why_venezuela_title"),
     description: t("why_venezuela_desc"),
+    alternates: alternates(locale, "/why-venezuela"),
+    openGraph: {
+      title: t("why_venezuela_title"),
+      description: t("why_venezuela_desc"),
+      type: "website",
+    },
   };
 }
 

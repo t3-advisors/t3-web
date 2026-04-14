@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Mail, Phone } from "lucide-react";
+import { alternates } from "@/lib/seo";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -16,6 +17,12 @@ export async function generateMetadata({
   return {
     title: t("contact_title"),
     description: t("contact_desc"),
+    alternates: alternates(locale, "/contact"),
+    openGraph: {
+      title: t("contact_title"),
+      description: t("contact_desc"),
+      type: "website",
+    },
   };
 }
 

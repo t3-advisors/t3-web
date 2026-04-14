@@ -12,6 +12,7 @@ import {
   Gem,
   type LucideIcon,
 } from "lucide-react";
+import { alternates } from "@/lib/seo";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -25,6 +26,7 @@ export async function generateMetadata({
   return {
     title: t("portfolio_title"),
     description: t("portfolio_desc"),
+    alternates: alternates(locale, "/portfolio"),
     openGraph: {
       title: t("portfolio_title"),
       description: t("portfolio_desc"),
