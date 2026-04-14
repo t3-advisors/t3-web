@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -8,10 +9,18 @@ import {
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export const metadata: Metadata = {
-  title: "Para Inversionistas — T3 Advisors",
-  description: "Cómo funciona invertir en Venezuela con T3 Advisors. Proceso paso a paso, red de aliados, riesgos.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: t("investors_title"),
+    description: t("investors_desc"),
+  };
+}
 
 const F    = "#1B4332";
 const GOLD = "#C9A84C";

@@ -72,7 +72,9 @@
     "cta_invest_btn": "Ver portafolio",
     "cta_sell_title": "¿Quiere vender un activo?",
     "cta_sell_sub": "El primer paso es una conversación. T3 Advisors le orienta sobre el proceso, organiza toda la documentación del activo y lo acompaña desde la primera reunión hasta el cierre.",
-    "cta_sell_btn": "Hablemos"
+    "cta_sell_btn": "Hablemos",
+    "cta_services_sub": "El primer paso es siempre una conversación. Sin compromisos.",
+    "presencia_eyebrow": "Red de operación"
   },
   "about": {
     "hero_headline": "Sobre T3 Advisors",
@@ -435,6 +437,29 @@
 
     "cta_headline": "Acceda a nuestro portafolio completo",
     "cta_sub": "Las oportunidades detalladas se comparten bajo acuerdo de confidencialidad. Solicite acceso y un asesor de T3 lo contactará.",
-    "cta_btn": "Solicitar acceso"
+    "cta_btn": "Solicitar acceso",
+    "nda_note": "Detalles completos bajo NDA · solicitar acceso"
+  },
+  "meta": {
+    "home_title": "T3 Advisors — Activos comerciales en Venezuela",
+    "home_desc": "Conectamos capital internacional con activos reales en Venezuela. Más de 50 oportunidades en 6 sectores: bienes raíces, hotelería, agroindustria, industrial, salud y minería.",
+    "portfolio_title": "Portafolio de Inversión — T3 Advisors",
+    "portfolio_desc": "Seis sectores de inversión en Venezuela: inmobiliario, hotelería, agroindustria, industrial, salud y minería.",
+    "about_title": "Sobre Nosotros — T3 Advisors",
+    "about_desc": "Firma de asesoría en bienes raíces comerciales enfocada en Venezuela. Conozca al equipo y nuestro modelo operativo.",
+    "sellers_title": "Para Vendedores — T3 Advisors",
+    "sellers_desc": "Cómo T3 Advisors lleva su activo a términos. Proceso completo de 6 fases, FAQ.",
+    "investors_title": "Para Inversionistas — T3 Advisors",
+    "investors_desc": "Cómo funciona invertir en Venezuela con T3 Advisors. Proceso paso a paso, red de aliados, riesgos.",
+    "contact_title": "Contacto — T3 Advisors",
+    "contact_desc": "Contáctenos para explorar oportunidades de inversión en Venezuela.",
+    "why_venezuela_title": "¿Por qué Venezuela? — T3 Advisors",
+    "why_venezuela_desc": "La tesis de inversión en Venezuela. Datos, precedentes históricos, riesgos y oportunidades en bienes raíces comerciales.",
+    "privacy_title": "Política de Privacidad — T3 Advisors",
+    "privacy_desc": "Política de privacidad de T3 Advisors."
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "body": "Esta página se encuentra en construcción. La política de privacidad completa estará disponible próximamente."
   }
 }

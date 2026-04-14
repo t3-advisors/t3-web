@@ -1,14 +1,23 @@
 import { Suspense } from "react";
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Mail, Phone } from "lucide-react";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export const metadata: Metadata = {
-  title: "Contacto — T3 Advisors",
-  description: "Contáctenos para explorar oportunidades de inversión en Venezuela.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: t("contact_title"),
+    description: t("contact_desc"),
+  };
+}
 
 const F    = "#1B4332";
 const GOLD = "#C9A84C";

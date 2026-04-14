@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -14,16 +15,23 @@ import {
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export const metadata: Metadata = {
-  title: "Portafolio de Inversión — T3 Advisors",
-  description:
-    "Seis sectores de inversión en Venezuela: inmobiliario, hotelería, agroindustria, industrial, salud y minería.",
-  openGraph: {
-    title: "Portafolio de Inversión — T3 Advisors",
-    description: "Activos reales en seis sectores clave de la economía venezolana.",
-    type: "website",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: t("portfolio_title"),
+    description: t("portfolio_desc"),
+    openGraph: {
+      title: t("portfolio_title"),
+      description: t("portfolio_desc"),
+      type: "website",
+    },
+  };
+}
 
 const F = "#1B4332";
 const GOLD = "#C9A84C";

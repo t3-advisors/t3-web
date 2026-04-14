@@ -1,13 +1,22 @@
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Landmark, ShieldAlert, Wrench, Shield, Scale } from "lucide-react";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export const metadata: Metadata = {
-  title: "¿Por qué Venezuela? — T3 Advisors",
-  description: "La tesis de inversión en Venezuela. Datos, precedentes históricos, riesgos y oportunidades en bienes raíces comerciales.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: t("why_venezuela_title"),
+    description: t("why_venezuela_desc"),
+  };
+}
 
 const F    = "#1B4332";
 const GOLD = "#C9A84C";

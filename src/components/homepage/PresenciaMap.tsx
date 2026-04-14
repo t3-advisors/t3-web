@@ -1,3 +1,7 @@
+"use client";
+
+import { useLocale } from "next-intl";
+
 const GOLD = "#C9A84C";
 const WW   = "#F8F6F0";
 
@@ -127,13 +131,13 @@ const AFRICA: [number, number][] = [
 const CONTINENTS = [SA, NA, EUROPE, SCANDINAVIA, AFRICA, MIDDLE_EAST];
 
 // ── Cities ───────────────────────────────────────────────────
-const cities = [
-  { name: "MIAMI",    lon: -80.2, lat:  25.8, dx: -7, dy:  3, anchor: "end"    },
-  { name: "N. YORK",  lon: -74,   lat:  40.7, dx:  0, dy: -8, anchor: "middle" },
-  { name: "MADRID",   lon:  -3.7, lat:  40.4, dx:  7, dy:  9, anchor: "start"  },
-  { name: "LONDRES",  lon:  -0.1, lat:  51.5, dx:  7, dy: -3, anchor: "start"  },
-  { name: "DUBAI",    lon:  55.3, lat:  25.3, dx: -8, dy:  3, anchor: "end"    },
-  { name: "S. PAULO", lon: -46.6, lat: -23.5, dx:  7, dy:  4, anchor: "start"  },
+const citiesBase = [
+  { nameEs: "MIAMI",    nameEn: "MIAMI",    lon: -80.2, lat:  25.8, dx: -7, dy:  3, anchor: "end"    },
+  { nameEs: "N. YORK",  nameEn: "N. YORK",  lon: -74,   lat:  40.7, dx:  0, dy: -8, anchor: "middle" },
+  { nameEs: "MADRID",   nameEn: "MADRID",   lon:  -3.7, lat:  40.4, dx:  7, dy:  9, anchor: "start"  },
+  { nameEs: "LONDRES",  nameEn: "LONDON",   lon:  -0.1, lat:  51.5, dx:  7, dy: -3, anchor: "start"  },
+  { nameEs: "DUBAI",    nameEn: "DUBAI",    lon:  55.3, lat:  25.3, dx: -8, dy:  3, anchor: "end"    },
+  { nameEs: "S. PAULO", nameEn: "S. PAULO", lon: -46.6, lat: -23.5, dx:  7, dy:  4, anchor: "start"  },
 ];
 
 function r1(n: number) { return Math.round(n * 10) / 10; }
@@ -149,6 +153,9 @@ function arcPath(ax: number, ay: number, bx: number, by: number) {
 }
 
 export function PresenciaMap() {
+  const locale = useLocale();
+  const cities = citiesBase.map(c => ({ ...c, name: locale === "en" ? c.nameEn : c.nameEs }));
+
   return (
     <svg
       viewBox="0 0 370 370"

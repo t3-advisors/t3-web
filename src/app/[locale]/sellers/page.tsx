@@ -1,14 +1,23 @@
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Eye, Presentation, Lock, BarChart3, Briefcase, UserCheck, Clock, Trophy } from "lucide-react";
 import { CtaBand } from "@/components/sections/cta-band";
 import { FaqSection } from "@/components/sellers/faq-section";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export const metadata: Metadata = {
-  title: "Para Vendedores — T3 Advisors",
-  description: "Cómo T3 Advisors lleva su activo a términos. Proceso completo de 6 fases, FAQ.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: t("sellers_title"),
+    description: t("sellers_desc"),
+  };
+}
 
 const F    = "#1B4332";
 const GOLD = "#C9A84C";

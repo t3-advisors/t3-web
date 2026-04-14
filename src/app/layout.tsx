@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "T3 Advisors",
   description:
-    "Asesoría de inversión e intermediación de bienes raíces comerciales en Venezuela.",
+    "Investment advisory and commercial real estate intermediation in Venezuela.",
 };
 
 export default function RootLayout({

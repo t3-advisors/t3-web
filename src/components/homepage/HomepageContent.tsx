@@ -272,10 +272,10 @@ export function HomepageContent() {
             <div style={{ marginTop: 48, borderTop: `1px solid rgba(27,67,50,0.12)`, paddingTop: 40, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40 }}>
               <div>
                 <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 600, color: F }}>
-                  ¿Tiene un activo que quiere vender o busca financiación?
+                  {t("cta_sell_title")}
                 </p>
                 <p style={{ marginTop: 10, fontSize: 17, color: `${CH}99`, lineHeight: 1.6 }}>
-                  El primer paso es siempre una conversación. Sin compromisos.
+                  {t("cta_services_sub")}
                 </p>
               </div>
               <Link
@@ -297,7 +297,7 @@ export function HomepageContent() {
                   b.style.boxShadow = "none";
                 }}
               >
-                Hablemos <ArrowRight size={18} />
+                {t("cta_sell_btn")} <ArrowRight size={18} />
               </Link>
             </div>
           </ScrollReveal>
@@ -353,14 +353,14 @@ export function HomepageContent() {
           <ScrollReveal direction="left">
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: GOLD, opacity: 0.75, marginBottom: 20 }}>
-                Red de operación
+                {t("presencia_eyebrow")}
               </p>
               <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 42, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15, color: WW }}>
-                Presencia local,<br />alcance<br />internacional
+                {t("team_headline")}
               </h2>
               <div style={{ marginTop: 20, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
               <p style={{ marginTop: 28, fontSize: 17, lineHeight: 1.85, color: `${WW}77` }}>
-                T3 Advisors opera con un equipo en el terreno en Venezuela y capacidad de comunicación profesional desde Europa. Combinamos décadas de experiencia en bienes raíces comerciales venezolanos con los estándares de presentación y proceso que el capital internacional exige.
+                {t("team_desc")}
               </p>
               <Link
                 href="about"

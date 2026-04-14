@@ -72,7 +72,9 @@
     "cta_invest_btn": "View portfolio",
     "cta_sell_title": "Looking to sell an asset?",
     "cta_sell_sub": "The first step is a conversation. T3 Advisors guides you through the process, organizes all asset documentation, and accompanies you from the first meeting through closing.",
-    "cta_sell_btn": "Let's talk"
+    "cta_sell_btn": "Let's talk",
+    "cta_services_sub": "The first step is always a conversation. No commitments.",
+    "presencia_eyebrow": "Operations network"
   },
   "about": {
     "hero_headline": "About T3 Advisors",
@@ -435,6 +437,29 @@
 
     "cta_headline": "Access our full portfolio",
     "cta_sub": "Detailed opportunities are shared under a confidentiality agreement. Request access and a T3 advisor will contact you.",
-    "cta_btn": "Request access"
+    "cta_btn": "Request access",
+    "nda_note": "Full details under NDA · request access"
+  },
+  "meta": {
+    "home_title": "T3 Advisors — Commercial Assets in Venezuela",
+    "home_desc": "We connect international capital with real assets in Venezuela. Over 50 opportunities across 6 sectors: real estate, hospitality, agribusiness, industrial, healthcare, and mining.",
+    "portfolio_title": "Investment Portfolio — T3 Advisors",
+    "portfolio_desc": "Six investment sectors in Venezuela: real estate, hospitality, agribusiness, industrial, healthcare, and mining.",
+    "about_title": "About Us — T3 Advisors",
+    "about_desc": "Commercial real estate advisory firm focused on Venezuela. Meet our team and learn how we operate.",
+    "sellers_title": "For Sellers — T3 Advisors",
+    "sellers_desc": "How T3 Advisors takes your asset to closing. Complete 6-phase process, FAQ.",
+    "investors_title": "For Investors — T3 Advisors",
+    "investors_desc": "How investing in Venezuela with T3 Advisors works. Step-by-step process, partner network, risks.",
+    "contact_title": "Contact — T3 Advisors",
+    "contact_desc": "Contact us to explore investment opportunities in Venezuela.",
+    "why_venezuela_title": "Why Venezuela? — T3 Advisors",
+    "why_venezuela_desc": "The investment thesis for Venezuela. Data, historical precedents, risks and opportunities in commercial real estate.",
+    "privacy_title": "Privacy Policy — T3 Advisors",
+    "privacy_desc": "T3 Advisors privacy policy."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "body": "This page is under construction. The full privacy policy will be available soon."
   }
 }

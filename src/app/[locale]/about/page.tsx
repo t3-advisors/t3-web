@@ -1,18 +1,27 @@
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export const metadata: Metadata = {
-  title: "Sobre Nosotros — T3 Advisors",
-  description: "Firma de asesoría en bienes raíces comerciales enfocada en Venezuela. Conozca al equipo y nuestro modelo operativo.",
-  openGraph: {
-    title: "Sobre Nosotros — T3 Advisors",
-    description: "Por qué nació T3, nuestro equipo, y cómo operamos.",
-    type: "website",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: t("about_title"),
+    description: t("about_desc"),
+    openGraph: {
+      title: t("about_title"),
+      description: t("about_desc"),
+      type: "website",
+    },
+  };
+}
 
 const F    = "#1B4332";
 const GOLD = "#C9A84C";

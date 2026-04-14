@@ -97,7 +97,7 @@ export function PortfolioCarousel() {
                   <span style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 4, backgroundColor: `${F}12`, color: F, letterSpacing: "0.08em", textTransform: "uppercase" }}>{txLabel}</span>
                 </div>
                 <p style={{ marginTop: 12, fontSize: 11, color: `${F}44`, fontStyle: "italic" }}>
-                  {isEs ? "Detalles completos bajo NDA · solicitar acceso" : "Full details under NDA · request access"}
+                  {t("nda_note")}
                 </p>
               </div>
             );

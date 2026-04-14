@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { HomepageContent } from "@/components/homepage/HomepageContent";
 
-export const metadata: Metadata = {
-  title: "T3 Advisors — Activos comerciales en Venezuela",
-  description:
-    "Conectamos capital internacional con activos reales en Venezuela. Más de 50 oportunidades en 6 sectores: bienes raíces, hotelería, agroindustria, industrial, salud y minería.",
-  openGraph: {
-    title: "T3 Advisors — Activos comerciales en Venezuela",
-    description:
-      "Los activos comerciales en Venezuela se transan a una fracción de lo que cuestan en la región. T3 Advisors conecta inversionistas con estas oportunidades.",
-    type: "website",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: t("home_title"),
+    description: t("home_desc"),
+    openGraph: {
+      title: t("home_title"),
+      description: t("home_desc"),
+      type: "website",
+    },
+  };
+}
 
 export default function HomePage() {
   return <HomepageContent />;
