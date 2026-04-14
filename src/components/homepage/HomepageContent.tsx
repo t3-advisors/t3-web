@@ -89,10 +89,10 @@ function HeroPattern() {
 
 /* ── Card primitives ────────────────────────────────── */
 
-function Card({ children, style = {} }: { children: React.ReactNode; style?: React.CSSProperties }) {
+function Card({ children, className, style = {} }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
-    <div style={{
-      backgroundColor: WW, borderRadius: 10, padding: "36px 40px",
+    <div className={className ?? "px-5 py-6 md:px-10 md:py-9"} style={{
+      backgroundColor: WW, borderRadius: 10,
       boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
       ...style,
     }}>
@@ -101,11 +101,11 @@ function Card({ children, style = {} }: { children: React.ReactNode; style?: Rea
   );
 }
 
-function DarkCard({ children, style = {} }: { children: React.ReactNode; style?: React.CSSProperties }) {
+function DarkCard({ children, className, style = {} }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
   return (
-    <div style={{
+    <div className={className ?? "px-5 py-6 md:px-10 md:py-9"} style={{
       backgroundColor: "rgba(248,246,240,0.07)", border: "1px solid rgba(248,246,240,0.10)",
-      borderRadius: 10, padding: "36px 40px", boxShadow: "0 12px 40px rgba(0,0,0,0.30)",
+      borderRadius: 10, boxShadow: "0 12px 40px rgba(0,0,0,0.30)",
       ...style,
     }}>
       {children}
@@ -126,7 +126,7 @@ export function HomepageContent() {
       {/* ── HERO ──────────────────────────────────────── */}
       <section style={{ position: "relative", overflow: "hidden" }}>
         <HeroPattern />
-        <div style={{ padding: "72px 40px 64px", maxWidth: 1100, margin: "0 auto", position: "relative" }}>
+        <div className="px-5 py-10 md:px-10 md:pt-[72px] md:pb-16" style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
           <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
             <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
               T3 Advisors
@@ -134,17 +134,17 @@ export function HomepageContent() {
             <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px 0 24px" }} />
           </div>
           <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
-            <h1 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 62, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+            <h1 className="text-[32px] md:text-[62px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
               {t("hero_headline")}
             </h1>
           </div>
           <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-            <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620 }}>
+            <p className="text-base md:text-xl" style={{ marginTop: 28, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620 }}>
               {t.rich("hero_sub", { b: (chunks) => <strong style={{ color: CH }}>{chunks}</strong> })}
             </p>
           </div>
           <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
-            <div style={{ marginTop: 40, display: "flex", gap: 16 }}>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10 md:gap-4">
               <Link
                 href="investors"
                 onMouseEnter={() => setHoverInv(true)}
@@ -181,17 +181,17 @@ export function HomepageContent() {
       </section>
 
       {/* ── STAT BAR ──────────────────────────────────── */}
-      <div style={{ position: "relative", overflow: "hidden", backgroundColor: F, padding: "28px 40px" }}>
+      <div className="px-5 py-6 md:px-10 md:py-7" style={{ position: "relative", overflow: "hidden", backgroundColor: F }}>
         <NoiseOverlay id="stats" opacity={0.05} />
-        <div style={{ position: "relative", maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5" style={{ position: "relative", maxWidth: 1100, margin: "0 auto" }}>
           {[
             { valKey: "stat1_value", labelKey: "stat1_label" },
             { valKey: "stat2_value", labelKey: "stat2_label" },
             { valKey: "stat3_value", labelKey: "stat3_label" },
           ].map(({ valKey, labelKey }, i) => (
             <ScrollReveal key={valKey} delay={i * 0.12}>
-              <DarkCard style={{ padding: "28px 32px", textAlign: "center", height: "100%" }}>
-                <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 58, fontWeight: 600, lineHeight: 1, color: GOLD }}>{t(valKey)}</p>
+              <DarkCard className="px-5 py-5 md:px-8 md:py-7" style={{ textAlign: "center", height: "100%" }}>
+                <p className="text-4xl md:text-[58px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, lineHeight: 1, color: GOLD }}>{t(valKey)}</p>
                 <p style={{ marginTop: 12, fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: `${WW}CC` }}>{t(labelKey)}</p>
               </DarkCard>
             </ScrollReveal>
@@ -203,21 +203,22 @@ export function HomepageContent() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── LA OPORTUNIDAD ────────────────────────────── */}
-      <section style={{ padding: "72px 40px", maxWidth: 1200, margin: "0 auto" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1200, margin: "0 auto" }}>
         <ScrollReveal>
           <Card>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 44, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-[28px] md:text-[44px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("thesis_headline")}
             </h2>
             <div style={{ marginTop: 16, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-            <p style={{ marginTop: 28, fontSize: 20, lineHeight: 1.8, color: `${CH}CC` }}>{t("thesis_p1")}</p>
-            <p style={{ marginTop: 18, fontSize: 20, fontWeight: 600, lineHeight: 1.8, color: CH }}>{t("thesis_p2")}</p>
-            <div style={{ marginTop: 36, display: "flex", justifyContent: "flex-end" }}>
+            <p className="text-base md:text-xl" style={{ marginTop: 28, lineHeight: 1.8, color: `${CH}CC` }}>{t("thesis_p1")}</p>
+            <p className="text-base md:text-xl" style={{ marginTop: 18, fontWeight: 600, lineHeight: 1.8, color: CH }}>{t("thesis_p2")}</p>
+            <div className="mt-6 flex justify-end">
               <Link
                 href="why-venezuela"
+                className="text-base px-6 py-3 md:text-xl md:px-10 md:py-[18px]"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
-                  padding: "18px 40px", borderRadius: 6, fontSize: 20, fontWeight: 700,
+                  borderRadius: 6, fontWeight: 700,
                   background: "none", color: GOLD, border: `2px solid ${GOLD}`,
                   boxShadow: "none", textDecoration: "none",
                   transition: "background 0.18s, box-shadow 0.18s",
@@ -241,27 +242,27 @@ export function HomepageContent() {
       {/* gold rule removed — background change handles separation */}
 
       {/* ── CÓMO TRABAJAMOS ───────────────────────────── */}
-      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <ScrollReveal>
             <div style={{ marginBottom: 48 }}>
-              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+              <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
                 {t("services_headline")}
               </h2>
               <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-              <p style={{ marginTop: 20, fontSize: 19, color: `${CH}AA` }}>{t("services_sub")}</p>
+              <p className="text-base md:text-[19px]" style={{ marginTop: 20, color: `${CH}AA` }}>{t("services_sub")}</p>
             </div>
           </ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
             {steps.map(({ num, Icon, titleKey, descKey }, i) => (
               <ScrollReveal key={num} delay={i * 0.12}>
-                <Card style={{ padding: "48px 40px", height: "100%" }}>
+                <Card className="px-5 py-8 md:px-10 md:py-12" style={{ height: "100%" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28 }}>
                     <Icon size={44} color={GOLD} strokeWidth={1} />
                     <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 52, fontWeight: 700, color: GOLD, opacity: 0.15, lineHeight: 1 }}>{num}</span>
                   </div>
-                  <h3 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 26, fontWeight: 600, color: F }}>{t(titleKey)}</h3>
-                  <p style={{ marginTop: 16, fontSize: 18, lineHeight: 1.85, color: `${CH}CC` }}>{t(descKey)}</p>
+                  <h3 className="text-xl md:text-[26px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, color: F }}>{t(titleKey)}</h3>
+                  <p className="text-base md:text-lg" style={{ marginTop: 16, lineHeight: 1.85, color: `${CH}CC` }}>{t(descKey)}</p>
                 </Card>
               </ScrollReveal>
             ))}
@@ -269,20 +270,21 @@ export function HomepageContent() {
 
           {/* CTA vendedores */}
           <ScrollReveal delay={0.2}>
-            <div style={{ marginTop: 48, borderTop: `1px solid rgba(27,67,50,0.12)`, paddingTop: 40, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40 }}>
+            <div className="mt-8 flex flex-col gap-6 pt-8 md:mt-12 md:flex-row md:items-center md:justify-between md:gap-10 md:pt-10" style={{ borderTop: `1px solid rgba(27,67,50,0.12)` }}>
               <div>
-                <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 600, color: F }}>
+                <p className="text-lg md:text-[22px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, color: F }}>
                   {t("cta_sell_title")}
                 </p>
-                <p style={{ marginTop: 10, fontSize: 17, color: `${CH}99`, lineHeight: 1.6 }}>
+                <p className="text-base md:text-[17px]" style={{ marginTop: 10, color: `${CH}99`, lineHeight: 1.6 }}>
                   {t("cta_services_sub")}
                 </p>
               </div>
               <Link
                 href="contact"
+                className="self-start text-base py-3 px-8 md:text-[19px] md:py-[18px] md:px-11"
                 style={{
                   flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 8,
-                  padding: "18px 44px", borderRadius: 6, fontSize: 19, fontWeight: 700,
+                  borderRadius: 6, fontWeight: 700,
                   backgroundColor: GOLD, color: CH, border: "none", textDecoration: "none",
                   boxShadow: "none", transition: "background 0.18s, box-shadow 0.18s",
                 }}
@@ -305,25 +307,26 @@ export function HomepageContent() {
       </section>
 
       {/* ── SECTORES ──────────────────────────────────── */}
-      <section style={{ padding: "72px 40px", maxWidth: 1200, margin: "0 auto" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1200, margin: "0 auto" }}>
         <ScrollReveal>
           <div style={{ marginBottom: 52 }}>
-            <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("verticals_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-            <p style={{ marginTop: 20, fontSize: 19, color: `${CH}AA` }}>{t("verticals_sub")}</p>
+            <p className="text-base md:text-[19px]" style={{ marginTop: 20, color: `${CH}AA` }}>{t("verticals_sub")}</p>
           </div>
         </ScrollReveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
           {sectors.map(({ Icon, labelKey, descKey, vertical }, i) => (
             <ScrollReveal key={labelKey} delay={i * 0.08}>
               <Link
                 href={`portfolio?vertical=${vertical}`}
+                className="px-6 py-8 md:px-9 md:py-11"
                 style={{
                   display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
-                  padding: "44px 36px", borderRadius: 10, backgroundColor: WW, textDecoration: "none",
+                  borderRadius: 10, backgroundColor: WW, textDecoration: "none",
                   height: "100%",
                   boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
                   transition: "box-shadow 0.2s",
@@ -338,8 +341,8 @@ export function HomepageContent() {
                 }}
               >
                 <Icon size={48} color={GOLD} strokeWidth={1} style={{ marginBottom: 24 }} />
-                <p style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 22, fontWeight: 600, color: F }}>{t(labelKey)}</p>
-                <p style={{ marginTop: 12, fontSize: 17, lineHeight: 1.65, color: `${CH}88` }}>{t(descKey)}</p>
+                <p className="text-lg md:text-[22px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, color: F }}>{t(labelKey)}</p>
+                <p className="text-base md:text-[17px]" style={{ marginTop: 12, lineHeight: 1.65, color: `${CH}88` }}>{t(descKey)}</p>
               </Link>
             </ScrollReveal>
           ))}
@@ -349,13 +352,13 @@ export function HomepageContent() {
       {/* ── PRESENCIA LOCAL ───────────────────────────── */}
       <section style={{ position: "relative", overflow: "hidden", backgroundColor: "#0D2318", borderTop: `1px solid rgba(201,168,76,0.25)` }}>
         <NoiseOverlay id="presencia" opacity={0.04} />
-        <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: "80px 40px", display: "grid", gridTemplateColumns: "2fr 3fr", gap: 64, alignItems: "center" }}>
+        <div className="grid grid-cols-1 gap-8 px-5 py-12 md:grid-cols-[2fr_3fr] md:gap-16 md:px-10 md:py-20" style={{ position: "relative", maxWidth: 1200, margin: "0 auto", alignItems: "center" }}>
           <ScrollReveal direction="left">
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: GOLD, opacity: 0.75, marginBottom: 20 }}>
                 {t("presencia_eyebrow")}
               </p>
-              <h2 style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 42, fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15, color: WW }}>
+              <h2 className="text-[28px] md:text-[42px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.15, color: WW }}>
                 {t("team_headline")}
               </h2>
               <div style={{ marginTop: 20, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
@@ -370,7 +373,7 @@ export function HomepageContent() {
               </Link>
             </div>
           </ScrollReveal>
-          <ScrollReveal delay={0.15} direction="right">
+          <ScrollReveal delay={0.15} direction="right" className="hidden md:block">
             <div style={{ padding: 8, borderRadius: 12, border: "1px solid rgba(201,168,76,0.12)", background: "rgba(201,168,76,0.03)" }}>
               <PresenciaMap />
             </div>
@@ -379,8 +382,8 @@ export function HomepageContent() {
       </section>
 
       {/* ── CTA FINAL — dos paths ─────────────────────── */}
-      <div style={{ backgroundColor: "#F2EFE8", padding: "48px 40px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+      <div className="px-5 py-10 md:px-10 md:py-12" style={{ backgroundColor: "#F2EFE8" }}>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <Card style={{ height: "100%", display: "flex", flexDirection: "column" }}>
               {GOLD_LINE}

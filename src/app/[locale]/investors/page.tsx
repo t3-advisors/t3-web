@@ -52,7 +52,7 @@ export default function InvestorsPage() {
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
       {/* ── PAGE HEADER ─────────────────────────────────── */}
-      <section style={{ padding: "80px 40px 72px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0s both" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
@@ -60,12 +60,12 @@ export default function InvestorsPage() {
           <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
-          <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+          <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
             {t("hero_headline")}
           </h1>
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-          <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
+          <p className="text-base md:text-[19px]" style={{ marginTop: 24, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
             {t("hero_intro")}
           </p>
         </div>
@@ -75,10 +75,10 @@ export default function InvestorsPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── PROCESO: 7 PASOS ────────────────────────────── */}
-      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
         <div style={{ maxWidth: 860, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F, textAlign: "center" }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F, textAlign: "center" }}>
               {t("process_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "14px auto 52px" }} />
@@ -87,7 +87,7 @@ export default function InvestorsPage() {
           <div style={{ maxWidth: 680, margin: "0 auto", display: "flex", flexDirection: "column", gap: 0 }}>
             {steps.map((n, i) => (
               <ScrollReveal key={n} delay={i * 0.08}>
-                <div style={{ display: "flex", gap: 28 }}>
+                <div className="flex gap-4 md:gap-7">
                   {/* Rail */}
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
                     <div style={{
@@ -104,10 +104,9 @@ export default function InvestorsPage() {
                     )}
                   </div>
                   {/* Content */}
-                  <div style={{
-                    paddingBottom: i < steps.length - 1 ? 32 : 0, paddingTop: 10,
+                  <div className="px-5 py-4 md:px-7 md:py-4 md:pb-7" style={{
+                    paddingBottom: i < steps.length - 1 ? 32 : 0,
                     backgroundColor: WW, borderRadius: 10,
-                    padding: "16px 28px 28px",
                     marginLeft: 0, marginBottom: i < steps.length - 1 ? 12 : 0, flex: 1,
                     boxShadow: "0 4px 20px rgba(44,44,44,0.07), 0 1px 6px rgba(44,44,44,0.05)",
                   }}>
@@ -133,24 +132,24 @@ export default function InvestorsPage() {
       />
 
       {/* ── RED DE ALIADOS ──────────────────────────────── */}
-      <section style={{ backgroundColor: WW, padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: WW }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("allies_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-            <p style={{ marginTop: 24, fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640 }}>
+            <p className="text-base md:text-lg" style={{ marginTop: 24, lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640 }}>
               {t("allies_intro")}
             </p>
           </ScrollReveal>
 
-          <div style={{ marginTop: 40, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5" style={{ marginTop: 40 }}>
             {allies.map(({ icon: Icon, n }, i) => (
               <ScrollReveal key={n} delay={i * 0.1}>
-                <div style={{
+                <div className="px-5 py-6 md:px-8 md:py-9" style={{
                   height: "100%",
-                  backgroundColor: WW, borderRadius: 10, padding: "36px 32px",
+                  backgroundColor: WW, borderRadius: 10,
                   boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
                 }}>
                   <Icon size={40} color={GOLD} strokeWidth={1.25} />
@@ -180,14 +179,14 @@ export default function InvestorsPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── RIESGOS ─────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("risks_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 32 }} />
-            <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC` }}>
+            <p className="text-base md:text-lg" style={{ lineHeight: 1.75, color: `${CH}CC` }}>
               {t("risks_text")}
             </p>
             <div style={{ marginTop: 32, display: "flex", justifyContent: "flex-end" }}>
@@ -212,14 +211,14 @@ export default function InvestorsPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── INVERSIÓN EXTRANJERA ────────────────────────── */}
-      <section style={{ padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]">
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("foreign_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 24 }} />
-            <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640, marginBottom: 40 }}>
+            <p className="text-base md:text-lg" style={{ lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640, marginBottom: 40 }}>
               {t("foreign_intro")}
             </p>
           </ScrollReveal>
@@ -230,9 +229,9 @@ export default function InvestorsPage() {
               <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 22, fontWeight: 600, color: F, letterSpacing: "-0.01em", marginBottom: 24 }}>
                 {t("reqs_headline")}
               </h3>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
                 {/* EE.UU. */}
-                <div style={{ backgroundColor: WW, borderRadius: 10, padding: "32px 36px", boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)" }}>
+                <div className="px-5 py-6 md:px-9 md:py-8" style={{ backgroundColor: WW, borderRadius: 10, boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)" }}>
                   <div style={{ marginBottom: 20 }}>
                     <div style={{ fontSize: 40, lineHeight: 1, marginBottom: 12 }}>🇺🇸</div>
                     <h4 style={{ fontFamily: "var(--font-heading)", fontSize: 20, fontWeight: 600, color: F }}>
@@ -249,7 +248,7 @@ export default function InvestorsPage() {
                   </ul>
                 </div>
                 {/* Europa */}
-                <div style={{ backgroundColor: WW, borderRadius: 10, padding: "32px 36px", boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)" }}>
+                <div className="px-5 py-6 md:px-9 md:py-8" style={{ backgroundColor: WW, borderRadius: 10, boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)" }}>
                   <div style={{ marginBottom: 20 }}>
                     <div style={{ fontSize: 40, lineHeight: 1, marginBottom: 12 }}>🇪🇺</div>
                     <h4 style={{ fontFamily: "var(--font-heading)", fontSize: 20, fontWeight: 600, color: F }}>
@@ -281,13 +280,12 @@ export default function InvestorsPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {foreignTopics.map(({ key, Icon, highlight }, i) => (
               <ScrollReveal key={key} delay={i * 0.1}>
-                <div style={{
-                  backgroundColor: WW, borderRadius: 10, padding: "28px 36px",
+                <div className="flex flex-col gap-4 md:flex-row md:gap-9" style={{
+                  backgroundColor: WW, borderRadius: 10, padding: "28px 20px",
                   boxShadow: highlight
                     ? "0 8px 32px rgba(27,67,50,0.14), 0 2px 8px rgba(27,67,50,0.08)"
                     : "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
                   borderLeft: highlight ? `4px solid ${GOLD}` : "4px solid transparent",
-                  display: "flex", gap: 36, alignItems: "flex-start",
                 }}>
                   <div style={{ flexShrink: 0, paddingTop: 4 }}>
                     <Icon size={57} color={GOLD} strokeWidth={1.25} />
@@ -308,7 +306,7 @@ export default function InvestorsPage() {
                         </span>
                       )}
                     </div>
-                    <p style={{ marginTop: 10, fontSize: 17, lineHeight: 1.75, color: `${CH}CC` }}>
+                    <p className="text-base md:text-[17px]" style={{ marginTop: 10, lineHeight: 1.75, color: `${CH}CC` }}>
                       {t(`foreign_${key}_text`)}
                     </p>
                   </div>

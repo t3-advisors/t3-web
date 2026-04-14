@@ -31,7 +31,7 @@ export default function ContactPage() {
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
       {/* ── PAGE HEADER ─────────────────────────────────── */}
-      <section style={{ padding: "80px 40px 64px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-16" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
@@ -39,12 +39,12 @@ export default function ContactPage() {
           <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
-          <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+          <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
             {t("title")}
           </h1>
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-          <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 580, margin: "24px auto 0" }}>
+          <p className="text-base md:text-[19px]" style={{ marginTop: 24, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 580, margin: "24px auto 0" }}>
             {t("subtitle")}
           </p>
         </div>
@@ -54,13 +54,13 @@ export default function ContactPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── FORMULARIO + DATOS ──────────────────────────── */}
-      <section style={{ padding: "64px 40px 80px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "3fr 2fr", gap: 32 }}>
+      <section className="px-5 py-10 md:px-10 md:pt-16 md:pb-20">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-[3fr_2fr] md:gap-8" style={{ maxWidth: 1200, margin: "0 auto" }}>
 
           {/* Form Card */}
           <ScrollReveal direction="left">
-            <div style={{
-              backgroundColor: WW, borderRadius: 10, padding: "48px 52px",
+            <div className="px-5 py-8 md:px-[52px] md:py-12" style={{
+              backgroundColor: WW, borderRadius: 10,
               boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
             }}>
               <Suspense fallback={null}>
@@ -71,8 +71,8 @@ export default function ContactPage() {
 
           {/* Info Card */}
           <ScrollReveal delay={0.15} direction="right">
-            <div style={{
-              backgroundColor: WW, borderRadius: 10, padding: "48px 44px",
+            <div className="px-5 py-8 md:px-11 md:py-12" style={{
+              backgroundColor: WW, borderRadius: 10,
               boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
               borderTop: `4px solid ${GOLD}`,
               alignSelf: "start",

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { listings } from "@/data/portfolio-listings";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const F = "#1B4332";
 const GOLD = "#C9A84C";
@@ -27,24 +28,46 @@ const TX_LABELS: Record<string, { es: string; en: string }> = {
 const CAROUSEL_IDS = ["2", "1", "3", "4", "5", "11", "6"];
 const ITEMS = CAROUSEL_IDS.map((id) => listings.find((l) => l.id === id)!);
 
-const CARD_W = 340;
+const CARD_W_DESKTOP = 340;
 const CARD_GAP = 20;
-const VISIBLE = 3;
 
 export function PortfolioCarousel() {
   const locale = useLocale();
   const t = useTranslations("portfolioPage");
   const isEs = locale === "es";
+  const isMobile = useIsMobile();
+
+  const visible = isMobile ? 1 : 3;
 
   const [idx, setIdx] = useState(0);
   const idxRef = useRef(0);
-  const max = ITEMS.length - VISIBLE;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
 
-  const goTo = (i: number) => {
+  const max = ITEMS.length - visible;
+
+  // Reset index when switching breakpoints
+  useEffect(() => {
+    if (idx > max) {
+      idxRef.current = 0;
+      setIdx(0);
+    }
+  }, [max, idx]);
+
+  // Measure container for mobile translateX
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => setContainerWidth(entry.contentRect.width));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const goTo = useCallback((i: number) => {
     const clamped = Math.max(0, Math.min(max, i));
     idxRef.current = clamped;
     setIdx(clamped);
-  };
+  }, [max]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -55,11 +78,12 @@ export function PortfolioCarousel() {
     return () => clearInterval(timer);
   }, [max]);
 
-  const translateX = idx * (CARD_W + CARD_GAP);
+  const step = isMobile ? containerWidth + CARD_GAP : CARD_W_DESKTOP + CARD_GAP;
+  const translateX = idx * step;
 
   return (
     <div>
-      <div style={{ overflow: "hidden", borderRadius: 4 }}>
+      <div ref={containerRef} style={{ overflow: "hidden", borderRadius: 4 }}>
         <div style={{
           display: "flex",
           gap: CARD_GAP,
@@ -77,11 +101,11 @@ export function PortfolioCarousel() {
             return (
               <div
                 key={item.id}
+                className="px-5 py-6 md:px-7 md:py-8"
                 style={{
-                  flex: `0 0 ${CARD_W}px`,
+                  flex: isMobile ? `0 0 ${containerWidth}px` : `0 0 ${CARD_W_DESKTOP}px`,
                   backgroundColor: WW,
                   borderRadius: 10,
-                  padding: "32px 28px",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
                   display: "flex",
                   flexDirection: "column",

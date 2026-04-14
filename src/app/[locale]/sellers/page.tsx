@@ -35,7 +35,7 @@ export default function SellersPage() {
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
       {/* ── PAGE HEADER ─────────────────────────────────── */}
-      <section style={{ padding: "80px 40px 72px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0s both" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
@@ -43,12 +43,12 @@ export default function SellersPage() {
           <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
-          <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+          <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
             {t("hero_headline")}
           </h1>
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-          <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
+          <p className="text-base md:text-[19px]" style={{ marginTop: 24, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
             {t("hero_intro")}
           </p>
         </div>
@@ -58,20 +58,20 @@ export default function SellersPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── 6 FASES ─────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("process_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-            <p style={{ marginTop: 20, fontSize: 18, color: `${CH}AA` }}>{t("process_sub")}</p>
+            <p className="text-base md:text-lg" style={{ marginTop: 20, color: `${CH}AA` }}>{t("process_sub")}</p>
           </ScrollReveal>
 
           <div style={{ marginTop: 40, display: "flex", flexDirection: "column", gap: 0 }}>
             {phaseKeys.map((n, i) => (
               <ScrollReveal key={n} delay={i * 0.08}>
-                <div style={{ display: "flex", gap: 28 }}>
+                <div className="flex gap-4 md:gap-7">
                   {/* Rail */}
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
                     <div style={{
@@ -90,12 +90,12 @@ export default function SellersPage() {
 
                   {/* Content */}
                   <div style={{ flex: 1, paddingBottom: i < phaseKeys.length - 1 ? 36 : 0 }}>
-                    <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 28, fontWeight: 600, color: F, marginBottom: 20, lineHeight: "52px" }}>
+                    <h3 className="text-xl md:text-[28px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, color: F, marginBottom: 20, lineHeight: "52px" }}>
                       {t(`phase${n}_title`)}
                     </h3>
 
                     {/* 3 sub-cards */}
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+                    <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-6">
                       {([
                         { Icon: Briefcase, labelKey: "label_what_we_do",    contentKey: `phase${n}_do` },
                         { Icon: UserCheck, labelKey: "label_what_you_need", contentKey: `phase${n}_need` },
@@ -104,8 +104,8 @@ export default function SellersPage() {
                         const text = t(contentKey);
                         const lines = text.split("\n");
                         return (
-                          <div key={labelKey} style={{
-                            backgroundColor: WW, borderRadius: 8, padding: "24px 20px",
+                          <div key={labelKey} className="px-4 py-5 md:px-5 md:py-6" style={{
+                            backgroundColor: WW, borderRadius: 8,
                             boxShadow: "0 4px 16px rgba(44,44,44,0.07), 0 1px 4px rgba(44,44,44,0.04)",
                           }}>
                             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
@@ -136,11 +136,9 @@ export default function SellersPage() {
 
           {/* ── HONORARIOS ──────────────────────────────── */}
           <ScrollReveal>
-            <div style={{
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-10 px-5 py-8 md:px-12 md:py-10" style={{
               marginTop: 48,
               backgroundColor: F, borderRadius: 12,
-              padding: "40px 48px",
-              display: "flex", alignItems: "center", gap: 40,
               boxShadow: "0 12px 48px rgba(27,67,50,0.30)",
             }}>
               <Trophy size={56} color={GOLD} strokeWidth={1.25} style={{ flexShrink: 0 }} />
@@ -151,7 +149,7 @@ export default function SellersPage() {
                 }}>
                   {t("fee_headline")}
                 </h3>
-                <p style={{ fontSize: 17, lineHeight: 1.75, color: `${WW}CC` }}>
+                <p className="text-base md:text-[17px]" style={{ lineHeight: 1.75, color: `${WW}CC` }}>
                   {t("fee_body")}
                 </p>
               </div>
@@ -162,12 +160,12 @@ export default function SellersPage() {
       </section>
 
       {/* ── PULL QUOTE ──────────────────────────────────── */}
-      <section style={{ backgroundColor: F, padding: "80px 40px" }}>
+      <section className="px-5 py-12 md:px-10 md:py-20" style={{ backgroundColor: F }}>
         <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
           <ScrollReveal>
             <div style={{ width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "0 auto 36px" }} />
-            <p style={{
-              fontFamily: "var(--font-heading)", fontSize: 30, fontStyle: "italic",
+            <p className="text-xl md:text-[30px]" style={{
+              fontFamily: "var(--font-heading)", fontStyle: "italic",
               lineHeight: 1.55, color: WW, letterSpacing: "-0.01em",
             }}>
               &ldquo;{t("pullquote_text")}&rdquo;
@@ -184,22 +182,22 @@ export default function SellersPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── POR QUÉ T3 ──────────────────────────────────── */}
-      <section style={{ padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]">
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F, textAlign: "center" }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F, textAlign: "center" }}>
               {t("why_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "14px auto 48px" }} />
           </ScrollReveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
             {whyKeys.map((n, i) => {
               const Icon = whyIcons[i];
               return (
                 <ScrollReveal key={n} delay={i * 0.1}>
-                  <div style={{
-                    backgroundColor: WW, borderRadius: 10, padding: "36px 36px",
+                  <div className="px-5 py-6 md:px-9 md:py-9" style={{
+                    backgroundColor: WW, borderRadius: 10,
                     boxShadow: "0 8px 32px rgba(44,44,44,0.10), 0 2px 8px rgba(44,44,44,0.06)",
                     height: "100%",
                   }}>

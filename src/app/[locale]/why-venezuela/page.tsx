@@ -54,7 +54,7 @@ export default function WhyVenezuelaPage() {
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
       {/* ── PAGE HEADER ─────────────────────────────────── */}
-      <section style={{ padding: "80px 40px 72px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0s both" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
@@ -62,12 +62,12 @@ export default function WhyVenezuelaPage() {
           <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
-          <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+          <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
             {t("hero_headline")}
           </h1>
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-          <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
+          <p className="text-base md:text-[19px]" style={{ marginTop: 24, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
             {t("hero_intro")}
           </p>
         </div>
@@ -77,20 +77,20 @@ export default function WhyVenezuelaPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── EL CONTEXTO ─────────────────────────────────── */}
-      <section style={{ padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("context_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
           </ScrollReveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 48, alignItems: "start", marginTop: 28 }}>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_320px] md:gap-12" style={{ alignItems: "start", marginTop: 28 }}>
             <ScrollReveal direction="left">
               <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
                 {(["context_p1", "context_p2", "context_p3", "context_p4"] as const).map((k) => (
-                  <p key={k} style={{ fontSize: 18, lineHeight: 1.8, color: `${CH}CC` }}>{t(k)}</p>
+                  <p key={k} className="text-base md:text-lg" style={{ lineHeight: 1.8, color: `${CH}CC` }}>{t(k)}</p>
                 ))}
               </div>
             </ScrollReveal>
@@ -148,16 +148,16 @@ export default function WhyVenezuelaPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── TABLA DE PRECIOS ────────────────────────────── */}
-      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("prices_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 24 }} />
             <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 640, marginBottom: 40 }}>
-              <p style={{ fontSize: 18, lineHeight: 1.8, color: `${CH}CC` }}>{t("prices_p1")}</p>
-              <p style={{ fontSize: 18, lineHeight: 1.8, color: `${CH}CC` }}>{t("prices_p2")}</p>
+              <p className="text-base md:text-lg" style={{ lineHeight: 1.8, color: `${CH}CC` }}>{t("prices_p1")}</p>
+              <p className="text-base md:text-lg" style={{ lineHeight: 1.8, color: `${CH}CC` }}>{t("prices_p2")}</p>
             </div>
           </ScrollReveal>
 
@@ -212,19 +212,19 @@ export default function WhyVenezuelaPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── PRECEDENTES HISTÓRICOS ──────────────────────── */}
-      <section style={{ padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("precedents_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 24 }} />
-            <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640, marginBottom: 44 }}>
+            <p className="text-base md:text-lg" style={{ lineHeight: 1.75, color: `${CH}CC`, maxWidth: 640, marginBottom: 44 }}>
               {t("precedents_intro")}
             </p>
           </ScrollReveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
             {precedents.map((p, i) => (
               <ScrollReveal key={p.titleKey} delay={i * 0.1}>
                 <div style={{
@@ -236,7 +236,7 @@ export default function WhyVenezuelaPage() {
                     {t(p.titleKey)}
                   </h3>
                   <div style={{ marginTop: 16, display: "flex", alignItems: "baseline", gap: 12 }}>
-                    <span style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1, color: GOLD }}>
+                    <span className="text-4xl md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1, color: GOLD }}>
                       {t(p.statKey)}
                     </span>
                     <span style={{ fontSize: 14, fontWeight: 600, color: `${CH}77` }}>
@@ -254,12 +254,12 @@ export default function WhyVenezuelaPage() {
       </section>
 
       {/* ── PULL QUOTE ──────────────────────────────────── */}
-      <section style={{ backgroundColor: F, padding: "80px 40px" }}>
+      <section className="px-5 py-12 md:px-10 md:py-20" style={{ backgroundColor: F }}>
         <ScrollReveal>
           <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
             <div style={{ width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, margin: "0 auto 36px" }} />
-            <p style={{
-              fontFamily: "var(--font-heading)", fontSize: 28, fontStyle: "italic",
+            <p className="text-xl md:text-[28px]" style={{
+              fontFamily: "var(--font-heading)", fontStyle: "italic",
               lineHeight: 1.6, color: WW, letterSpacing: "-0.01em",
             }}>
               &ldquo;{t("pullquote_text")}&rdquo;
@@ -279,14 +279,14 @@ export default function WhyVenezuelaPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── LOS RIESGOS ─────────────────────────────────── */}
-      <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("risks_headline")}
             </h2>
             <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 24 }} />
-            <p style={{ fontSize: 18, lineHeight: 1.75, color: `${CH}CC`, marginBottom: 40 }}>
+            <p className="text-base md:text-lg" style={{ lineHeight: 1.75, color: `${CH}CC`, marginBottom: 40 }}>
               {t("risks_intro")}
             </p>
           </ScrollReveal>
@@ -294,11 +294,11 @@ export default function WhyVenezuelaPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {risks.map(({ Icon, titleKey, textKey }, i) => (
               <ScrollReveal key={titleKey} delay={i * 0.08}>
-                <div style={{
+                <div className="flex gap-4 md:gap-7" style={{
                   backgroundColor: WW, borderRadius: 10, padding: "28px 36px",
                   boxShadow: "0 4px 20px rgba(44,44,44,0.08), 0 1px 6px rgba(44,44,44,0.04)",
                   borderLeft: `4px solid ${GOLD}`,
-                  display: "flex", gap: 28, alignItems: "flex-start",
+                  alignItems: "flex-start",
                 }}>
                   <div style={{ flexShrink: 0, paddingTop: 4 }}>
                     <Icon size={44} color={GOLD} strokeWidth={1.25} />

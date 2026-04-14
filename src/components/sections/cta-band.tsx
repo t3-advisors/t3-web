@@ -30,20 +30,20 @@ export function CtaBand({ headline, sub, primaryHref, primaryLabel, secondaryHre
   const subCl     = light ? `${CH}99` : `${WW}B3`;
 
   return (
-    <section style={{ backgroundColor: bg, padding: "72px 40px", textAlign: "center" }}>
+    <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: bg, textAlign: "center" }}>
       <ScrollReveal>
       <div style={{ maxWidth: 700, margin: "0 auto" }}>
         <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.5, margin: "0 auto 32px" }} />
-        <h2 style={{
-          fontFamily: "var(--font-heading)", fontSize: 34, fontWeight: 600,
+        <h2 className="text-2xl md:text-[34px]" style={{
+          fontFamily: "var(--font-heading)", fontWeight: 600,
           lineHeight: 1.3, color: headingCl, letterSpacing: "-0.01em",
         }}>
           {headline}
         </h2>
         {sub && (
-          <p style={{ marginTop: 20, fontSize: 18, lineHeight: 1.75, color: subCl }}>{sub}</p>
+          <p className="text-base md:text-lg" style={{ marginTop: 20, lineHeight: 1.75, color: subCl }}>{sub}</p>
         )}
-        <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16 }}>
+        <div className="mt-8 flex flex-wrap justify-center gap-3 md:mt-10 md:gap-4">
           <Link
             href={primaryHref}
             onMouseEnter={() => setHp(true)}

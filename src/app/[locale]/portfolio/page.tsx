@@ -100,7 +100,7 @@ export default function PortfolioPage() {
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
       {/* ── HERO ──────────────────────────────────────── */}
-      <section style={{ padding: "80px 40px 72px", maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
@@ -108,16 +108,16 @@ export default function PortfolioPage() {
           <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
-          <h1 style={{ fontFamily: "var(--font-heading)", fontSize: 52, fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
+          <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
             {t("hero_headline")}
           </h1>
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
           <div style={{ maxWidth: 840, margin: "32px auto 0" }}>
-            <p style={{ fontSize: 19, lineHeight: 1.8, color: `${CH}BB` }}>
+            <p className="text-base md:text-[19px]" style={{ lineHeight: 1.8, color: `${CH}BB` }}>
               {t("hero_intro_1")}
             </p>
-            <p style={{ marginTop: 24, fontSize: 19, lineHeight: 1.8, color: `${CH}BB` }}>
+            <p className="text-base md:text-[19px]" style={{ marginTop: 24, lineHeight: 1.8, color: `${CH}BB` }}>
               {t.rich("hero_intro_2", {
                 b: (chunks) => <strong style={{ color: CH, fontWeight: 700 }}>{chunks}</strong>,
               })}
@@ -139,16 +139,10 @@ export default function PortfolioPage() {
         return (
           <section key={sector.id} id={sector.id} style={{ backgroundColor: bg }}>
             <ScrollReveal>
-              <div style={{
-                display: "flex",
-                flexDirection: sector.imgLeft ? "row" : "row-reverse",
-                alignItems: "stretch",
-                minHeight: 520,
-              }}>
+              <div className={`flex flex-col ${sector.imgLeft ? "md:flex-row" : "md:flex-row-reverse"} md:min-h-[520px]`} style={{ alignItems: "stretch" }}>
 
                 {/* ── Image: bleeds to screen edge, same visual split as before ── */}
-                <div style={{
-                  flex: "0 0 calc(50vw + 24px)",
+                <div className="h-56 sm:h-64 md:h-auto md:flex-[0_0_calc(50vw+24px)]" style={{
                   position: "relative", overflow: "hidden",
                   background: sector.gradient,
                   boxShadow: sector.imgLeft
@@ -181,20 +175,18 @@ export default function PortfolioPage() {
                   alignItems: sector.imgLeft ? "flex-start" : "flex-end",
                 }}>
                   {/* Inner content — same 576px width as original (48% of 1200) */}
-                  <div style={{
+                  <div className={`px-5 py-10 ${sector.imgLeft ? "md:py-[72px] md:pl-14 md:pr-10" : "md:py-[72px] md:pr-14 md:pl-10"}`} style={{
                     width: "100%",
                     maxWidth: 576,
                     position: "relative",
                     overflow: "hidden",
-                    padding: sector.imgLeft ? "72px 40px 72px 56px" : "72px 56px 72px 40px",
                   }}>
 
                   {/* Decorative number — bottom-right of content block, slightly inset */}
-                  <p style={{
+                  <p className="text-[80px] md:text-[160px]" style={{
                     position: "absolute",
                     bottom: 1,
                     right: 28,
-                    fontSize: 160,
                     fontFamily: "var(--font-heading)",
                     fontWeight: 800,
                     color: headingColor,
@@ -210,10 +202,10 @@ export default function PortfolioPage() {
                   <sector.Icon size={28} color={GOLD} strokeWidth={1.2} />
 
                   {/* Sector name */}
-                  <h2 style={{
+                  <h2 className="text-[26px] md:text-[40px]" style={{
                     marginTop: 14,
                     fontFamily: "var(--font-heading)",
-                    fontSize: 40, fontWeight: 600, lineHeight: 1.15,
+                    fontWeight: 600, lineHeight: 1.15,
                     letterSpacing: "-0.02em", color: headingColor,
                   }}>
                     {t(`sector_label_${sector.id}`)}

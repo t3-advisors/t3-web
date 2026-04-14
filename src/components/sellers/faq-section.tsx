@@ -19,9 +19,9 @@ export function FaqSection() {
   const t = useTranslations("sellersPage");
 
   return (
-    <section style={{ backgroundColor: "#F2EFE8", padding: "72px 40px" }}>
+    <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
-        <h2 style={{ fontFamily: "var(--font-heading)", fontSize: 36, fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+        <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
           {t("faq_headline")}
         </h2>
         <div style={{ marginTop: 14, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2, marginBottom: 40 }} />

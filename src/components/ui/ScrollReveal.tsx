@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 interface ScrollRevealProps {
   children: ReactNode;
+  className?: string;
   delay?: number;
   direction?: "up" | "down" | "left" | "right";
   distance?: number;
@@ -13,6 +14,7 @@ interface ScrollRevealProps {
 
 export function ScrollReveal({
   children,
+  className,
   delay = 0,
   direction = "up",
   distance = 30,
@@ -48,6 +50,7 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
+      className={className}
       style={{
         height: "100%",
         opacity: visible ? 1 : 0,
