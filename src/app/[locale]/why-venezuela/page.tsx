@@ -332,9 +332,9 @@ export default function WhyVenezuelaPage() {
       {/* ── CTA FINAL ───────────────────────────────────── */}
       <CtaBand
         headline={t("cta_headline")}
-        primaryHref="portfolio"
+        primaryHref="/portfolio"
         primaryLabel={t("cta_btn_portfolio")}
-        secondaryHref="contact"
+        secondaryHref="/contact"
         secondaryLabel={t("cta_btn_contact")}
       />
     </div>

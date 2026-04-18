@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import {
   Activity, ArrowRight, FileText, Gem, Handshake,
   Hotel, Landmark, Users, Wheat, Zap,
@@ -146,7 +146,7 @@ export function HomepageContent() {
           <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10 md:gap-4">
               <Link
-                href="investors"
+                href="/investors"
                 onMouseEnter={() => setHoverInv(true)}
                 onMouseLeave={() => setHoverInv(false)}
                 style={{
@@ -160,7 +160,7 @@ export function HomepageContent() {
                 {t("hero_cta_investors")} <ArrowRight size={16} />
               </Link>
               <Link
-                href="sellers"
+                href="/sellers"
                 onMouseEnter={() => setHoverSell(true)}
                 onMouseLeave={() => setHoverSell(false)}
                 style={{
@@ -214,7 +214,7 @@ export function HomepageContent() {
             <p className="text-base md:text-xl" style={{ marginTop: 18, fontWeight: 600, lineHeight: 1.8, color: CH }}>{t("thesis_p2")}</p>
             <div className="mt-6 flex justify-end">
               <Link
-                href="why-venezuela"
+                href="/why-venezuela"
                 className="text-base px-6 py-3 md:text-xl md:px-10 md:py-[18px]"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
@@ -280,7 +280,7 @@ export function HomepageContent() {
                 </p>
               </div>
               <Link
-                href="contact"
+                href="/contact"
                 className="self-start text-base py-3 px-8 md:text-[19px] md:py-[18px] md:px-11"
                 style={{
                   flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 8,
@@ -322,7 +322,7 @@ export function HomepageContent() {
           {sectors.map(({ Icon, labelKey, descKey, vertical }, i) => (
             <ScrollReveal key={labelKey} delay={i * 0.08}>
               <Link
-                href={`portfolio?vertical=${vertical}`}
+                href={`/portfolio?vertical=${vertical}`}
                 className="px-6 py-8 md:px-9 md:py-11"
                 style={{
                   display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
@@ -366,7 +366,7 @@ export function HomepageContent() {
                 {t("team_desc")}
               </p>
               <Link
-                href="about"
+                href="/about"
                 style={{ marginTop: 32, display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14, fontWeight: 700, color: GOLD, textDecoration: "none", letterSpacing: "0.04em" }}
               >
                 {t("team_link")} <ArrowRight size={14} strokeWidth={1.5} />
@@ -391,7 +391,7 @@ export function HomepageContent() {
               <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: `${CH}BB` }}>{t("cta_invest_sub")}</p>
               <div style={{ marginTop: "auto", paddingTop: 28 }}>
                 <Link
-                  href="portfolio"
+                  href="/portfolio"
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "13px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
@@ -412,7 +412,7 @@ export function HomepageContent() {
               <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: `${CH}BB` }}>{t("cta_sell_sub")}</p>
               <div style={{ marginTop: "auto", paddingTop: 28 }}>
                 <Link
-                  href="contact"
+                  href="/contact"
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "13px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,

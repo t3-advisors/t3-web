@@ -235,7 +235,7 @@ export default function SellersPage() {
       <CtaBand
         headline={t("cta_headline")}
         sub={t("cta_sub")}
-        primaryHref="contact?mode=seller"
+        primaryHref="/contact?mode=seller"
         primaryLabel={t("cta_btn")}
       />
     </div>

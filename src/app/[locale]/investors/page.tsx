@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import {
   ArrowRight, Scale, ShieldCheck, Calculator, Award, HardHat,
   Building2, ShieldAlert, Banknote, TrendingUp,
@@ -134,7 +134,7 @@ export default function InvestorsPage() {
       {/* ── CTA PORTFOLIO ───────────────────────────────── */}
       <CtaBand
         headline={t("cta1_headline")}
-        primaryHref="portfolio"
+        primaryHref="/portfolio"
         primaryLabel={t("cta1_btn")}
       />
 
@@ -198,7 +198,7 @@ export default function InvestorsPage() {
             </p>
             <div style={{ marginTop: 32, display: "flex", justifyContent: "flex-end" }}>
               <Link
-                href="why-venezuela"
+                href="/why-venezuela"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   padding: "14px 36px", borderRadius: 6,
@@ -337,7 +337,7 @@ export default function InvestorsPage() {
       <CtaBand
         headline={t("cta2_headline")}
         sub={t("cta2_sub")}
-        primaryHref="contact?mode=buyer"
+        primaryHref="/contact?mode=buyer"
         primaryLabel={t("cta2_btn")}
       />
     </div>

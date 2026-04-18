@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { alternates } from "@/lib/seo";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -147,7 +147,7 @@ export default function AboutPage() {
             </h2>
             <div style={{ marginTop: 40 }}>
               <Link
-                href="contact"
+                href="/contact"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   padding: "14px 40px", borderRadius: 6, fontSize: 16, fontWeight: 700,

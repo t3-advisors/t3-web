@@ -1,24 +1,22 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 
 const F    = "#1B4332";
 const GOLD = "#C9A84C";
 
 export function LocaleSwitcher({ locale }: { locale: string }) {
   const t = useTranslations("locale_switcher");
+  // `usePathname` from next-intl returns the current path WITHOUT the locale
+  // prefix, so we can reuse it and let <Link locale=...> prepend the new one.
   const pathname = usePathname();
   const otherLocale = locale === "es" ? "en" : "es";
 
-  const segments = pathname.split("/");
-  segments[1] = otherLocale;
-  const otherPath = segments.join("/");
-
   return (
     <Link
-      href={otherPath}
+      href={pathname}
+      locale={otherLocale}
       style={{
         padding: "4px 10px", borderRadius: 4,
         border: `1px solid rgba(27,67,50,0.28)`,

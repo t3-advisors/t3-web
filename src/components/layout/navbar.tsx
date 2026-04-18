@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { LocaleSwitcher } from "./locale-switcher";
@@ -12,7 +11,7 @@ const F    = "#1B4332";
 const WW   = "#F8F6F0";
 
 const navLinks = [
-  { href: "",               key: "home"          },
+  { href: "/",              key: "home"          },
   { href: "/why-venezuela", key: "why_venezuela" },
   { href: "/investors",     key: "investors"     },
   { href: "/sellers",       key: "sellers"       },
@@ -26,7 +25,8 @@ export function Navbar({ locale }: { locale: string }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   function isActive(href: string) {
-    return pathname === `/${locale}${href}`;
+    // `usePathname` from next-intl returns the path WITHOUT the locale prefix.
+    return pathname === href;
   }
 
   return (
@@ -50,7 +50,7 @@ export function Navbar({ locale }: { locale: string }) {
       >
         {/* LEFT — logo */}
         <div style={{ display: "flex", justifyContent: "flex-start" }}>
-          <Link href={`/${locale}`} style={{ display: "flex", alignItems: "center" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center" }}>
             <Image
               src="/logo/final_1_bold_tight_green_transparent.png"
               alt="T3 Advisors"
@@ -71,7 +71,7 @@ export function Navbar({ locale }: { locale: string }) {
             return (
               <Link
                 key={link.key}
-                href={`/${locale}${link.href}`}
+                href={link.href}
                 style={{
                   fontSize: 15, fontWeight: 700, letterSpacing: "0.01em",
                   color: F,
@@ -111,7 +111,7 @@ export function Navbar({ locale }: { locale: string }) {
         }}>
           <LocaleSwitcher locale={locale} />
           <Link
-            href={`/${locale}/contact`}
+            href="/contact"
             style={{
               padding: "9px 22px", borderRadius: 6, fontSize: 14, fontWeight: 700,
               backgroundColor: F, color: WW, textDecoration: "none",
@@ -180,7 +180,7 @@ export function Navbar({ locale }: { locale: string }) {
             </Link>
           ))}
           <Link
-            href={`/${locale}/contact`}
+            href="/contact"
             onClick={() => setMobileOpen(false)}
             style={{
               display: "inline-block", marginTop: 12,

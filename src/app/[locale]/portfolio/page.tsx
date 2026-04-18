@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import {
   ArrowRight,
   Landmark,
@@ -239,7 +239,7 @@ export default function PortfolioPage() {
                   {/* CTA */}
                   <div style={{ marginTop: 36 }}>
                     <Link
-                      href={`contact?interest=${sector.id}`}
+                      href={`/contact?interest=${sector.id}`}
                       style={{
                         display: "inline-flex", alignItems: "center", gap: 8,
                         padding: "12px 32px", borderRadius: 6,
@@ -269,7 +269,7 @@ export default function PortfolioPage() {
       <CtaBand
         headline={t("cta_headline")}
         sub={t("cta_sub")}
-        primaryHref="contact"
+        primaryHref="/contact"
         primaryLabel={t("cta_btn")}
         light
       />
