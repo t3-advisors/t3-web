@@ -44,7 +44,7 @@ export default function SellersPage() {
       {/* ── PAGE HEADER ─────────────────────────────────── */}
       <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0s both" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+          <p style={{ fontSize: 22, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
           </p>
           <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />

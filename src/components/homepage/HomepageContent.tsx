@@ -128,7 +128,7 @@ export function HomepageContent() {
         <HeroPattern />
         <div className="px-5 py-10 md:px-10 md:pt-[72px] md:pb-16" style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
           <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+            <p style={{ fontSize: 24, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
               T3 Advisors
             </p>
             <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px 0 24px" }} />

@@ -14,15 +14,15 @@
     "tagline": "Investment advisory and commercial real estate intermediation in Venezuela.",
     "navigation": "Navigation",
     "contact_heading": "Contact",
-    "email": "info@t3-advisors.com",
-    "locations": "Caracas · Madrid"
+    "email": "alejandro.tovar@t3advisors.com",
+    "locations": "Caracas"
   },
   "locale_switcher": {
     "es": "ES",
     "en": "EN"
   },
   "home": {
-    "hero_headline": "Invest in commercial assets in Venezuela with professionals on the ground",
+    "hero_headline": "Access investment opportunities in Venezuela with professionals on the ground",
     "hero_sub": "T3 Advisors is the advisory firm that connects <b>investors</b> with the best investment opportunities in Venezuela, and <b>sellers</b> with the capital and support they need.",
     "hero_cta_investors": "I'm an investor",
     "hero_cta_sellers": "I want to sell",
@@ -258,8 +258,8 @@
     "hero_intro": "Whether you are evaluating Venezuela for the first time or you know the market and want a professional counterparty, here is exactly how working with T3 Advisors works, what to expect at each step, and what support you have.",
 
     "process_headline": "How it works, step by step",
-    "step1_title": "Explore the portfolio or receive a teaser",
-    "step1_text": "Our public portfolio shows investment opportunities with anonymous profiles: sector, general location, price range, and a summary. If something catches your interest, that is the starting point.",
+    "step1_title": "Request the portfolio",
+    "step1_text": "Fill out the contact form indicating which sectors or transaction types interest you. We send you a teaser with anonymous profiles of the opportunities: sector, general location, price range, and a summary. That is the starting point.",
     "step2_title": "Express interest",
     "step2_text": "Contact us indicating which opportunity or sector interests you. There is no commitment at this stage. It is a conversation.",
     "step3_title": "Sign a confidentiality agreement",
@@ -391,7 +391,7 @@
     "faq4_a": "No, and be wary of anyone who does. What we do guarantee is that your asset will be presented in the best possible way, in front of the right counterparties, with a serious process. That maximizes the chances, but the final decision is the buyer's.",
     "faq5_q": "What if it doesn't sell?",
     "faq5_a": "We don't charge. T3 works on a success-fee model: we only earn fees if the transaction closes. That means we take on the risk with you, and our incentive is to bring your deal to a successful close.",
-    "faq6_q": "I don't want to sell -- I want to find a partner or investor",
+    "faq6_q": "I don't want to sell, I want to find a partner or investor",
     "faq6_a": "We do that too. The process shares the same structure: we prepare the project documentation, identify investors with the right profile, and accompany the negotiation. What changes is the focus: instead of transferring ownership, we are presenting an investment opportunity. T3 has experience in both types of transactions.",
 
     "cta_headline": "Have an asset you want to sell or seek investment for?",

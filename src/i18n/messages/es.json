@@ -14,15 +14,15 @@
     "tagline": "Asesoría de inversión e intermediación de bienes raíces comerciales en Venezuela.",
     "navigation": "Navegación",
     "contact_heading": "Contacto",
-    "email": "info@t3-advisors.com",
-    "locations": "Caracas · Madrid"
+    "email": "alejandro.tovar@t3advisors.com",
+    "locations": "Caracas"
   },
   "locale_switcher": {
     "es": "ES",
     "en": "EN"
   },
   "home": {
-    "hero_headline": "Invierta en activos comerciales en Venezuela de la mano de profesionales en el terreno",
+    "hero_headline": "Acceda a oportunidades de inversión en Venezuela de la mano de profesionales en el terreno",
     "hero_sub": "T3 Advisors es la firma de asesoría que conecta a <b>inversionistas</b> con las mejores oportunidades de inversión en Venezuela, y a <b>vendedores</b> con el capital y acompañamiento que necesitan.",
     "hero_cta_investors": "Soy inversionista",
     "hero_cta_sellers": "Quiero vender",
@@ -258,8 +258,8 @@
     "hero_intro": "Ya sea que esté evaluando Venezuela por primera vez o que conozca el mercado y quiera una contraparte profesional, aquí le explicamos exactamente cómo funciona trabajar con T3 Advisors, qué esperar en cada paso, y con qué apoyos cuenta.",
 
     "process_headline": "Cómo funciona, paso a paso",
-    "step1_title": "Explore el portafolio o reciba un teaser",
-    "step1_text": "Nuestro portafolio público muestra oportunidades de inversión con perfiles anónimos: sector, ubicación general, rango de precio y un resumen. Si algo le interesa, es el punto de partida.",
+    "step1_title": "Solicite el portafolio",
+    "step1_text": "Complete el formulario de contacto indicando qué sectores o tipos de transacción le interesan. Le enviamos un teaser con perfiles anónimos de las oportunidades: sector, ubicación general, rango de precio y un resumen. Es el punto de partida.",
     "step2_title": "Exprese interés",
     "step2_text": "Contáctenos indicando qué oportunidad o sector le interesa. No hay compromiso en este paso. Es una conversación.",
     "step3_title": "Firme un acuerdo de confidencialidad",
