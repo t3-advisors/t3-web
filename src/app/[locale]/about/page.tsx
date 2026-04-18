@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 import { alternates } from "@/lib/seo";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -44,12 +44,12 @@ export default function AboutPage() {
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
       {/* ── PAGE HEADER ─────────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-20" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 py-10 md:px-10 md:py-20" style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+          <p style={{ fontSize: 22, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
           </p>
-          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
+          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px 0 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
           <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
@@ -68,8 +68,8 @@ export default function AboutPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── EQUIPO ──────────────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <section className="py-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
+        <div className="px-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F, textAlign: "center" }}>
               {t("team_headline")}
@@ -114,8 +114,8 @@ export default function AboutPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── MODELO OPERATIVO ────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]">
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <section className="py-10 md:py-[72px]">
+        <div className="px-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("model_headline")}
@@ -147,7 +147,7 @@ export default function AboutPage() {
             </h2>
             <div style={{ marginTop: 40 }}>
               <Link
-                href="contact"
+                href="/contact"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
                   padding: "14px 40px", borderRadius: 6, fontSize: 16, fontWeight: 700,

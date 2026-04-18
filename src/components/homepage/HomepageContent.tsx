@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import {
   Activity, ArrowRight, FileText, Gem, Handshake,
   Hotel, Landmark, Users, Wheat, Zap,
@@ -128,7 +128,7 @@ export function HomepageContent() {
         <HeroPattern />
         <div className="px-5 py-10 md:px-10 md:pt-[72px] md:pb-16" style={{ maxWidth: 1100, margin: "0 auto", position: "relative" }}>
           <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+            <p style={{ fontSize: 24, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
               T3 Advisors
             </p>
             <div style={{ width: 48, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px 0 24px" }} />
@@ -146,7 +146,7 @@ export function HomepageContent() {
           <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10 md:gap-4">
               <Link
-                href="investors"
+                href="/investors"
                 onMouseEnter={() => setHoverInv(true)}
                 onMouseLeave={() => setHoverInv(false)}
                 style={{
@@ -160,7 +160,7 @@ export function HomepageContent() {
                 {t("hero_cta_investors")} <ArrowRight size={16} />
               </Link>
               <Link
-                href="sellers"
+                href="/sellers"
                 onMouseEnter={() => setHoverSell(true)}
                 onMouseLeave={() => setHoverSell(false)}
                 style={{
@@ -181,9 +181,9 @@ export function HomepageContent() {
       </section>
 
       {/* ── STAT BAR ──────────────────────────────────── */}
-      <div className="px-5 py-6 md:px-10 md:py-7" style={{ position: "relative", overflow: "hidden", backgroundColor: F }}>
+      <div className="py-6 md:py-7" style={{ position: "relative", overflow: "hidden", backgroundColor: F }}>
         <NoiseOverlay id="stats" opacity={0.05} />
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5" style={{ position: "relative", maxWidth: 1100, margin: "0 auto" }}>
+        <div className="grid grid-cols-1 gap-4 px-5 md:grid-cols-3 md:gap-5 md:px-10" style={{ position: "relative", maxWidth: 1100, margin: "0 auto" }}>
           {[
             { valKey: "stat1_value", labelKey: "stat1_label" },
             { valKey: "stat2_value", labelKey: "stat2_label" },
@@ -203,47 +203,45 @@ export function HomepageContent() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── LA OPORTUNIDAD ────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1100, margin: "0 auto" }}>
         <ScrollReveal>
-          <Card>
-            <h2 className="text-[28px] md:text-[44px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
-              {t("thesis_headline")}
-            </h2>
-            <div style={{ marginTop: 16, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-            <p className="text-base md:text-xl" style={{ marginTop: 28, lineHeight: 1.8, color: `${CH}CC` }}>{t("thesis_p1")}</p>
-            <p className="text-base md:text-xl" style={{ marginTop: 18, fontWeight: 600, lineHeight: 1.8, color: CH }}>{t("thesis_p2")}</p>
-            <div className="mt-6 flex justify-end">
-              <Link
-                href="why-venezuela"
-                className="text-base px-6 py-3 md:text-xl md:px-10 md:py-[18px]"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  borderRadius: 6, fontWeight: 700,
-                  background: "none", color: GOLD, border: `2px solid ${GOLD}`,
-                  boxShadow: "none", textDecoration: "none",
-                  transition: "background 0.18s, box-shadow 0.18s",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.background = WW;
-                  (e.currentTarget as HTMLElement).style.boxShadow = BTN_SHADOW;
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.background = "none";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                }}
-              >
-                {t("thesis_link")} <ArrowRight size={18} />
-              </Link>
-            </div>
-          </Card>
+          <h2 className="text-[28px] md:text-[44px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            {t("thesis_headline")}
+          </h2>
+          <div style={{ marginTop: 16, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
+          <p className="text-base md:text-xl" style={{ marginTop: 28, lineHeight: 1.8, color: `${CH}CC` }}>{t("thesis_p1")}</p>
+          <p className="text-base md:text-xl" style={{ marginTop: 18, fontWeight: 600, lineHeight: 1.8, color: CH }}>{t("thesis_p2")}</p>
+          <div className="mt-6 flex justify-end">
+            <Link
+              href="/why-venezuela"
+              className="text-base px-6 py-3 md:text-xl md:px-10 md:py-[18px]"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                borderRadius: 6, fontWeight: 700,
+                background: "none", color: GOLD, border: `2px solid ${GOLD}`,
+                boxShadow: "none", textDecoration: "none",
+                transition: "background 0.18s, box-shadow 0.18s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = WW;
+                (e.currentTarget as HTMLElement).style.boxShadow = BTN_SHADOW;
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = "none";
+                (e.currentTarget as HTMLElement).style.boxShadow = "none";
+              }}
+            >
+              {t("thesis_link")} <ArrowRight size={18} />
+            </Link>
+          </div>
         </ScrollReveal>
       </section>
 
       {/* gold rule removed — background change handles separation */}
 
       {/* ── CÓMO TRABAJAMOS ───────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="py-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
+        <div className="px-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <div style={{ marginBottom: 48 }}>
               <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
@@ -280,7 +278,7 @@ export function HomepageContent() {
                 </p>
               </div>
               <Link
-                href="contact"
+                href="/contact"
                 className="self-start text-base py-3 px-8 md:text-[19px] md:py-[18px] md:px-11"
                 style={{
                   flexShrink: 0, display: "inline-flex", alignItems: "center", gap: 8,
@@ -307,7 +305,7 @@ export function HomepageContent() {
       </section>
 
       {/* ── SECTORES ──────────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1100, margin: "0 auto" }}>
         <ScrollReveal>
           <div style={{ marginBottom: 52 }}>
             <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
@@ -322,7 +320,7 @@ export function HomepageContent() {
           {sectors.map(({ Icon, labelKey, descKey, vertical }, i) => (
             <ScrollReveal key={labelKey} delay={i * 0.08}>
               <Link
-                href={`portfolio?vertical=${vertical}`}
+                href={`/portfolio?vertical=${vertical}`}
                 className="px-6 py-8 md:px-9 md:py-11"
                 style={{
                   display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
@@ -352,7 +350,7 @@ export function HomepageContent() {
       {/* ── PRESENCIA LOCAL ───────────────────────────── */}
       <section style={{ position: "relative", overflow: "hidden", backgroundColor: "#0D2318", borderTop: `1px solid rgba(201,168,76,0.25)` }}>
         <NoiseOverlay id="presencia" opacity={0.04} />
-        <div className="grid grid-cols-1 gap-8 px-5 py-12 md:grid-cols-[2fr_3fr] md:gap-16 md:px-10 md:py-20" style={{ position: "relative", maxWidth: 1200, margin: "0 auto", alignItems: "center" }}>
+        <div className="grid grid-cols-1 gap-8 px-5 py-12 md:grid-cols-[2fr_3fr] md:gap-16 md:px-10 md:py-20" style={{ position: "relative", maxWidth: 1100, margin: "0 auto", alignItems: "center" }}>
           <ScrollReveal direction="left">
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: GOLD, opacity: 0.75, marginBottom: 20 }}>
@@ -366,7 +364,7 @@ export function HomepageContent() {
                 {t("team_desc")}
               </p>
               <Link
-                href="about"
+                href="/about"
                 style={{ marginTop: 32, display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14, fontWeight: 700, color: GOLD, textDecoration: "none", letterSpacing: "0.04em" }}
               >
                 {t("team_link")} <ArrowRight size={14} strokeWidth={1.5} />
@@ -382,8 +380,8 @@ export function HomepageContent() {
       </section>
 
       {/* ── CTA FINAL — dos paths ─────────────────────── */}
-      <div className="px-5 py-10 md:px-10 md:py-12" style={{ backgroundColor: "#F2EFE8" }}>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5" style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <div className="py-10 md:py-12" style={{ backgroundColor: "#F2EFE8" }}>
+        <div className="grid grid-cols-1 gap-4 px-5 md:grid-cols-2 md:gap-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <Card style={{ height: "100%", display: "flex", flexDirection: "column" }}>
               {GOLD_LINE}
@@ -391,7 +389,7 @@ export function HomepageContent() {
               <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: `${CH}BB` }}>{t("cta_invest_sub")}</p>
               <div style={{ marginTop: "auto", paddingTop: 28 }}>
                 <Link
-                  href="portfolio"
+                  href="/portfolio"
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "13px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
@@ -412,7 +410,7 @@ export function HomepageContent() {
               <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: `${CH}BB` }}>{t("cta_sell_sub")}</p>
               <div style={{ marginTop: "auto", paddingTop: 28 }}>
                 <Link
-                  href="contact"
+                  href="/contact"
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "13px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,

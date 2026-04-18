@@ -11,18 +11,20 @@
   "footer": {
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
+    "terms": "Terms and Conditions",
+    "cookies": "Cookie Policy",
     "tagline": "Investment advisory and commercial real estate intermediation in Venezuela.",
     "navigation": "Navigation",
     "contact_heading": "Contact",
-    "email": "info@t3-advisors.com",
-    "locations": "Caracas · Madrid"
+    "email": "alejandro.tovar@t3-advisors.com",
+    "locations": "Caracas"
   },
   "locale_switcher": {
     "es": "ES",
     "en": "EN"
   },
   "home": {
-    "hero_headline": "Invest in commercial assets in Venezuela with professionals on the ground",
+    "hero_headline": "Access investment opportunities in Venezuela with professionals on the ground",
     "hero_sub": "T3 Advisors is the advisory firm that connects <b>investors</b> with the best investment opportunities in Venezuela, and <b>sellers</b> with the capital and support they need.",
     "hero_cta_investors": "I'm an investor",
     "hero_cta_sellers": "I want to sell",
@@ -257,9 +259,11 @@
     "hero_headline": "For investors",
     "hero_intro": "Whether you are evaluating Venezuela for the first time or you know the market and want a professional counterparty, here is exactly how working with T3 Advisors works, what to expect at each step, and what support you have.",
 
+    "process_eyebrow": "Process",
     "process_headline": "How it works, step by step",
-    "step1_title": "Explore the portfolio or receive a teaser",
-    "step1_text": "Our public portfolio shows investment opportunities with anonymous profiles: sector, general location, price range, and a summary. If something catches your interest, that is the starting point.",
+    "process_sub": "Seven clear stages, from the first evaluation through closing. At each one, you know what T3 does, what you need to bring, and what to expect.",
+    "step1_title": "Request the portfolio",
+    "step1_text": "Fill out the contact form indicating which sectors or transaction types interest you. We send you a teaser with anonymous profiles of the opportunities: sector, general location, price range, and a summary. That is the starting point.",
     "step2_title": "Express interest",
     "step2_text": "Contact us indicating which opportunity or sector interests you. There is no commitment at this stage. It is a conversation.",
     "step3_title": "Sign a confidentiality agreement",
@@ -391,7 +395,7 @@
     "faq4_a": "No, and be wary of anyone who does. What we do guarantee is that your asset will be presented in the best possible way, in front of the right counterparties, with a serious process. That maximizes the chances, but the final decision is the buyer's.",
     "faq5_q": "What if it doesn't sell?",
     "faq5_a": "We don't charge. T3 works on a success-fee model: we only earn fees if the transaction closes. That means we take on the risk with you, and our incentive is to bring your deal to a successful close.",
-    "faq6_q": "I don't want to sell -- I want to find a partner or investor",
+    "faq6_q": "I don't want to sell, I want to find a partner or investor",
     "faq6_a": "We do that too. The process shares the same structure: we prepare the project documentation, identify investors with the right profile, and accompany the negotiation. What changes is the focus: instead of transferring ownership, we are presenting an investment opportunity. T3 has experience in both types of transactions.",
 
     "cta_headline": "Have an asset you want to sell or seek investment for?",
@@ -456,10 +460,250 @@
     "why_venezuela_title": "Why Invest in Venezuela? — Investment Thesis | T3 Advisors",
     "why_venezuela_desc": "Discover why investing in Venezuela now. Real estate market data, assets priced at a fraction of replacement cost, historical precedents, and commercial real estate opportunities.",
     "privacy_title": "Privacy Policy — T3 Advisors",
-    "privacy_desc": "T3 Advisors privacy policy. How we protect your information when exploring investment opportunities in Venezuela."
+    "privacy_desc": "T3 Advisors privacy policy. How we protect your information when exploring investment opportunities in Venezuela.",
+    "cookies_title": "Cookie Policy — T3 Advisors",
+    "cookies_desc": "Which cookies the T3 Advisors website uses and how you can control them.",
+    "terms_title": "Terms and Conditions — T3 Advisors",
+    "terms_desc": "Terms and conditions for the use of the T3 Advisors website and services."
   },
   "privacy": {
     "title": "Privacy Policy",
-    "body": "This page is under construction. The full privacy policy will be available soon."
+    "intro": "This policy explains how T3 Advisors collects, uses and protects your personal information when you visit our website or contact us. By using the site, you accept the practices described here.",
+    "sections": [
+      {
+        "title": "Data controller",
+        "paragraphs": [
+          "T3 Advisors, based in Caracas, Venezuela, is the data controller responsible for the personal data collected through this site. For any inquiry about your personal data, please contact us at alejandro.tovar@t3-advisors.com."
+        ]
+      },
+      {
+        "title": "What data we collect",
+        "paragraphs": [
+          "When you fill out the contact form we collect the following data:"
+        ],
+        "bullets": [
+          "Full name.",
+          "Email address.",
+          "Company (optional).",
+          "Phone number (optional).",
+          "Information about your interest: sectors, transaction type, asset type, location and price range.",
+          "Free-text message (optional).",
+          "IP address, used only to apply rate limits and prevent abuse of the form.",
+          "Language preference, stored in a functional cookie."
+        ]
+      },
+      {
+        "title": "How we use your data",
+        "paragraphs": [
+          "We use your information to respond to your request and maintain the business conversation, send you information about investment opportunities that match your profile, keep an internal record of leads for follow-up, and comply with legal obligations when applicable.",
+          "The legal basis is the performance of a contract or pre-contractual measures at your request, or our legitimate interest in managing the business, depending on the specific case."
+        ]
+      },
+      {
+        "title": "How long we keep it",
+        "bullets": [
+          "Form data: while an active business relationship exists and up to 3 years after the last contact, unless a longer retention period is required by law.",
+          "IP records for rate limiting: no longer than 24 hours."
+        ]
+      },
+      {
+        "title": "Who we share it with",
+        "paragraphs": [
+          "We do not sell your data or share it for advertising purposes. We only share it with third parties that provide services necessary for the operation of the site and our business, and that act as data processors on our behalf. These categories are:"
+        ],
+        "bullets": [
+          "Website infrastructure and hosting providers.",
+          "Transactional email delivery providers.",
+          "Tools for internal management and recording of business contacts.",
+          "Public authorities or bodies when required by a legal obligation."
+        ]
+      },
+      {
+        "title": "International transfers",
+        "paragraphs": [
+          "Some of our providers are based outside Venezuela, mainly in the United States and the European Union. In those cases, your data may be transferred outside your country of residence. These providers rely on standard protection mechanisms, such as Standard Contractual Clauses or other internationally recognised frameworks."
+        ]
+      },
+      {
+        "title": "Your rights",
+        "paragraphs": [
+          "You may exercise the following rights at any time:"
+        ],
+        "bullets": [
+          "Access the personal data we hold about you.",
+          "Request rectification of inaccurate data.",
+          "Request deletion of your data when it is no longer necessary.",
+          "Object to processing or request its restriction.",
+          "Request portability of your data.",
+          "Withdraw consent at any time, without affecting the lawfulness of prior processing."
+        ]
+      },
+      {
+        "title": "How to exercise your rights",
+        "paragraphs": [
+          "To exercise any of the rights above, please contact us at alejandro.tovar@t3-advisors.com. We will respond within a maximum of 30 days. If you believe we have not handled your request properly, you may file a complaint with the data protection authority competent in your jurisdiction."
+        ]
+      },
+      {
+        "title": "Security",
+        "paragraphs": [
+          "We apply reasonable technical and organisational measures to protect your data: restricted access, encrypted transmission via HTTPS and TLS, and providers with recognised certifications. No transmission over the internet is 100% secure, but we make our best effort to protect it."
+        ]
+      },
+      {
+        "title": "Cookies",
+        "paragraphs": [
+          "The site uses a single functional cookie (NEXT_LOCALE) to remember your language preference. We do not use advertising, analytics or third-party tracking cookies. See our Cookie Policy for details."
+        ]
+      },
+      {
+        "title": "Changes to this policy",
+        "paragraphs": [
+          "We may update this policy from time to time. The current version will always be the one published on this site."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "For any question about this policy or about how we handle your data, please write to alejandro.tovar@t3-advisors.com. T3 Advisors, Caracas, Venezuela."
+        ]
+      }
+    ]
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "intro": "This page explains which cookies the T3 Advisors website uses, what they do, and how you can control them.",
+    "sections": [
+      {
+        "title": "What cookies are",
+        "paragraphs": [
+          "Cookies are small text files that a website stores in your browser. They allow the site to recognise your browser on later visits and remember certain preferences."
+        ]
+      },
+      {
+        "title": "Cookies this site uses",
+        "paragraphs": [
+          "We only use strictly necessary or functional cookies:"
+        ],
+        "bullets": [
+          "NEXT_LOCALE: remembers the language (Spanish or English) you explicitly selected in the menu switcher. Duration: up to 1 year. Not shared with third parties."
+        ]
+      },
+      {
+        "title": "Cookies we do not use",
+        "paragraphs": [
+          "We do not use analytics, advertising, social media or tracking cookies. We do not install Meta, Google Ads or similar marketing pixels. We do not load third-party marketing scripts."
+        ]
+      },
+      {
+        "title": "Technical infrastructure cookies",
+        "paragraphs": [
+          "Vercel, the provider that hosts the site, may set temporary technical cookies needed for the site to operate, such as load balancing or deployment previews. These are session cookies and are not used for commercial purposes."
+        ]
+      },
+      {
+        "title": "How to control them",
+        "paragraphs": [
+          "You can accept, block or delete cookies from your browser settings. If you block the NEXT_LOCALE cookie, the site will not remember your language preference between sessions, but will continue to work correctly."
+        ]
+      },
+      {
+        "title": "Changes",
+        "paragraphs": [
+          "If in the future we add analytics or other non-essential cookies, we will implement a prior consent banner before activating them. This page will be updated accordingly."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "If you have questions about this cookie policy, please write to alejandro.tovar@t3-advisors.com."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "intro": "The following terms govern the use of the T3 Advisors website and your interaction with our services. By browsing the site or contacting us, you accept these terms.",
+    "sections": [
+      {
+        "title": "About T3 Advisors",
+        "paragraphs": [
+          "T3 Advisors is a professional advisory practice in investment and commercial real estate, based in Caracas, Venezuela. We connect investors with investment opportunities in Venezuela and guide asset owners through sale processes or the search for capital."
+        ]
+      },
+      {
+        "title": "Purpose of the site",
+        "paragraphs": [
+          "This site is for informational purposes only. The content of the site does not, under any circumstances, constitute:"
+        ],
+        "bullets": [
+          "A public or private offer of securities or financial instruments.",
+          "A personalised investment recommendation.",
+          "Legal, accounting, tax or financial advice."
+        ]
+      },
+      {
+        "title": "Portfolio information",
+        "paragraphs": [
+          "Information about investment opportunities is shared only under confidentiality, after a formal contact process and the signing of the relevant agreements. Any opportunity profiles that T3 Advisors shares upon request are anonymous and indicative; any investment decision requires a full due diligence process, which is the sole responsibility of the investor with the support of independent professional advisors."
+        ]
+      },
+      {
+        "title": "Risk",
+        "paragraphs": [
+          "Investing in emerging markets, including Venezuela, involves material risks and potential total loss of capital. You acknowledge these risks and assume their management. Risk factors include, without limitation:"
+        ],
+        "bullets": [
+          "Regulatory change and public policy shifts.",
+          "Political instability.",
+          "International sanctions, including OFAC.",
+          "Currency controls and foreign-exchange risk.",
+          "Limited liquidity and uncertain exit horizons.",
+          "Weakness of contract enforcement mechanisms."
+        ]
+      },
+      {
+        "title": "No guarantee of results",
+        "paragraphs": [
+          "T3 Advisors does not guarantee returns, execution timelines, or the successful closing of any transaction. Precedents or cases mentioned on the site are illustrative and do not constitute any promise of future performance."
+        ]
+      },
+      {
+        "title": "Intellectual property",
+        "paragraphs": [
+          "All content on the site (text, logos, images, structure) is the property of T3 Advisors or used under licence. Reproduction, adaptation, distribution or commercial use without written authorisation is not permitted."
+        ]
+      },
+      {
+        "title": "Third-party links",
+        "paragraphs": [
+          "The site may contain links to third-party pages. T3 Advisors does not control and is not responsible for the content, privacy policies or practices of those sites."
+        ]
+      },
+      {
+        "title": "Limitation of liability",
+        "paragraphs": [
+          "To the maximum extent permitted by applicable law, T3 Advisors will not be liable for indirect, incidental or consequential damages, loss of profits or loss of opportunity arising from the use of the site or from decisions taken based on its content."
+        ]
+      },
+      {
+        "title": "Governing law and arbitration",
+        "paragraphs": [
+          "These terms are governed by the laws of the Bolivarian Republic of Venezuela. Any dispute arising out of or in connection with these terms or the services provided by T3 Advisors shall be finally resolved by international arbitration, administered by the Centro Empresarial de Conciliación y Arbitraje (CEDCA) of Caracas or, at the election of the parties, by the International Chamber of Commerce (ICC). The arbitration shall be conducted in Spanish, by a sole arbitrator, and the award shall be final and binding on the parties."
+        ]
+      },
+      {
+        "title": "Changes",
+        "paragraphs": [
+          "We may update these terms at any time. The current version is always the one published on the site."
+        ]
+      },
+      {
+        "title": "Contact",
+        "paragraphs": [
+          "For any question about these terms, please write to alejandro.tovar@t3-advisors.com. T3 Advisors, Caracas, Venezuela."
+        ]
+      }
+    ]
   }
 }

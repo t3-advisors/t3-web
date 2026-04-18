@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { LocaleSwitcher } from "./locale-switcher";
@@ -12,7 +11,7 @@ const F    = "#1B4332";
 const WW   = "#F8F6F0";
 
 const navLinks = [
-  { href: "",               key: "home"          },
+  { href: "/",              key: "home"          },
   { href: "/why-venezuela", key: "why_venezuela" },
   { href: "/investors",     key: "investors"     },
   { href: "/sellers",       key: "sellers"       },
@@ -26,7 +25,8 @@ export function Navbar({ locale }: { locale: string }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   function isActive(href: string) {
-    return pathname === `/${locale}${href}`;
+    // `usePathname` from next-intl returns the path WITHOUT the locale prefix.
+    return pathname === href;
   }
 
   return (
@@ -38,19 +38,23 @@ export function Navbar({ locale }: { locale: string }) {
       borderBottom: "1px solid rgba(27,67,50,0.12)",
       boxShadow: "0 2px 16px rgba(27,67,50,0.08)",
     }}>
-      {/* Desktop — 3-column grid */}
+      {/* Desktop — flex with space-between so logo, nav and right side
+           have equal breathing room on both gaps (grid 1fr/auto/1fr
+           distributed space unevenly because the right group is wider
+           than the logo, squeezing the locale switcher next to Nosotros). */}
       <div
-        className="hidden lg:grid"
+        className="hidden lg:flex"
         style={{
           maxWidth: 1200, margin: "0 auto",
           padding: "0 40px", height: 72,
-          gridTemplateColumns: "1fr auto 1fr",
           alignItems: "center",
+          justifyContent: "space-between",
+          gap: 32,
         }}
       >
         {/* LEFT — logo */}
-        <div style={{ display: "flex", justifyContent: "flex-start" }}>
-          <Link href={`/${locale}`} style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", justifyContent: "flex-start", flexShrink: 0 }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center" }}>
             <Image
               src="/logo/final_1_bold_tight_green_transparent.png"
               alt="T3 Advisors"
@@ -63,7 +67,7 @@ export function Navbar({ locale }: { locale: string }) {
 
         {/* CENTER — nav links */}
         <div style={{
-          display: "flex", alignItems: "center", gap: 28,
+          display: "flex", alignItems: "center", gap: 14,
           fontFamily: "var(--font-heading)",
         }}>
           {navLinks.map((link) => {
@@ -71,7 +75,7 @@ export function Navbar({ locale }: { locale: string }) {
             return (
               <Link
                 key={link.key}
-                href={`/${locale}${link.href}`}
+                href={link.href}
                 style={{
                   fontSize: 15, fontWeight: 700, letterSpacing: "0.01em",
                   color: F,
@@ -107,11 +111,11 @@ export function Navbar({ locale }: { locale: string }) {
         {/* RIGHT — locale switcher + Contacto button */}
         <div style={{
           display: "flex", alignItems: "center", gap: 16,
-          justifyContent: "flex-end",
+          justifyContent: "flex-end", flexShrink: 0,
         }}>
           <LocaleSwitcher locale={locale} />
           <Link
-            href={`/${locale}/contact`}
+            href="/contact"
             style={{
               padding: "9px 22px", borderRadius: 6, fontSize: 14, fontWeight: 700,
               backgroundColor: F, color: WW, textDecoration: "none",
@@ -180,7 +184,7 @@ export function Navbar({ locale }: { locale: string }) {
             </Link>
           ))}
           <Link
-            href={`/${locale}/contact`}
+            href="/contact"
             onClick={() => setMobileOpen(false)}
             style={{
               display: "inline-block", marginTop: 12,

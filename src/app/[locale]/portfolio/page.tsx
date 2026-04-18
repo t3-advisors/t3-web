@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import {
   ArrowRight,
   Landmark,
@@ -102,12 +102,12 @@ export default function PortfolioPage() {
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
       {/* ── HERO ──────────────────────────────────────── */}
-      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
+          <p style={{ fontSize: 22, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
           </p>
-          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
+          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px 0 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
           <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
@@ -115,7 +115,7 @@ export default function PortfolioPage() {
           </h1>
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-          <div style={{ maxWidth: 840, margin: "32px auto 0" }}>
+          <div style={{ maxWidth: 840, marginTop: 32 }}>
             <p className="text-base md:text-[19px]" style={{ lineHeight: 1.8, color: `${CH}BB` }}>
               {t("hero_intro_1")}
             </p>
@@ -239,7 +239,7 @@ export default function PortfolioPage() {
                   {/* CTA */}
                   <div style={{ marginTop: 36 }}>
                     <Link
-                      href={`contact?interest=${sector.id}`}
+                      href={`/contact?interest=${sector.id}`}
                       style={{
                         display: "inline-flex", alignItems: "center", gap: 8,
                         padding: "12px 32px", borderRadius: 6,
@@ -269,7 +269,7 @@ export default function PortfolioPage() {
       <CtaBand
         headline={t("cta_headline")}
         sub={t("cta_sub")}
-        primaryHref="contact"
+        primaryHref="/contact"
         primaryLabel={t("cta_btn")}
         light
       />

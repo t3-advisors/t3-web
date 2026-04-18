@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
 
 interface BlindProfileCardProps {
@@ -39,7 +39,7 @@ export function BlindProfileCard({
         {highlight}
       </p>
       <Link
-        href="contact"
+        href="/contact"
         className="mt-4 inline-flex items-center text-sm font-semibold text-gold transition-colors hover:text-gold/80"
       >
         {requestInfoLabel} <ArrowRight className="ml-1 h-4 w-4" />
