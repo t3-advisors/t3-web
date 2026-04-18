@@ -61,12 +61,12 @@ export default function WhyVenezuelaPage() {
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
 
       {/* ── PAGE HEADER ─────────────────────────────────── */}
-      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0s both" }}>
           <p style={{ fontSize: 22, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             T3 Advisors
           </p>
-          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
+          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px 0 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
           <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
@@ -74,7 +74,7 @@ export default function WhyVenezuelaPage() {
           </h1>
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}>
-          <p className="text-base md:text-[19px]" style={{ marginTop: 24, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620, margin: "24px auto 0" }}>
+          <p className="text-base md:text-[19px]" style={{ marginTop: 24, lineHeight: 1.75, color: `${CH}BB`, maxWidth: 620 }}>
             {t("hero_intro")}
           </p>
         </div>
@@ -84,8 +84,8 @@ export default function WhyVenezuelaPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── EL CONTEXTO ─────────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]">
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="py-10 md:py-[72px]">
+        <div className="px-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("context_headline")}
@@ -155,8 +155,8 @@ export default function WhyVenezuelaPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── TABLA DE PRECIOS ────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="py-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
+        <div className="px-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("prices_headline")}
@@ -219,8 +219,8 @@ export default function WhyVenezuelaPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── PRECEDENTES HISTÓRICOS ──────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]">
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="py-10 md:py-[72px]">
+        <div className="px-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("precedents_headline")}
@@ -286,8 +286,8 @@ export default function WhyVenezuelaPage() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── LOS RIESGOS ─────────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <section className="py-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
+        <div className="px-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
               {t("risks_headline")}

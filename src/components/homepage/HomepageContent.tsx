@@ -181,9 +181,9 @@ export function HomepageContent() {
       </section>
 
       {/* ── STAT BAR ──────────────────────────────────── */}
-      <div className="px-5 py-6 md:px-10 md:py-7" style={{ position: "relative", overflow: "hidden", backgroundColor: F }}>
+      <div className="py-6 md:py-7" style={{ position: "relative", overflow: "hidden", backgroundColor: F }}>
         <NoiseOverlay id="stats" opacity={0.05} />
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5" style={{ position: "relative", maxWidth: 1100, margin: "0 auto" }}>
+        <div className="grid grid-cols-1 gap-4 px-5 md:grid-cols-3 md:gap-5 md:px-10" style={{ position: "relative", maxWidth: 1100, margin: "0 auto" }}>
           {[
             { valKey: "stat1_value", labelKey: "stat1_label" },
             { valKey: "stat2_value", labelKey: "stat2_label" },
@@ -203,47 +203,45 @@ export function HomepageContent() {
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
       {/* ── LA OPORTUNIDAD ────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1100, margin: "0 auto" }}>
         <ScrollReveal>
-          <Card>
-            <h2 className="text-[28px] md:text-[44px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
-              {t("thesis_headline")}
-            </h2>
-            <div style={{ marginTop: 16, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
-            <p className="text-base md:text-xl" style={{ marginTop: 28, lineHeight: 1.8, color: `${CH}CC` }}>{t("thesis_p1")}</p>
-            <p className="text-base md:text-xl" style={{ marginTop: 18, fontWeight: 600, lineHeight: 1.8, color: CH }}>{t("thesis_p2")}</p>
-            <div className="mt-6 flex justify-end">
-              <Link
-                href="/why-venezuela"
-                className="text-base px-6 py-3 md:text-xl md:px-10 md:py-[18px]"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  borderRadius: 6, fontWeight: 700,
-                  background: "none", color: GOLD, border: `2px solid ${GOLD}`,
-                  boxShadow: "none", textDecoration: "none",
-                  transition: "background 0.18s, box-shadow 0.18s",
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.background = WW;
-                  (e.currentTarget as HTMLElement).style.boxShadow = BTN_SHADOW;
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.background = "none";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                }}
-              >
-                {t("thesis_link")} <ArrowRight size={18} />
-              </Link>
-            </div>
-          </Card>
+          <h2 className="text-[28px] md:text-[44px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
+            {t("thesis_headline")}
+          </h2>
+          <div style={{ marginTop: 16, width: 64, height: 4, backgroundColor: GOLD, borderRadius: 2 }} />
+          <p className="text-base md:text-xl" style={{ marginTop: 28, lineHeight: 1.8, color: `${CH}CC` }}>{t("thesis_p1")}</p>
+          <p className="text-base md:text-xl" style={{ marginTop: 18, fontWeight: 600, lineHeight: 1.8, color: CH }}>{t("thesis_p2")}</p>
+          <div className="mt-6 flex justify-end">
+            <Link
+              href="/why-venezuela"
+              className="text-base px-6 py-3 md:text-xl md:px-10 md:py-[18px]"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 8,
+                borderRadius: 6, fontWeight: 700,
+                background: "none", color: GOLD, border: `2px solid ${GOLD}`,
+                boxShadow: "none", textDecoration: "none",
+                transition: "background 0.18s, box-shadow 0.18s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = WW;
+                (e.currentTarget as HTMLElement).style.boxShadow = BTN_SHADOW;
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = "none";
+                (e.currentTarget as HTMLElement).style.boxShadow = "none";
+              }}
+            >
+              {t("thesis_link")} <ArrowRight size={18} />
+            </Link>
+          </div>
         </ScrollReveal>
       </section>
 
       {/* gold rule removed — background change handles separation */}
 
       {/* ── CÓMO TRABAJAMOS ───────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="py-10 md:py-[72px]" style={{ backgroundColor: "#F2EFE8" }}>
+        <div className="px-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <div style={{ marginBottom: 48 }}>
               <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
@@ -307,7 +305,7 @@ export function HomepageContent() {
       </section>
 
       {/* ── SECTORES ──────────────────────────────────── */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1100, margin: "0 auto" }}>
         <ScrollReveal>
           <div style={{ marginBottom: 52 }}>
             <h2 className="text-2xl md:text-[36px]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: "-0.02em", color: F }}>
@@ -352,7 +350,7 @@ export function HomepageContent() {
       {/* ── PRESENCIA LOCAL ───────────────────────────── */}
       <section style={{ position: "relative", overflow: "hidden", backgroundColor: "#0D2318", borderTop: `1px solid rgba(201,168,76,0.25)` }}>
         <NoiseOverlay id="presencia" opacity={0.04} />
-        <div className="grid grid-cols-1 gap-8 px-5 py-12 md:grid-cols-[2fr_3fr] md:gap-16 md:px-10 md:py-20" style={{ position: "relative", maxWidth: 1200, margin: "0 auto", alignItems: "center" }}>
+        <div className="grid grid-cols-1 gap-8 px-5 py-12 md:grid-cols-[2fr_3fr] md:gap-16 md:px-10 md:py-20" style={{ position: "relative", maxWidth: 1100, margin: "0 auto", alignItems: "center" }}>
           <ScrollReveal direction="left">
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: GOLD, opacity: 0.75, marginBottom: 20 }}>
@@ -382,8 +380,8 @@ export function HomepageContent() {
       </section>
 
       {/* ── CTA FINAL — dos paths ─────────────────────── */}
-      <div className="px-5 py-10 md:px-10 md:py-12" style={{ backgroundColor: "#F2EFE8" }}>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5" style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <div className="py-10 md:py-12" style={{ backgroundColor: "#F2EFE8" }}>
+        <div className="grid grid-cols-1 gap-4 px-5 md:grid-cols-2 md:gap-5 md:px-10" style={{ maxWidth: 1100, margin: "0 auto" }}>
           <ScrollReveal>
             <Card style={{ height: "100%", display: "flex", flexDirection: "column" }}>
               {GOLD_LINE}

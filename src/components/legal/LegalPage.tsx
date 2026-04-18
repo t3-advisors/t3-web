@@ -26,12 +26,12 @@ export function LegalPage({ eyebrow = "T3 Advisors", title, intro, sections }: L
   return (
     <div style={{ fontFamily: "'Source Sans 3', sans-serif", backgroundColor: WW, color: CH }}>
       {/* Page header */}
-      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 860, margin: "0 auto", textAlign: "center" }}>
+      <section className="px-5 pt-12 pb-10 md:px-10 md:pt-20 md:pb-[72px]" style={{ maxWidth: 1100, margin: "0 auto" }}>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) both" }}>
           <p style={{ fontSize: 22, fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: GOLD }}>
             {eyebrow}
           </p>
-          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px auto 24px" }} />
+          <div style={{ width: 40, height: 1, backgroundColor: GOLD, opacity: 0.4, margin: "12px 0 24px" }} />
         </div>
         <div style={{ animation: "heroReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}>
           <h1 className="text-[32px] md:text-[52px]" style={{ fontFamily: "var(--font-heading)", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-0.02em", color: F }}>
@@ -44,7 +44,8 @@ export function LegalPage({ eyebrow = "T3 Advisors", title, intro, sections }: L
       <div style={{ height: 1, backgroundColor: GOLD, opacity: 0.55 }} />
 
       {/* Body */}
-      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 780, margin: "0 auto" }}>
+      <section className="px-5 py-10 md:px-10 md:py-[72px]" style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ maxWidth: 780 }}>
         <ScrollReveal>
           <p className="text-base md:text-[18px]" style={{ lineHeight: 1.8, color: `${CH}CC` }}>
             {intro}
@@ -93,6 +94,7 @@ export function LegalPage({ eyebrow = "T3 Advisors", title, intro, sections }: L
               </article>
             </ScrollReveal>
           ))}
+        </div>
         </div>
       </section>
     </div>
