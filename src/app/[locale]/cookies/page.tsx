@@ -12,19 +12,19 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
-    title: t("privacy_title"),
-    description: t("privacy_desc"),
-    alternates: alternates(locale, "/privacy"),
+    title: t("cookies_title"),
+    description: t("cookies_desc"),
+    alternates: alternates(locale, "/cookies"),
     openGraph: {
-      title: t("privacy_title"),
-      description: t("privacy_desc"),
+      title: t("cookies_title"),
+      description: t("cookies_desc"),
       type: "website",
     },
   };
 }
 
-export default function PrivacyPage() {
-  const t = useTranslations("privacy");
+export default function CookiesPage() {
+  const t = useTranslations("cookies");
   const sections = t.raw("sections") as LegalSection[];
 
   return (

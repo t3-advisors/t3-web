@@ -69,14 +69,19 @@ export function Footer(_props: { locale?: string }) {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 border-t border-warm-white/10 pt-6 flex flex-col items-center gap-2 text-center text-xs text-stone/60 sm:flex-row sm:justify-between">
+        <div className="mt-10 border-t border-warm-white/10 pt-6 flex flex-col items-center gap-3 text-center text-xs text-stone/60 sm:flex-row sm:justify-between sm:gap-6">
           <p>&copy; {year} T3 Advisors. {t("rights")}</p>
-          <Link
-            href="/privacy"
-            className="transition-colors hover:text-warm-white"
-          >
-            {t("privacy")}
-          </Link>
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <Link href="/privacy" className="transition-colors hover:text-warm-white">
+              {t("privacy")}
+            </Link>
+            <Link href="/terms" className="transition-colors hover:text-warm-white">
+              {t("terms")}
+            </Link>
+            <Link href="/cookies" className="transition-colors hover:text-warm-white">
+              {t("cookies")}
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>
