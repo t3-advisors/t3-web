@@ -157,6 +157,11 @@
     "buyer_verticals_required": "Please select at least one sector of interest.",
     "buyer_intro": "Once you submit this form, we'll send you an email with available opportunities in the sectors you select. For detailed information on any specific opportunity, you can request it directly through that email. You can also reach us directly through the contact details on the right.",
 
+    "pdf_language": "In which language would you like to receive the portfolio?",
+    "pdf_language_es": "Español",
+    "pdf_language_en": "English",
+    "pdf_language_required": "Please select at least one language.",
+
     "email_label": "Email",
     "locations_label": "Offices",
     "email_value": "alejandro.tovar@t3-advisors.com",

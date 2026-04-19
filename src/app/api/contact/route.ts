@@ -1,4 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { render } from "@react-email/components";
 import { resend } from "@/lib/resend";
 import { appendToSheet } from "@/lib/apps-script";
@@ -16,6 +18,7 @@ interface ContactPayload {
   phone?: string;
   // buyer
   verticals?: string[];
+  pdfLanguages?: string[];
   // seller
   transactionTypes?: string[];
   assetType?: string;
@@ -24,6 +27,24 @@ interface ContactPayload {
   message?: string;
   // honeypot
   website?: string;
+}
+
+// Map from internal lang code to filename on disk + user-facing filename in the email.
+const PDF_FILES: Record<"es" | "en", { disk: string; filename: string }> = {
+  es: { disk: "t3-portfolio-es.pdf", filename: "Portafolio T3 Advisors.pdf" },
+  en: { disk: "t3-portfolio-en.pdf", filename: "T3 Advisors Portfolio.pdf" },
+};
+
+async function loadPortfolioAttachments(languages: ("es" | "en")[]) {
+  const portfolioDir = path.join(process.cwd(), "public", "portfolio");
+  const attachments = await Promise.all(
+    languages.map(async (lang) => {
+      const { disk, filename } = PDF_FILES[lang];
+      const content = await readFile(path.join(portfolioDir, disk));
+      return { filename, content };
+    }),
+  );
+  return attachments;
 }
 
 export async function POST(request: NextRequest) {
@@ -53,6 +74,9 @@ export async function POST(request: NextRequest) {
   if (data.mode === "buyer" && (!data.verticals || data.verticals.length === 0)) {
     return NextResponse.json({ error: "Select at least one sector" }, { status: 400 });
   }
+  if (data.mode === "buyer" && (!data.pdfLanguages || data.pdfLanguages.length === 0)) {
+    return NextResponse.json({ error: "Select at least one PDF language" }, { status: 400 });
+  }
   if (data.mode === "seller" && (!data.transactionTypes || data.transactionTypes.length === 0)) {
     return NextResponse.json({ error: "Select at least one transaction type" }, { status: 400 });
   }
@@ -62,6 +86,10 @@ export async function POST(request: NextRequest) {
   const teamBcc = process.env.TEAM_BCC_EMAILS?.split(",").map(e => e.trim()) ?? [];
   const emailFrom = process.env.EMAIL_FROM!;
   const replyTo = process.env.EMAIL_REPLY_TO!;
+
+  // Sanitize pdfLanguages to the accepted values so downstream code is safe.
+  const pdfLanguages = (data.pdfLanguages ?? [])
+    .filter((l): l is "es" | "en" => l === "es" || l === "en");
 
   // Run Sheets + emails in parallel
   const [sheetsResult, emailsResult] = await Promise.allSettled([
@@ -75,6 +103,7 @@ export async function POST(request: NextRequest) {
       company: data.company,
       phone: data.phone,
       verticals: data.verticals,
+      pdfLanguages,
       transactionTypes: data.transactionTypes,
       assetType: data.assetType,
       location: data.location,
@@ -96,6 +125,7 @@ export async function POST(request: NextRequest) {
           phone: data.phone,
           locale,
           verticals: data.verticals,
+          pdfLanguages,
           transactionTypes: data.transactionTypes,
           assetType: data.assetType,
           location: data.location,
@@ -126,11 +156,15 @@ export async function POST(request: NextRequest) {
           html: sellerHtml,
         });
       } else {
+        // Load PDFs from public/portfolio/ and attach them.
+        const attachments = await loadPortfolioAttachments(pdfLanguages);
+
         const buyerHtml = await render(
           BuyerConfirmation({
             name: data.name,
             locale,
             verticals: data.verticals ?? [],
+            pdfLanguages,
           })        );
         await resend.emails.send({
           from: emailFrom,
@@ -138,6 +172,7 @@ export async function POST(request: NextRequest) {
           replyTo,
           subject: buyerConfirmationSubject(locale),
           html: buyerHtml,
+          attachments,
         });
       }
     })(),
