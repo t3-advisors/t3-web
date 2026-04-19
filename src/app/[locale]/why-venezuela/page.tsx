@@ -47,11 +47,11 @@ const precedents = [
 ] as const;
 
 const risks = [
-  { Icon: Landmark,   titleKey: "risk1_title", textKey: "risk1_text" },
-  { Icon: Scale,      titleKey: "risk2_title", textKey: "risk2_text" },
-  { Icon: Wrench,     titleKey: "risk3_title", textKey: "risk3_text" },
-  { Icon: Shield,     titleKey: "risk4_title", textKey: "risk4_text" },
-  { Icon: ShieldAlert,titleKey: "risk5_title", textKey: "risk5_text" },
+  { Icon: Landmark,   titleKey: "risk1_title", textKey: "risk1_text", trajectoryKey: "risk1_trajectory" },
+  { Icon: Scale,      titleKey: "risk2_title", textKey: "risk2_text", trajectoryKey: "risk2_trajectory" },
+  { Icon: Wrench,     titleKey: "risk3_title", textKey: "risk3_text", trajectoryKey: "risk3_trajectory" },
+  { Icon: Shield,     titleKey: "risk4_title", textKey: "risk4_text", trajectoryKey: "risk4_trajectory" },
+  { Icon: ShieldAlert,titleKey: "risk5_title", textKey: "risk5_text", trajectoryKey: "risk5_trajectory" },
 ] as const;
 
 export default function WhyVenezuelaPage() {
@@ -299,7 +299,7 @@ export default function WhyVenezuelaPage() {
           </ScrollReveal>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            {risks.map(({ Icon, titleKey, textKey }, i) => (
+            {risks.map(({ Icon, titleKey, textKey, trajectoryKey }, i) => (
               <ScrollReveal key={titleKey} delay={i * 0.08}>
                 <div className="flex gap-4 md:gap-7" style={{
                   backgroundColor: WW, borderRadius: 10, padding: "28px 36px",
@@ -316,6 +316,17 @@ export default function WhyVenezuelaPage() {
                     </h3>
                     <p style={{ marginTop: 10, fontSize: 16, lineHeight: 1.75, color: `${CH}CC` }}>
                       {t(textKey)}
+                    </p>
+                    <p style={{
+                      marginTop: 14,
+                      paddingLeft: 14,
+                      borderLeft: `2px solid ${GOLD}`,
+                      fontSize: 15,
+                      lineHeight: 1.7,
+                      color: `${CH}99`,
+                      fontStyle: "italic",
+                    }}>
+                      {t(trajectoryKey)}
                     </p>
                   </div>
                 </div>
