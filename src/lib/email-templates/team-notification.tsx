@@ -36,6 +36,7 @@ interface TeamNotificationProps {
   locale: string;
   // buyer
   verticals?: string[];
+  pdfLanguages?: ("es" | "en")[];
   // seller
   transactionTypes?: string[];
   assetType?: string;
@@ -44,6 +45,11 @@ interface TeamNotificationProps {
   message?: string;
   sheetsError?: string;
 }
+
+const PDF_LANG_LABELS: Record<"es" | "en", string> = {
+  es: "Español",
+  en: "Inglés",
+};
 
 function Field({ label, value }: { label: string; value?: string }) {
   if (!value) return null;
@@ -57,7 +63,7 @@ function Field({ label, value }: { label: string; value?: string }) {
 
 export function TeamNotification({
   mode, name, email, company, phone, locale,
-  verticals, transactionTypes, assetType, location, priceRange, message,
+  verticals, pdfLanguages, transactionTypes, assetType, location, priceRange, message,
   sheetsError,
 }: TeamNotificationProps) {
   const isBuyer = mode === "buyer";
@@ -91,10 +97,16 @@ export function TeamNotification({
             <Hr style={{ margin: "20px 0", borderColor: "#E5E0D8" }} />
 
             {isBuyer ? (
-              <Field
-                label="Sectores"
-                value={(verticals || []).map(v => VERTICAL_LABELS[v] || v).join(", ")}
-              />
+              <>
+                <Field
+                  label="Sectores"
+                  value={(verticals || []).map(v => VERTICAL_LABELS[v] || v).join(", ")}
+                />
+                <Field
+                  label="PDF (idiomas)"
+                  value={(pdfLanguages || []).map(l => PDF_LANG_LABELS[l] || l).join(", ")}
+                />
+              </>
             ) : (
               <>
                 <Field

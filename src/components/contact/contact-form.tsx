@@ -46,6 +46,7 @@ export function ContactForm() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [sellerTxError, setSellerTxError] = useState(false);
   const [buyerVerticalsError, setBuyerVerticalsError] = useState(false);
+  const [pdfLanguagesError, setPdfLanguagesError] = useState(false);
 
   const [shared, setShared] = useState({
     name: "",
@@ -59,6 +60,8 @@ export function ContactForm() {
       interestParam && VALID_VERTICALS.includes(interestParam)
         ? [interestParam]
         : ([] as string[]),
+    // Default: pre-select the user's current navigation locale.
+    pdfLanguages: [locale === "en" ? "en" : "es"] as string[],
   });
 
   const [sellerFields, setSellerFields] = useState({
@@ -87,11 +90,24 @@ export function ContactForm() {
     }));
   }
 
+  function handlePdfLanguageToggle(lang: "es" | "en") {
+    setBuyerFields((prev) => ({
+      ...prev,
+      pdfLanguages: prev.pdfLanguages.includes(lang)
+        ? prev.pdfLanguages.filter((l) => l !== lang)
+        : [...prev.pdfLanguages, lang],
+    }));
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!shared.name.trim() || !shared.email.trim()) return;
     if (mode === "buyer" && buyerFields.verticals.length === 0) {
       setBuyerVerticalsError(true);
+      return;
+    }
+    if (mode === "buyer" && buyerFields.pdfLanguages.length === 0) {
+      setPdfLanguagesError(true);
       return;
     }
     if (mode === "seller" && sellerFields.transactionTypes.length === 0) {
@@ -111,7 +127,10 @@ export function ContactForm() {
           locale,
           ...shared,
           ...(mode === "buyer"
-            ? { verticals: buyerFields.verticals }
+            ? {
+                verticals: buyerFields.verticals,
+                pdfLanguages: buyerFields.pdfLanguages,
+              }
             : {
                 transactionTypes: sellerFields.transactionTypes,
                 assetType: sellerFields.assetType,
@@ -176,9 +195,15 @@ export function ContactForm() {
 
       {/* ── Buyer Intro ── */}
       {mode === "buyer" && (
-        <div className="rounded-lg border border-stone bg-forest/5 px-5 py-4">
-          <p className="text-base leading-relaxed text-charcoal/80">
-            {t("buyer_intro")}
+        <div className="rounded-lg border border-stone bg-forest/5 px-6 py-5">
+          <p className="text-lg leading-relaxed text-charcoal/80">
+            {t.rich("buyer_intro", {
+              b: (chunks) => (
+                <strong style={{ fontWeight: 700, color: "#1B4332" }}>
+                  {chunks}
+                </strong>
+              ),
+            })}
           </p>
         </div>
       )}
@@ -263,6 +288,36 @@ export function ContactForm() {
             {buyerVerticalsError && (
               <p className="mt-2 text-xs text-red-600">
                 {t("buyer_verticals_required")}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label className="text-base font-semibold text-charcoal">
+              {t("pdf_language")} *
+            </label>
+            <div className="mt-3 flex flex-col gap-2.5">
+              {(["es", "en"] as const).map((lang) => (
+                <label
+                  key={lang}
+                  className="flex cursor-pointer items-center gap-2.5 text-base text-charcoal"
+                >
+                  <input
+                    type="checkbox"
+                    checked={buyerFields.pdfLanguages.includes(lang)}
+                    onChange={() => {
+                      handlePdfLanguageToggle(lang);
+                      setPdfLanguagesError(false);
+                    }}
+                    className="accent-gold h-4 w-4"
+                  />
+                  {t(`pdf_language_${lang}`)}
+                </label>
+              ))}
+            </div>
+            {pdfLanguagesError && (
+              <p className="mt-2 text-xs text-red-600">
+                {t("pdf_language_required")}
               </p>
             )}
           </div>

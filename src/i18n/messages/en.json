@@ -155,7 +155,12 @@
     "success_seller": "Message received. We will contact you within 48 hours.",
 
     "buyer_verticals_required": "Please select at least one sector of interest.",
-    "buyer_intro": "Once you submit this form, we'll send you an email with available opportunities in the sectors you select. For detailed information on any specific opportunity, you can request it directly through that email. You can also reach us directly through the contact details on the right.",
+    "buyer_intro": "Once you submit this form, <b>you will receive an email with the available opportunities in the sectors you select.</b> For detailed information on any specific opportunity, you can request it by replying directly to the email. If you would like to contact us directly, you can do so through the channels on your right.",
+
+    "pdf_language": "In which language would you like to receive the portfolio?",
+    "pdf_language_es": "Español",
+    "pdf_language_en": "English",
+    "pdf_language_required": "Please select at least one language.",
 
     "email_label": "Email",
     "locations_label": "Offices",

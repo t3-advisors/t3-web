@@ -6,6 +6,8 @@ interface SheetPayload {
   company?: string;
   phone?: string;
   verticals?: string[];
+  // Languages in which the inversionista requested the portfolio PDF.
+  pdfLanguages?: string[];
   transactionTypes?: string[];
   assetType?: string;
   location?: string;
