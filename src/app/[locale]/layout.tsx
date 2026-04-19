@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 const sourceSans = Source_Sans_3({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
 });
 
 export default async function LocaleLayout({

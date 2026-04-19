@@ -155,7 +155,7 @@
     "success_seller": "Mensaje recibido. Lo contactaremos en un máximo de 48 horas.",
 
     "buyer_verticals_required": "Seleccione al menos un sector de interés.",
-    "buyer_intro": "Al completar este formulario, le enviaremos un correo electrónico con las oportunidades disponibles en los sectores que seleccione. Si desea información detallada sobre alguna oportunidad específica, podrá solicitarla directamente a través de ese correo. También puede contactarnos por las vías que aparecen a la derecha.",
+    "buyer_intro": "Al completar este formulario, <b>recibirá un correo con las oportunidades disponibles en los sectores que seleccione.</b> Si desea información detallada sobre alguna oportunidad específica, podrá solicitarla directamente respondiendo al correo. Si quiere contactarnos directamente, puede hacerlo por las vías que aparecen a su derecha.",
 
     "pdf_language": "¿En qué idioma desea recibir el portafolio?",
     "pdf_language_es": "Español",

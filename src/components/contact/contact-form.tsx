@@ -195,9 +195,15 @@ export function ContactForm() {
 
       {/* ── Buyer Intro ── */}
       {mode === "buyer" && (
-        <div className="rounded-lg border border-stone bg-forest/5 px-5 py-4">
-          <p className="text-base leading-relaxed text-charcoal/80">
-            {t("buyer_intro")}
+        <div className="rounded-lg border border-stone bg-forest/5 px-6 py-5">
+          <p className="text-lg leading-relaxed text-charcoal/80">
+            {t.rich("buyer_intro", {
+              b: (chunks) => (
+                <strong style={{ fontWeight: 700, color: "#1B4332" }}>
+                  {chunks}
+                </strong>
+              ),
+            })}
           </p>
         </div>
       )}
