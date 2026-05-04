@@ -139,7 +139,7 @@ export function Navbar({ locale }: { locale: string }) {
           alignItems: "center", justifyContent: "space-between",
         }}
       >
-        <Link href={`/${locale}`} style={{ display: "flex", alignItems: "center" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center" }}>
           <Image
             src="/logo/final_1_bold_tight_green_transparent.png"
             alt="T3 Advisors"
@@ -170,7 +170,7 @@ export function Navbar({ locale }: { locale: string }) {
           {navLinks.map((link) => (
             <Link
               key={link.key}
-              href={`/${locale}${link.href}`}
+              href={link.href}
               onClick={() => setMobileOpen(false)}
               style={{
                 display: "block", padding: "10px 0",
