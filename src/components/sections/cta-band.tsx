@@ -14,14 +14,17 @@ const BTN_SHADOW = "0 4px 14px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.12)";
 interface CtaBandProps {
   headline: string;
   sub?: string;
-  primaryHref: string;
-  primaryLabel: string;
+  /** Either a navigation href (default behaviour) or a custom button node
+   * (when the primary CTA needs to open a modal instead of navigating). */
+  primaryHref?: string;
+  primaryLabel?: string;
+  primaryButton?: React.ReactNode;
   secondaryHref?: string;
   secondaryLabel?: string;
   light?: boolean;
 }
 
-export function CtaBand({ headline, sub, primaryHref, primaryLabel, secondaryHref, secondaryLabel, light = false }: CtaBandProps) {
+export function CtaBand({ headline, sub, primaryHref, primaryLabel, primaryButton, secondaryHref, secondaryLabel, light = false }: CtaBandProps) {
   const [hp, setHp] = useState(false);
   const [hs, setHs] = useState(false);
 
@@ -44,21 +47,25 @@ export function CtaBand({ headline, sub, primaryHref, primaryLabel, secondaryHre
           <p className="text-base md:text-lg" style={{ marginTop: 20, lineHeight: 1.75, color: subCl }}>{sub}</p>
         )}
         <div className="mt-8 flex flex-wrap justify-center gap-3 md:mt-10 md:gap-4">
-          <Link
-            href={primaryHref}
-            onMouseEnter={() => setHp(true)}
-            onMouseLeave={() => setHp(false)}
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              padding: "14px 36px", borderRadius: 6, fontSize: 16, fontWeight: 700,
-              fontFamily: "var(--font-heading)",
-              backgroundColor: hp ? "#b8932e" : GOLD, color: CH, textDecoration: "none",
-              boxShadow: hp ? BTN_SHADOW : "0 2px 8px rgba(0,0,0,0.18)",
-              transition: "background-color 0.18s, box-shadow 0.18s",
-            }}
-          >
-            {primaryLabel} <ArrowRight size={18} />
-          </Link>
+          {primaryButton ?? (
+            primaryHref && primaryLabel && (
+              <Link
+                href={primaryHref}
+                onMouseEnter={() => setHp(true)}
+                onMouseLeave={() => setHp(false)}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  padding: "14px 36px", borderRadius: 6, fontSize: 16, fontWeight: 700,
+                  fontFamily: "var(--font-heading)",
+                  backgroundColor: hp ? "#b8932e" : GOLD, color: CH, textDecoration: "none",
+                  boxShadow: hp ? BTN_SHADOW : "0 2px 8px rgba(0,0,0,0.18)",
+                  transition: "background-color 0.18s, box-shadow 0.18s",
+                }}
+              >
+                {primaryLabel} <ArrowRight size={18} />
+              </Link>
+            )
+          )}
           {secondaryHref && secondaryLabel && (
             <Link
               href={secondaryHref}

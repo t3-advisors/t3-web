@@ -1,9 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import { Link } from "@/i18n/navigation";
 import {
-  ArrowRight,
   Landmark,
   Hotel,
   Wheat,
@@ -15,6 +13,8 @@ import {
 import { alternates } from "@/lib/seo";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { PortfolioCTAButton } from "@/components/portfolio/portfolio-cta-button";
+import type { Vertical } from "@/data/portfolio-listings";
 
 export async function generateMetadata({
   params,
@@ -40,10 +40,9 @@ const GOLD = "#C9A84C";
 const WW = "#F8F6F0";
 const CH = "#2C2C2C";
 const STONE = "#F2EFE8";
-const BTN_SHADOW = "0 4px 14px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.12)";
 
 interface SectorDef {
-  id: string;
+  id: Vertical;
   Icon: LucideIcon;
   gradient: string;
   dark: boolean;
@@ -236,21 +235,13 @@ export default function PortfolioPage() {
                     {t(`sector_p2_${sector.id}`)}
                   </p>
 
-                  {/* CTA */}
+                  {/* CTA — opens portfolio request modal pre-filled with this sector */}
                   <div style={{ marginTop: 36 }}>
-                    <Link
-                      href={`/contact?interest=${sector.id}`}
-                      style={{
-                        display: "inline-flex", alignItems: "center", gap: 8,
-                        padding: "12px 32px", borderRadius: 6,
-                        fontSize: 15, fontWeight: 700,
-                        fontFamily: "var(--font-heading)",
-                        backgroundColor: GOLD, color: CH,
-                        textDecoration: "none", boxShadow: BTN_SHADOW,
-                      }}
-                    >
-                      {t("sector_cta")} <ArrowRight size={16} />
-                    </Link>
+                    <PortfolioCTAButton
+                      defaultVertical={sector.id}
+                      label={t("sector_cta")}
+                      variant="gold"
+                    />
                   </div>
 
                   </div>{/* end inner content */}
@@ -265,12 +256,13 @@ export default function PortfolioPage() {
       {/* gold line */}
       <div style={{ height: 1, backgroundColor: GOLD }} />
 
-      {/* ── CTA FINAL ─────────────────────────────────── */}
+      {/* ── CTA FINAL — opens portfolio request modal (no specific sector) ── */}
       <CtaBand
         headline={t("cta_headline")}
         sub={t("cta_sub")}
-        primaryHref="/contact"
-        primaryLabel={t("cta_btn")}
+        primaryButton={
+          <PortfolioCTAButton label={t("cta_btn")} variant="gold-large" />
+        }
         light
       />
     </div>
