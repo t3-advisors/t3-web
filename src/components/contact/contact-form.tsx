@@ -484,7 +484,11 @@ export function ContactForm({
           disabled={isSubmitting}
           className="inline-flex items-center rounded-lg bg-forest px-6 py-3 text-base font-semibold text-warm-white transition-colors hover:bg-forest/90 disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? t("submitting") : (mode === "buyer" ? t("submit_buyer") : t("submit_seller"))}
+          {isSubmitting
+            ? t("submitting")
+            : mode === "buyer"
+              ? (forceBuyer ? t("submit_buyer_download") : t("submit_buyer"))
+              : t("submit_seller")}
           {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
         </button>
         {submitError && (

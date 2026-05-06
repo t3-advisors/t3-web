@@ -130,6 +130,7 @@
     "transaction_capital_raise": "Capital Raise",
     "transaction_both": "Ambos",
     "submit_buyer": "Solicitar información",
+    "submit_buyer_download": "Descargar portafolio de oportunidades",
     "success_buyer": "Solicitud recibida. Recibirá un correo con las oportunidades disponibles en pocos minutos.",
 
     "seller_transaction_type": "Tipo de operación",
