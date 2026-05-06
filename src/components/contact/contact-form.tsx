@@ -30,7 +30,32 @@ const PRICE_RANGES = [
 const INPUT_CLS =
   "mt-1 block w-full border-0 border-b border-stone bg-transparent py-2 text-base text-charcoal outline-none transition-colors focus:border-forest";
 
-export function ContactForm() {
+interface ContactFormProps {
+  /**
+   * Force the form to start (and stay) in buyer mode, hiding the toggle.
+   * Used by the portfolio modal — sellers there don't make sense.
+   */
+  forceBuyer?: boolean;
+  /**
+   * Pre-select a specific vertical. Used by the portfolio modal so that
+   * clicking the CTA inside a sector card pre-fills that sector.
+   * In standalone mode, the URL param `?interest=` takes priority.
+   */
+  defaultVertical?: Vertical;
+  /**
+   * Called after a successful submission. The portfolio modal uses this
+   * to trigger PDF downloads and persist session state.
+   * When provided, the built-in success state is suppressed so the parent
+   * can render its own.
+   */
+  onSuccess?: (data: { pdfLanguages: ("es" | "en")[] }) => void;
+}
+
+export function ContactForm({
+  forceBuyer = false,
+  defaultVertical,
+  onSuccess,
+}: ContactFormProps = {}) {
   const t = useTranslations("contact");
   const locale = useLocale();
   const searchParams = useSearchParams();
@@ -38,7 +63,15 @@ export function ContactForm() {
   const interestParam = searchParams.get("interest") as Vertical | null;
   const modeParam = searchParams.get("mode");
 
-  const initialMode: FormMode = modeParam === "seller" ? "seller" : "buyer";
+  // URL param takes priority over the prop (so deep-links keep working).
+  const initialVertical: Vertical | null =
+    interestParam && VALID_VERTICALS.includes(interestParam)
+      ? interestParam
+      : (defaultVertical ?? null);
+
+  const initialMode: FormMode = forceBuyer
+    ? "buyer"
+    : (modeParam === "seller" ? "seller" : "buyer");
 
   const [mode, setMode] = useState<FormMode>(initialMode);
   const [submitted, setSubmitted] = useState(false);
@@ -56,10 +89,7 @@ export function ContactForm() {
   });
 
   const [buyerFields, setBuyerFields] = useState({
-    verticals:
-      interestParam && VALID_VERTICALS.includes(interestParam)
-        ? [interestParam]
-        : ([] as string[]),
+    verticals: initialVertical ? [initialVertical] : ([] as string[]),
     // Default: pre-select the user's current navigation locale.
     pdfLanguages: [locale === "en" ? "en" : "es"] as string[],
   });
@@ -143,7 +173,19 @@ export function ContactForm() {
       });
 
       if (!res.ok) throw new Error();
-      setSubmitted(true);
+
+      // If a parent provided onSuccess (e.g. the portfolio modal), let it
+      // handle the post-submit UX (download + custom success state).
+      // Otherwise show the built-in success block.
+      if (onSuccess && mode === "buyer") {
+        onSuccess({
+          pdfLanguages: buyerFields.pdfLanguages.filter(
+            (l): l is "es" | "en" => l === "es" || l === "en",
+          ),
+        });
+      } else {
+        setSubmitted(true);
+      }
     } catch {
       setSubmitError(t("submit_error"));
     } finally {
@@ -164,37 +206,39 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* ── Mode Toggle ── */}
-      <div className="relative flex rounded-full border border-stone p-1">
-        <div
-          className="absolute top-1 bottom-1 rounded-full bg-forest transition-all duration-300 ease-out"
-          style={{
-            left: mode === "buyer" ? 4 : "50%",
-            width: "calc(50% - 4px)",
-          }}
-        />
-        <button
-          type="button"
-          onClick={() => setMode("buyer")}
-          className={`relative z-10 flex-1 rounded-full py-2.5 text-base font-semibold transition-colors duration-300 ${
-            mode === "buyer" ? "text-warm-white" : "text-charcoal"
-          }`}
-        >
-          {t("toggle_buyer")}
-        </button>
-        <button
-          type="button"
-          onClick={() => setMode("seller")}
-          className={`relative z-10 flex-1 rounded-full py-2.5 text-base font-semibold transition-colors duration-300 ${
-            mode === "seller" ? "text-warm-white" : "text-charcoal"
-          }`}
-        >
-          {t("toggle_seller")}
-        </button>
-      </div>
+      {/* ── Mode Toggle (hidden in modal mode) ── */}
+      {!forceBuyer && (
+        <div className="relative flex rounded-full border border-stone p-1">
+          <div
+            className="absolute top-1 bottom-1 rounded-full bg-forest transition-all duration-300 ease-out"
+            style={{
+              left: mode === "buyer" ? 4 : "50%",
+              width: "calc(50% - 4px)",
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => setMode("buyer")}
+            className={`relative z-10 flex-1 rounded-full py-2.5 text-base font-semibold transition-colors duration-300 ${
+              mode === "buyer" ? "text-warm-white" : "text-charcoal"
+            }`}
+          >
+            {t("toggle_buyer")}
+          </button>
+          <button
+            type="button"
+            onClick={() => setMode("seller")}
+            className={`relative z-10 flex-1 rounded-full py-2.5 text-base font-semibold transition-colors duration-300 ${
+              mode === "seller" ? "text-warm-white" : "text-charcoal"
+            }`}
+          >
+            {t("toggle_seller")}
+          </button>
+        </div>
+      )}
 
-      {/* ── Buyer Intro ── */}
-      {mode === "buyer" && (
+      {/* ── Buyer Intro (only on the standalone /contact page) ── */}
+      {mode === "buyer" && !forceBuyer && (
         <div className="rounded-lg border border-stone bg-forest/5 px-6 py-5">
           <p className="text-lg leading-relaxed text-charcoal/80">
             {t.rich("buyer_intro", {

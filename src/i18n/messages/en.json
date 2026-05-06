@@ -162,6 +162,14 @@
     "pdf_language_en": "English",
     "pdf_language_required": "Please select at least one language.",
 
+    "modal_title": "Access the portfolio",
+    "modal_subtitle": "Fill out the form and your portfolio will download immediately, with a copy also sent to your inbox.",
+    "modal_close": "Close",
+    "modal_success_title": "Portfolio downloading",
+    "modal_success_body": "You will also receive a copy by email in the next few minutes. If you have any questions, you can reply directly to that email.",
+    "modal_success_close": "Close",
+    "modal_redownload": "Download restarted",
+
     "email_label": "Email",
     "locations_label": "Offices",
     "email_value": "alejandro.tovar@t3-advisors.com",
