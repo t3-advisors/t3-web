@@ -119,6 +119,7 @@ export function HomepageContent() {
   const t = useTranslations("home");
   const [hoverInv,  setHoverInv]  = useState(false);
   const [hoverSell, setHoverSell] = useState(false);
+  const [hoverPort, setHoverPort] = useState(false);
 
   return (
     <div style={{ fontFamily: "'Source Sans 3', 'Source Sans Pro', sans-serif", backgroundColor: WW, color: CH }}>
@@ -174,6 +175,22 @@ export function HomepageContent() {
                 }}
               >
                 {t("hero_cta_sellers")} <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/portfolio"
+                onMouseEnter={() => setHoverPort(true)}
+                onMouseLeave={() => setHoverPort(false)}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 8,
+                  padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 700,
+                  fontFamily: "var(--font-heading)",
+                  backgroundColor: hoverPort ? "#b8932e" : GOLD,
+                  color: CH, textDecoration: "none",
+                  boxShadow: BTN_SHADOW,
+                  transition: "background-color 0.18s ease",
+                }}
+              >
+                {t("hero_cta_portfolio")} <ArrowRight size={16} />
               </Link>
             </div>
           </div>
