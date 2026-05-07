@@ -182,12 +182,11 @@ export function HomepageContent() {
                 onMouseLeave={() => setHoverPort(false)}
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
-                  padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 700,
-                  fontFamily: "var(--font-heading)",
+                  padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
                   backgroundColor: hoverPort ? "#b8932e" : GOLD,
                   color: CH, textDecoration: "none",
                   boxShadow: BTN_SHADOW,
-                  transition: "background-color 0.18s ease",
+                  transition: "background-color 0.2s ease",
                 }}
               >
                 {t("hero_cta_portfolio")} <ArrowRight size={16} />
