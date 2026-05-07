@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { PresenciaMap } from "./PresenciaMap";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { PortfolioCTAButton } from "@/components/portfolio/portfolio-cta-button";
 
 const F    = "#1B4332";
 const GOLD = "#C9A84C";
@@ -119,7 +120,6 @@ export function HomepageContent() {
   const t = useTranslations("home");
   const [hoverInv,  setHoverInv]  = useState(false);
   const [hoverSell, setHoverSell] = useState(false);
-  const [hoverPort, setHoverPort] = useState(false);
 
   return (
     <div style={{ fontFamily: "'Source Sans 3', 'Source Sans Pro', sans-serif", backgroundColor: WW, color: CH }}>
@@ -176,21 +176,17 @@ export function HomepageContent() {
               >
                 {t("hero_cta_sellers")} <ArrowRight size={16} />
               </Link>
-              <Link
-                href="/portfolio"
-                onMouseEnter={() => setHoverPort(true)}
-                onMouseLeave={() => setHoverPort(false)}
+              <PortfolioCTAButton
+                label={t("hero_cta_portfolio")}
                 style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  padding: "14px 30px", borderRadius: 6, fontSize: 15, fontWeight: 600,
-                  backgroundColor: hoverPort ? "#b8932e" : GOLD,
-                  color: CH, textDecoration: "none",
+                  // Match the visual weight of the sibling hero CTAs
+                  padding: "14px 30px",
+                  fontSize: 15,
+                  fontWeight: 600,
+                  fontFamily: "inherit",
                   boxShadow: BTN_SHADOW,
-                  transition: "background-color 0.2s ease",
                 }}
-              >
-                {t("hero_cta_portfolio")} <ArrowRight size={16} />
-              </Link>
+              />
             </div>
           </div>
         </div>
