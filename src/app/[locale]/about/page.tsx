@@ -32,9 +32,10 @@ const CH   = "#2C2C2C";
 const BTN_SHADOW = "0 4px 14px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.12)";
 
 const teamMembers = [
-  { nameKey: "team1_name", roleKey: "team1_role", focusKey: "team1_focus", bioKey: "team1_bio" },
-  { nameKey: "team2_name", roleKey: "team2_role", focusKey: "team2_focus", bioKey: "team2_bio" },
-  { nameKey: "team3_name", roleKey: "team3_role", focusKey: "team3_focus", bioKey: "team3_bio" },
+  { nameKey: "team1_name", roleKey: "team1_role", focusKey: "team1_focus", bioKey: "team1_bio", initials: "AT" },
+  { nameKey: "team2_name", roleKey: "team2_role", focusKey: "team2_focus", bioKey: "team2_bio", initials: "GT" },
+  { nameKey: "team3_name", roleKey: "team3_role", focusKey: "team3_focus", bioKey: "team3_bio", initials: "FT" },
+  { nameKey: "team4_name", roleKey: "team4_role", focusKey: "team4_focus", bioKey: "team4_bio", initials: "JJ" },
 ] as const;
 
 export default function AboutPage() {
@@ -90,7 +91,7 @@ export default function AboutPage() {
                     display: "flex", alignItems: "center", justifyContent: "center",
                     fontFamily: "var(--font-heading)", fontWeight: 700, color: GOLD,
                   }}>
-                    {t(member.nameKey).split(" ").slice(0, 2).map((w: string) => w[0]).join("")}
+                    {member.initials}
                   </div>
                   <div style={{ flex: 1, paddingTop: 12 }}>
                     <h3 style={{ fontFamily: "var(--font-heading)", fontSize: 28, fontWeight: 600, color: F }}>
